@@ -1,0 +1,88 @@
+import React, { useContext, useEffect, useRef, useState } from 'react';
+import { MemberToolsToggleContext } from '@/utils/MemberToolsToggleContext';
+import { useRouter, useSearchParams } from 'next/navigation';
+import ToggleSwitch from '../shared/ToggleSwitch';
+
+const MemberToolsToggleSwitch = ({ iframeRef }) => {
+        const { isMemberToolsToggleSwitchOff, setIsMemberToolsToggleSwitchOff } = useContext(MemberToolsToggleContext);
+        const [isClient, setIsClient] = useState(false);
+        const router = useRouter();
+        const searchParams = useSearchParams();
+        const userInteracted = useRef(false);
+
+    //console.log('isSocialMediaToggleSwitchOff in SocialMediaToggleSwitch:', isSocialMediaToggleSwitchOff);
+
+    // Ensure the component is mounted on the client
+    useEffect(() => {
+        setIsClient(true);
+    }, []);
+
+      // Parse the query parameters on page load
+      useEffect(() => {
+        if (!isClient) return;
+        const memberToolsParam = searchParams.get('membertools');
+        //console.log('socialMediaParam:', socialMediaParam);
+
+        // Update the toggle state only if the parameter exists and the user hasn't interacted because the SocialMedia Toggle is Defaults to ON/True
+        if (memberToolsParam && !userInteracted.current) {
+            setIsMemberToolsToggleSwitchOff(false);
+        }
+
+        // If the param is missing and the user hasn't interacted, reset the state
+        //if (socialMediaParam && !userInteracted.current) {
+        //    setIsSocialMediaToggleSwitchOff(socialMediaParam === 'false'); // Set state explicitly
+        //}
+ 
+      }, [iframeRef, isClient, searchParams, setIsMemberToolsToggleSwitchOff]);
+
+        // Update the URL when isDropdownToggleSwitchOn changes
+      useEffect(() => {
+        if (userInteracted.current) {
+          const params = new URLSearchParams(window.location.search);
+    
+          if (!isMemberToolsToggleSwitchOff) {
+            console.log('MemberToolsToggleSwitch is OFF');
+         
+            // Add or update the 'megamenu' query parameter
+            params.set('membertools', 'off');
+          } else {
+              // Remove the 'megamenu' query parameter
+              params.delete('membertools');
+          }
+      
+          // Update the URL with the modified query string
+          router.push(`?${params.toString()}`, { shallow: true });
+        }
+    
+      }, [isMemberToolsToggleSwitchOff, router]);
+
+
+    const handleToggle = () => {
+        userInteracted.current = true;
+        setIsMemberToolsToggleSwitchOff(!isMemberToolsToggleSwitchOff);
+    };
+
+    const handleKeyDown = (event) => {
+        userInteracted.current = true;
+        if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault(); // Prevent default scrolling behavior for Space key
+            handleToggle();
+        }
+    };
+
+    if (!isClient) {
+      return null; // Or a loading spinner
+    }
+
+    return ( 
+            <ToggleSwitch
+                id='MemberToolsToggleSwitch'
+                checked={isMemberToolsToggleSwitchOff}
+                onChange={handleToggle}
+                onKeyDown={handleKeyDown}
+                label='Member Tools'
+            />
+     );
+}
+ 
+export default MemberToolsToggleSwitch;
