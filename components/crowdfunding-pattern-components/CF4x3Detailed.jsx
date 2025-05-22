@@ -671,5 +671,6 @@ const CF4X3Detailed = () => {
         </section>
      );
 }
+
  
 export default CF4X3Detailed;
