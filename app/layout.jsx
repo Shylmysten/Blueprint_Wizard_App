@@ -7,6 +7,7 @@ import {DropdownToggleProvider} from '@/utils/DropdownToggleContext';
 import {LoadingProvider} from '@/utils/LoadingContext';
 import {SocialMediaToggleProvider} from '@/utils/SocialMediaToggleContext';
 import {MemberToolsToggleProvider} from '@/utils/MemberToolsToggleContext';
+import { APP_DESCRIPTION, APP_NAME, SERVER_URL } from "@/lib/constants";
 
 const roboto = Roboto({
   variable: "--font-roboto",
@@ -18,10 +19,19 @@ const montserrat = Montserrat({
   subsets: ['latin'],
 });
 
+//export const metadata = {
+//  title: "Anthology - Blueprint Wizard",
+//  description: "Serves as a prototype for a live development portal. It allows stakeholders to preview how different content sections, themes, and layouts will appear before the site goes live. The modular design enables easy updates and personalization, ensuring that the final product meets the institution's requirements.",
+//};
+
 export const metadata = {
-  title: "Anthology - Blueprint Wizard",
-  description: "Serves as a prototype for a live development portal. It allows stakeholders to preview how different content sections, themes, and layouts will appear before the site goes live. The modular design enables easy updates and personalization, ensuring that the final product meets the institution's requirements.",
-};
+  title: {
+    template: `%s | Anthology`,
+    default: APP_NAME,
+  },
+  description: APP_DESCRIPTION,
+  metadataBase: new URL(SERVER_URL)
+}
 
 
 
