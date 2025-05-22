@@ -6,7 +6,7 @@ import { updateIframe } from '@/utils/actions';
 import {useRouter, useSearchParams} from 'next/navigation';
 import {formatSectionCategory} from '@/utils/helpers';
 
-export default function SectionControl({ sectionIndex, categories, iframeRef }) {
+export default function SectionControl({ sectionIndex, categories, iframeRef, isIframeReady }) {
     const [sectionState, setSectionState] = useState({ category: '', item: '' });
     const [isClient, setIsClient] = useState(false);
     const router = useRouter();
@@ -19,7 +19,8 @@ export default function SectionControl({ sectionIndex, categories, iframeRef }) 
   }, []);
 
     useEffect(() => {
-        if (!isClient) return;
+        console.log('isIframeReady:', isIframeReady);
+        if (!isIframeReady) return;
 
         const sectionParam = searchParams.get(`section${sectionIndex + 1}`);
 
@@ -50,7 +51,7 @@ export default function SectionControl({ sectionIndex, categories, iframeRef }) 
             setSectionState({ category: '', item: '' });
             updateIframe(sectionIndex, '', '', iframeRef);
         }
-    }, [sectionIndex, categories, iframeRef, isClient, searchParams]);
+    }, [sectionIndex, categories, iframeRef, isIframeReady, searchParams]);
 
     useEffect(() => {
         if (userInteracted.current) {

@@ -264,6 +264,11 @@ export default function IframePage() {
     return <div className="empty"><h2 className="previewDefault">Header</h2></div>;
   };
 
+  useEffect(() => {
+  // ...existing code...
+  window.parent.postMessage({ type: 'IFRAME_READY' }, '*');
+}, []);
+
   if (!isClient) {
     return (
       <LoadingSpinner />

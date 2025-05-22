@@ -16,6 +16,7 @@ import SocialMediaToggleSwitch from '@/components/sidebar-select-components/Soci
 import MemberToolsToggleSwitch from '@/components/sidebar-select-components/MemberToolsToggleSwitch';
 
 export default function HomePage() {
+  const [iframeReady, setIframeReady] = useState(false);
   const { isSocialMediaToggleSwitchOff } = useContext(SocialMediaToggleContext);
   const { isDropdownToggleSwitchOn } = useContext(DropdownToggleContext);
   const { isMemberToolsToggleSwitchOff } = useContext(MemberToolsToggleContext);
@@ -30,6 +31,16 @@ export default function HomePage() {
       return
     }
   }, []);
+
+  useEffect(() => {
+  const handleMessage = (event) => {
+    if (event.data?.type === 'IFRAME_READY') {
+      setIframeReady(true);
+    }
+  };
+  window.addEventListener('message', handleMessage);
+  return () => window.removeEventListener('message', handleMessage);
+}, []);
 
   useEffect(() => {
     //console.log('isLoading state in HomePage:', isLoading);
@@ -141,6 +152,7 @@ export default function HomePage() {
             sectionIndex={0}
             categories={categories}
             iframeRef={iframeRef}
+            isIframeReady={iframeReady}
           />
 
           {/* Section 2 */}
@@ -149,6 +161,7 @@ export default function HomePage() {
             sectionIndex={1}
             categories={categories}
             iframeRef={iframeRef}
+            isIframeReady={iframeReady}
           />
 
           {/* Section 3 */}
@@ -157,6 +170,7 @@ export default function HomePage() {
             sectionIndex={2}
             categories={categories}
             iframeRef={iframeRef}
+            isIframeReady={iframeReady}
           />
 
           {/* Section 4 */}
@@ -165,6 +179,7 @@ export default function HomePage() {
             sectionIndex={3}
             categories={categories}
             iframeRef={iframeRef}
+            isIframeReady={iframeReady}
           />
 
           {/* Section 5 */}
@@ -173,6 +188,7 @@ export default function HomePage() {
             sectionIndex={4}
             categories={categories}
             iframeRef={iframeRef}
+            isIframeReady={iframeReady}
           />
 
           {/* Section 6 */}
@@ -181,6 +197,7 @@ export default function HomePage() {
             sectionIndex={5}
             categories={categories}
             iframeRef={iframeRef}
+            isIframeReady={iframeReady}
           />
 
 
