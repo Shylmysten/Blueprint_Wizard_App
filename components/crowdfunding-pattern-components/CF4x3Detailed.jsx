@@ -672,5 +672,4 @@ const CF4X3Detailed = () => {
      );
 }
 
- 
 export default CF4X3Detailed;
