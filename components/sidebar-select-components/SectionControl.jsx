@@ -19,7 +19,6 @@ export default function SectionControl({ sectionIndex, categories, iframeRef, is
   }, []);
 
     useEffect(() => {
-        console.log('isIframeReady:', isIframeReady);
         if (!isIframeReady) return;
 
         const sectionParam = searchParams.get(`section${sectionIndex + 1}`);

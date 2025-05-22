@@ -3,7 +3,7 @@ import { DropdownToggleContext } from '../../utils/DropdownToggleContext';
 import {useRouter, useSearchParams} from 'next/navigation';
 import ToggleSwitch from '../shared/ToggleSwitch';
 
-const MegaMenuToggleSwitch = ({ iframeRef }) => {
+const MegaMenuToggleSwitch = ({ iframeRef, isIframeReady }) => {
     const { isDropdownToggleSwitchOn, setIsDropdownToggleSwitchOn } = useContext(DropdownToggleContext);
     const [isClient, setIsClient] = useState(false);
     const router = useRouter();
@@ -19,7 +19,7 @@ const MegaMenuToggleSwitch = ({ iframeRef }) => {
 
       // Parse the query parameters on page load
       useEffect(() => {
-        if (!isClient) return;
+        if (!isIframeReady) return;
         const megamenuParam = searchParams.get('megamenu');
     
         // Update the toggle state only if the parameter exists and the user hasn't interacted
@@ -31,7 +31,7 @@ const MegaMenuToggleSwitch = ({ iframeRef }) => {
         //    setIsDropdownToggleSwitchOn(false);
         //}
 
-      }, [iframeRef, isClient, searchParams, setIsDropdownToggleSwitchOn]);
+      }, [iframeRef, isIframeReady, searchParams, setIsDropdownToggleSwitchOn]);
 
         // Update the URL when isDropdownToggleSwitchOn changes
       useEffect(() => {

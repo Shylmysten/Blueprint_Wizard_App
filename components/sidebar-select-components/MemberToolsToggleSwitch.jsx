@@ -3,7 +3,7 @@ import { MemberToolsToggleContext } from '@/utils/MemberToolsToggleContext';
 import { useRouter, useSearchParams } from 'next/navigation';
 import ToggleSwitch from '../shared/ToggleSwitch';
 
-const MemberToolsToggleSwitch = ({ iframeRef }) => {
+const MemberToolsToggleSwitch = ({ iframeRef, isIframeReady }) => {
         const { isMemberToolsToggleSwitchOff, setIsMemberToolsToggleSwitchOff } = useContext(MemberToolsToggleContext);
         const [isClient, setIsClient] = useState(false);
         const router = useRouter();
@@ -19,7 +19,7 @@ const MemberToolsToggleSwitch = ({ iframeRef }) => {
 
       // Parse the query parameters on page load
       useEffect(() => {
-        if (!isClient) return;
+        if (!isIframeReady) return;
         const memberToolsParam = searchParams.get('membertools');
         //console.log('socialMediaParam:', socialMediaParam);
 
@@ -33,7 +33,7 @@ const MemberToolsToggleSwitch = ({ iframeRef }) => {
         //    setIsSocialMediaToggleSwitchOff(socialMediaParam === 'false'); // Set state explicitly
         //}
  
-      }, [iframeRef, isClient, searchParams, setIsMemberToolsToggleSwitchOff]);
+      }, [iframeRef, isIframeReady, searchParams, setIsMemberToolsToggleSwitchOff]);
 
         // Update the URL when isDropdownToggleSwitchOn changes
       useEffect(() => {

@@ -4,7 +4,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { footerOptions } from '@/data/categories';
 import { updateFooter } from '@/utils/actions';
 
-export default function FooterSelector({ iframeRef }) {
+export default function FooterSelector({ iframeRef, isIframeReady }) {
   const [selectedContent, setSelectedContent] = useState('');
   const [isClient, setIsClient] = useState(false);
   const router = useRouter();
@@ -18,7 +18,7 @@ export default function FooterSelector({ iframeRef }) {
 
   // React to query param changes
   useEffect(() => {
-    if (!isClient) return;
+    if (!isIframeReady) return;
 
     const footerParam = searchParams.get('footer');
 
@@ -40,7 +40,7 @@ export default function FooterSelector({ iframeRef }) {
     //  setSelectedContent('');
     //  updateFooter({ sectionId: 'bpFooter', content: '' }, iframeRef?.current);
     //}
-  }, [isClient, iframeRef, footerOptions, searchParams]);
+  }, [isIframeReady, iframeRef, footerOptions, searchParams]);
 
   // Update the URL whenever the selectedContent changes
   useEffect(() => {

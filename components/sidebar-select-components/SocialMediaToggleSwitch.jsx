@@ -3,7 +3,7 @@ import {SocialMediaToggleContext} from "@/utils/SocialMediaToggleContext";
 import {useRouter, useSearchParams} from 'next/navigation';
 import ToggleSwitch from '../shared/ToggleSwitch';
 
-const SocialMediaToggleSwitch = ({ iframeRef }) => {
+const SocialMediaToggleSwitch = ({ iframeRef, isIframeReady }) => {
         const { isSocialMediaToggleSwitchOff, setIsSocialMediaToggleSwitchOff } = useContext(SocialMediaToggleContext);
         const [isClient, setIsClient] = useState(false);
         const router = useRouter();
@@ -19,7 +19,7 @@ const SocialMediaToggleSwitch = ({ iframeRef }) => {
 
       // Parse the query parameters on page load
       useEffect(() => {
-        if (!isClient) return;
+        if (!isIframeReady) return;
         const socialMediaParam = searchParams.get('socials');
         //console.log('socialMediaParam:', socialMediaParam);
 
@@ -33,7 +33,7 @@ const SocialMediaToggleSwitch = ({ iframeRef }) => {
         //    setIsSocialMediaToggleSwitchOff(socialMediaParam === 'false'); // Set state explicitly
         //}
  
-      }, [iframeRef, isClient, searchParams, setIsSocialMediaToggleSwitchOff]);
+      }, [iframeRef, isIframeReady, searchParams, setIsSocialMediaToggleSwitchOff]);
 
         // Update the URL when isDropdownToggleSwitchOn changes
       useEffect(() => {

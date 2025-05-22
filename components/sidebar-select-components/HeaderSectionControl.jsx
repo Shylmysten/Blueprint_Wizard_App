@@ -9,7 +9,7 @@ import { updateHeader } from '@/utils/actions';
 import { DropdownToggleContext } from '../../utils/DropdownToggleContext';
 import { formatHeaderItemForParams, formatUrlHeaderCategory, formatUrlHeaderItem } from '@/utils/helpers';
 
-const HeaderSectionControl = ({ iframeRef }) => {
+const HeaderSectionControl = ({ iframeRef, isIframeReady }) => {
   const [headerState, setHeaderState] = useState({ category: '', item: '' });
   const { isDropdownToggleSwitchOn } = useContext(DropdownToggleContext);
   const [isClient, setIsClient] = useState(false)
@@ -26,7 +26,7 @@ const HeaderSectionControl = ({ iframeRef }) => {
 
   // Parse the query parameters on page load
   useEffect(() => {
-    if (!isClient) return;
+    if (!isIframeReady) return;
     const headerParam = searchParams.get('header');
 
     if (headerParam  && !userInteracted.current) {
@@ -38,7 +38,7 @@ const HeaderSectionControl = ({ iframeRef }) => {
       setHeaderState({ category: formattedCat, item: formattedItem || '' });
       
       // Load the correct section into the iframe
-      updateHeader(formattedCat, formattedItem, iframeRef, isDropdownToggleSwitchOn);
+      updateHeader(formattedCat, formattedItem, iframeRef, isIframeReady, isDropdownToggleSwitchOn);
     }
 
     // If the param is missing and the user hasn't interacted, reset the state

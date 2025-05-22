@@ -11,7 +11,7 @@ const themes = [
   { label: 'Crisp', value: 'theme4Style', css: '/css/crisp.css' },
 ];
 
-export default function ThemeSelector({ iframeRef }) {
+export default function ThemeSelector({ iframeRef, isIframeReady }) {
   const { isLoading, setIsLoading } = useContext(LoadingContext);
   const [selectedTheme, setSelectedTheme] = useState(themes[0]);
   const router = useRouter();
@@ -22,6 +22,7 @@ export default function ThemeSelector({ iframeRef }) {
 //},[isLoading]);
 
   useEffect(() => {
+    if (!isIframeReady) return;
     const params = new URLSearchParams(window.location.search);
     const themeParam = params.get('theme');
 
@@ -38,7 +39,7 @@ export default function ThemeSelector({ iframeRef }) {
         updateTheme({ themeClass: matchedTheme.value, stylesheet: matchedTheme.css }, iframeRef.current);
       
     }
-  }, [iframeRef]);
+  }, [iframeRef, isIframeReady]);
 
 
 

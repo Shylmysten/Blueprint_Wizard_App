@@ -136,14 +136,14 @@ export default function HomePage() {
             setMobileClass={setMobileClass}
           />
           <div style={{marginBottom: '10px'}}>
-            <MemberToolsToggleSwitch label="Enable Feature" iframeRef={iframeRef}/>
+            <MemberToolsToggleSwitch label="Enable Feature" iframeRef={iframeRef} isIframeReady={iframeReady}/>
           </div>
-          <ThemeSelector iframeRef={iframeRef} />
+          <ThemeSelector iframeRef={iframeRef} isIframeReady={iframeReady}/>
 
-          <HeaderSectionControl iframeRef={iframeRef} />
+          <HeaderSectionControl iframeRef={iframeRef} isIframeReady={iframeReady}/>
           <div style={styles.gridContainer}>
-            <MegaMenuToggleSwitch label="Enable Feature" iframeRef={iframeRef}/>
-            <SocialMediaToggleSwitch label="Enable Feature" iframeRef={iframeRef}/>
+            <MegaMenuToggleSwitch label="Enable Feature" iframeRef={iframeRef} isIframeReady={iframeReady}/>
+            <SocialMediaToggleSwitch label="Enable Feature" iframeRef={iframeRef} isIframeReady={iframeReady}/>
           </div>
 
           {/* Section 1 */}
@@ -201,7 +201,7 @@ export default function HomePage() {
           />
 
 
-          <FooterSelector iframeRef={iframeRef} />
+          <FooterSelector iframeRef={iframeRef} isIframeReady={iframeReady}/>
 
           <div>
             <button className="btn clearBtn" onClick={handleClearBtnClick}>Clear Sections 1-6</button>
