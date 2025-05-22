@@ -38,7 +38,7 @@ const HeaderSectionControl = ({ iframeRef, isIframeReady }) => {
       setHeaderState({ category: formattedCat, item: formattedItem || '' });
       
       // Load the correct section into the iframe
-      updateHeader(formattedCat, formattedItem, iframeRef, isIframeReady, isDropdownToggleSwitchOn);
+      updateHeader(formattedCat, formattedItem, iframeRef, isDropdownToggleSwitchOn);
     }
 
     // If the param is missing and the user hasn't interacted, reset the state
@@ -47,7 +47,7 @@ const HeaderSectionControl = ({ iframeRef, isIframeReady }) => {
     //  updateHeader('', '', iframeRef, isDropdownToggleSwitchOn);
     //}
 
-  }, [iframeRef, isDropdownToggleSwitchOn, isClient, searchParams]);
+  }, [iframeRef, isDropdownToggleSwitchOn, isIframeReady, searchParams]);
 
 
       // Update the URL when headerState changes
