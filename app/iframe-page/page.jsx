@@ -56,7 +56,7 @@ export default function IframePage() {
     const defaultTheme = 'theme0Style';
     const defaultStylesheet = document.createElement('link');
     defaultStylesheet.rel = 'stylesheet';
-    defaultStylesheet.href = '/css/SimpleSquare.css'; // make sure this file exists in /public
+    defaultStylesheet.href = '/css/simpleSquare.css'; // make sure this file exists in /public
     defaultStylesheet.id = 'theme-stylesheet';
     document.head.insertBefore(defaultStylesheet, customStylesheet);
 
