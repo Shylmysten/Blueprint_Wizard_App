@@ -66,9 +66,13 @@ export default function IframePage() {
     const jQueryScript = document.createElement('script');
     jQueryScript.src = '/js/jquery-1.9.1.min.js';
     jQueryScript.async = true;
+    jQueryScript.onload = () => {
+      // Now jQuery is loaded, safe to proceed
+      setIsClient(true);
+    };
     document.head.appendChild(jQueryScript);
 
-    setIsClient(true);
+
   }, []);
 
   useEffect(() => {
@@ -265,9 +269,27 @@ export default function IframePage() {
   };
 
   useEffect(() => {
-  // ...existing code...
-  window.parent.postMessage({ type: 'IFRAME_READY' }, '*');
-}, []);
+    function onJQueryReady(callback) {
+      if (window.jQuery) {
+        callback();
+      } else {
+        const interval = setInterval(() => {
+          if (window.jQuery) {
+            clearInterval(interval);
+            callback();
+          }
+        }, 50);
+      }
+    }
+
+    onJQueryReady(() => {
+      // All your code that depends on jQuery goes here
+      // For example:
+      // $(...).doSomething();
+      // Or send a postMessage to the parent that the iframe is ready
+      window.parent.postMessage({ type: 'IFRAME_READY' }, '*');
+    });
+  }, []);
 
   if (!isClient) {
     return (
