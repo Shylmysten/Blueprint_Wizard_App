@@ -14,12 +14,14 @@ import SectionControl from '@/components/sidebar-select-components/SectionContro
 import {useRouter} from 'next/navigation';
 import SocialMediaToggleSwitch from '@/components/sidebar-select-components/SocialMediaToggleSwitch';
 import MemberToolsToggleSwitch from '@/components/sidebar-select-components/MemberToolsToggleSwitch';
+import FinishModal from '@/components/FinishModal';
 
 export default function HomePage() {
   const [iframeReady, setIframeReady] = useState(false);
   const { isSocialMediaToggleSwitchOff } = useContext(SocialMediaToggleContext);
   const { isDropdownToggleSwitchOn } = useContext(DropdownToggleContext);
   const { isMemberToolsToggleSwitchOff } = useContext(MemberToolsToggleContext);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const { isLoading } = useContext(LoadingContext);
   const [iframeClass, setIframeClass] = useState('');
   const iframeRef = useRef();
@@ -119,6 +121,10 @@ export default function HomePage() {
     // 4. Push the new URL (with only the desired params)
     router.push(newUrl);
   }
+  
+  const handleFinshBtnClick = () => {
+    setIsModalOpen(true);
+  }
 
 
 
@@ -206,7 +212,9 @@ export default function HomePage() {
           <div>
             <button className="btn clearBtn" onClick={handleClearBtnClick}>Clear Sections 1-6</button>
           </div>
-
+          <div>
+            <button className='btn finishBtn' onClick={handleFinshBtnClick}>Finish</button>
+          </div>
         </div>
 
         {/* Iframe content area */}
@@ -221,7 +229,7 @@ export default function HomePage() {
             />
           
         </div>
-        
+        <FinishModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
       </main>
     </Suspense>
 

@@ -134,13 +134,851 @@ button.btn {
 }
 
 .finishBtn {
-  border: 2px solid #3E9DD6 !important;
-  background: transparent;
+  border: 2px solid #07407b !important;
+  background: #07407b;
   color: white !important;
+  width: 100%;
 }
 
 .finishBtn:hover {
-  border: 2px solid yellow !important;
-  background: yellow;
+  border: 2px solid #d37507 !important;
+  background: #d37507;
   color: #000 !important;
+}
+
+@media (min-width: 700px) {
+  .modal-dialog {
+    width: 750px;
+  }
+}
+
+.modal-dialog {
+  z-index: 99999;
+}
+.modal.fade .modal-dialog {
+  -webkit-transition: -webkit-transform .3s ease-out;
+  -o-transition: -o-transform .3s ease-out;
+  transition: transform .3s ease-out;
+  -webkit-transform: translate(0, 0%);
+  -ms-transform: translate(0, 0%);
+  -o-transform: translate(0, 0%);
+  transform: translate(0, 0%)
+}
+
+.modal.in .modal-dialog {
+  -webkit-transform: translate(0, 0);
+  -ms-transform: translate(0, 10%);
+  -o-transform: translate(0, 10%);
+  transform: translate(0, 10%)
+}
+
+.modal-selections-js {
+  text-transform: capitalize;
+  text-align: left;
+}
+
+table.htCore td {
+  text-align: left;
+}
+
+[class^='modal-section-'] span:first-of-type {
+  display: initial;
+  font-weight: bold;
+  /* background: #222;
+  margin: 2px 0; */
+  text-decoration: underline;
+  color: #222;
+  font-variant: petite-caps;
+}
+
+[class^='modal-section-'] span:nth-of-type(2) {
+  display: block;
+  padding: 2px 0px 2px 5px;
+}
+
+.modal-footer {
+  background: #222;
+  display: flex;
+  justify-content: space-between;
+}
+.modal-footer button#closeModal {
+  border: 2px solid #3E9DD6;
+  background: transparent;
+  color: white;
+  font-weight: bold;
+  padding: 10px 40px;
+  text-transform: uppercase;
+}
+
+.modal-footer button#closeModal:hover {
+  border-color: #3D3D3D;
+  background: yellow;
+  color: #000;
+}
+
+.close {
+  float: right;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1;
+  color: white;
+  text-shadow: 0 1px 0 brown;
+  filter: alpha(opacity=20);
+  opacity: 1;
+}
+
+.close:hover {
+  color: yellow;
+  text-shadow: 0 1px 0 brown;
+  filter: alpha(opacity=20);
+  opacity: 1;
+}
+.modal-open {
+  overflow: hidden;
+}
+
+
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10000;
+  display: none;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+
+
+  outline: 0;
+}
+  .modal.fade .modal-dialog {
+    transform: translate(0, -25%);
+    transition: 0.3s ease-out;
+  }
+  .modal.in .modal-dialog { 
+    transform: translate(50%, 50%)
+  }
+.modal-open .modal {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+
+.modal-dialog {
+  position: relative;
+  width: auto;
+  margin: 10px;
+  z-index: 200;
+}
+
+
+.modal-content {
+    position: relative;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #999;
+    border: 1px solid rgba(0, 0, 0, .2);
+    border-radius: 6px;
+    box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+    outline: 0;
+}
+
+
+.modal-backdrop {
+position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    background-color: #000;
+}
+  .modal-backdrop.fade {     opacity: 0; }
+  .modal-backdrop.in {  opacity: .5; }
+
+
+.modal-header {
+    padding: 15px;
+    border-bottom: 1px solid #e5e5e5;
+
+}
+
+.modal-header .close {
+  margin-top: -2px;
+}
+
+
+.modal-title {
+    margin: 0;
+    line-height: 1.42857143;
+}
+
+
+.modal-body {
+    position: relative;
+    padding: 15px;
+}
+
+
+.modal-footer {
+
+    padding: 15px;
+    text-align: right;
+    border-top: 1px solid #e5e5e5;
+    background: #222;
+    display: flex;
+    justify-content: space-between;
+
+
+  .btn + .btn {
+    margin-bottom: 0; 
+    margin-left: 5px;
+  }
+
+  .btn-group .btn + .btn {
+    margin-left: -1px;
+  }
+
+  .btn-block + .btn-block {
+    margin-left: 0;
+  }
+}
+
+
+.modal-scrollbar-measure {
+  position: absolute;
+  top: -9999px;
+  width: 50px;
+  height: 50px;
+  overflow: scroll;
+}
+
+
+
+.modal-dialog {
+  width: 750px;
+}
+.modal-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #3d3d3d;
+  color: #fff;
+  font-weight: normal;
+}
+.modal-header .close {
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+}
+.modal-body {
+  background: #fff;
+  color: #222;
+  font-size: 14px;
+  text-align: center;
+  font-family: -apple-system, "system-ui", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+.modal-body p {
+  margin-bottom: 10px;
+}
+.modal-footer {
+  border-top: none;
+}
+
+/* Make the reciept look like excel. For added clarity*/
+.handsontable {
+  position: relative;
+  border: 1px inset #bbb;
+}
+.handsontable.htAutoColumnSize {
+  visibility: hidden;
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+.handsontable table,
+.handsontable tbody,
+.handsontable thead,
+.handsontable td,
+.handsontable th,
+.handsontable div {
+  box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+}
+.handsontable table.htCore {
+  border-collapse: separate;
+  /*it must be separate, otherwise there are offset miscalculations in WebKit: http://stackoverflow.com/questions/2655987/border-collapse-differences-in-ff-and-webkit*/
+  position: relative;
+  /*this actually only changes appearance of user selection - does not make text unselectable
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    -ms-user-select: none;
+    /*user-select: none; /*no browser supports unprefixed version*/
+  border-spacing: 0;
+  margin: 0;
+  border-width: 0;
+  table-layout: fixed;
+  width: 100%;
+  outline-width: 0;
+  /* reset bootstrap table style. for more info see: https://github.com/warpech/jquery-handsontable/issues/224 */
+  max-width: none;
+  max-height: none;
+}
+.handsontable col {
+  width: 50px;
+}
+.handsontable col.rowHeader {
+  width: 50px;
+}
+.handsontable th,
+.handsontable td {
+  border-right: 1px solid #CCC;
+  border-bottom: 1px solid #CCC;
+  height: 22px;
+  empty-cells: show;
+  line-height: 21px;
+  padding: 0 4px 0 4px;
+  /* top, bottom padding different than 0 is handled poorly by FF with HTML5 doctype */
+  background-color: #FFF;
+  vertical-align: top;
+  overflow: hidden;
+  outline-width: 0;
+  /* preserve new line character in cell */
+}
+.handsontable td.htInvalid {
+  -webkit-transition: background 0.75s ease;
+  transition: background 0.75s ease;
+  background-color: #ff4c42;
+}
+.handsontable th:last-child {
+  /*Foundation framework fix*/
+  border-right: 1px solid #CCC;
+  border-bottom: 1px solid #CCC;
+}
+.handsontable tr:first-child th.htNoFrame,
+.handsontable th:first-child.htNoFrame,
+.handsontable th.htNoFrame {
+  border-left-width: 0;
+  background-color: white;
+  border-color: #FFF;
+}
+.handsontable th:first-child,
+.handsontable td:first-child,
+.handsontable .htNoFrame + th,
+.handsontable .htNoFrame + td {
+  border-left: 1px solid #CCC;
+}
+.handsontable tr:first-child th,
+.handsontable tr:first-child td {
+  border-top: 1px solid #CCC;
+}
+.handsontable thead tr:last-child th {
+  border-bottom-width: 0;
+}
+.handsontable thead tr.lastChild th {
+  border-bottom-width: 0;
+}
+.handsontable th {
+  background-color: #EEE;
+  color: #222;
+  text-align: center;
+  font-weight: normal;
+  white-space: nowrap;
+}
+.handsontable thead th {
+  padding: 0;
+}
+.handsontable th.active {
+  background-color: #CCC;
+}
+.handsontable thead th .relative {
+  position: relative;
+  padding: 2px 4px;
+}
+/* plugins */
+.handsontable .manualColumnMover {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: transparent;
+  width: 5px;
+  height: 25px;
+  z-index: 999;
+  cursor: move;
+}
+.handsontable th .manualColumnMover:hover,
+.handsontable th .manualColumnMover.active {
+  background-color: #88F;
+}
+.handsontable .manualColumnResizer {
+  position: absolute;
+  top: 0;
+  cursor: col-resize;
+}
+.handsontable .manualColumnResizerHandle {
+  background-color: transparent;
+  width: 5px;
+  height: 25px;
+}
+.handsontable .manualColumnResizer:hover .manualColumnResizerHandle,
+.handsontable .manualColumnResizer.active .manualColumnResizerHandle {
+  background-color: #AAB;
+}
+.handsontable .manualColumnResizerLine {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: #AAB;
+  display: none;
+  width: 0;
+  border-right: 1px dashed #777;
+}
+.handsontable .manualColumnResizer.active .manualColumnResizerLine {
+  display: block;
+}
+.handsontable .columnSorting:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+/* border line */
+.handsontable .wtBorder {
+  position: absolute;
+  font-size: 0;
+}
+.handsontable td.area {
+  background-color: #EEF4FF;
+}
+/* fill handle */
+.handsontable .wtBorder.corner {
+  font-size: 0;
+  cursor: crosshair;
+}
+.handsontable .htBorder.htFillBorder {
+  background: red;
+  width: 1px;
+  height: 1px;
+}
+.handsontableInput {
+  border: 2px solid #5292F7;
+  outline-width: 0;
+  margin: 0;
+  padding: 1px 4px 0 2px;
+  font-family: Arial, Helvetica, sans-serif;
+  /*repeat from .handsontable (inherit doesn't work with IE<8) */
+  line-height: 1.3em;
+  /*repeat from .handsontable (inherit doesn't work with IE<8) */
+  font-size: inherit;
+  -webkit-box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.4);
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.4);
+  resize: none;
+  /*below are needed to overwrite stuff added by jQuery UI Bootstrap theme*/
+  display: inline-block;
+  color: #000;
+  border-radius: 0;
+  background-color: #FFF;
+  /*overwrite styles potentionally made by a framework*/
+}
+.handsontableInputHolder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+.htSelectEditor {
+  -webkit-appearance: menulist-button !important;
+  position: absolute;
+}
+/*
+  TextRenderer readOnly cell
+  */
+.handsontable .htDimmed {
+  color: #777;
+}
+/*
+  TextRenderer placeholder value
+  */
+.handsontable .htPlaceholder {
+  color: #999;
+}
+/*
+  AutocompleteRenderer down arrow
+  */
+.handsontable .htAutocompleteArrow {
+  float: right;
+  font-size: 10px;
+  color: #EEE;
+  cursor: default;
+  width: 16px;
+  text-align: center;
+}
+.handsontable td .htAutocompleteArrow:hover {
+  color: #777;
+}
+/*
+  CheckboxRenderer
+  */
+.handsontable .htCheckboxRendererInput.noValue {
+  opacity: 0.5;
+}
+/*
+  NumericRenderer
+  */
+.handsontable .htNumeric {
+  text-align: right;
+}
+/*context menu rules*/
+ul.context-menu-list {
+  color: black;
+}
+ul.context-menu-list li {
+  margin-bottom: 0;
+  /*Foundation framework fix*/
+}
+/**
+   * dragdealer
+   */
+.handsontable .dragdealer {
+  position: relative;
+  width: 9px;
+  height: 9px;
+  background: #F8F8F8;
+  border: 1px solid #DDD;
+}
+.handsontable .dragdealer .handle {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  background: #C5C5C5;
+}
+.handsontable .dragdealer .disabled {
+  background: #898989;
+}
+/**
+   * Handsontable in Handsontable
+   */
+.handsontable .handsontable .wtHider {
+  padding: 0 0 5px 0;
+}
+.handsontable .handsontable table {
+  -webkit-box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.4);
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.4);
+}
+/**
+   * Handsontable listbox theme
+   */
+.handsontable.listbox {
+  margin: 0;
+}
+.handsontable.listbox table {
+  border: 1px solid #ccc;
+  border-collapse: separate;
+  background: white;
+}
+.handsontable.listbox th,
+.handsontable.listbox tr:first-child th,
+.handsontable.listbox tr:last-child th,
+.handsontable.listbox tr:first-child td,
+.handsontable.listbox td {
+  border-width: 0;
+}
+.handsontable.listbox th,
+.handsontable.listbox td {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.handsontable.listbox td.htDimmed {
+  cursor: default;
+  color: inherit;
+  font-style: inherit;
+}
+.handsontable.listbox .wtBorder {
+  visibility: hidden;
+}
+.handsontable.listbox tr td.current,
+.handsontable.listbox tr:hover td {
+  background: #eee;
+}
+.htContextMenu {
+  display: none;
+  position: absolute;
+}
+.htContextMenu table.htCore {
+  outline: 1px solid #bbb;
+}
+.htContextMenu .wtBorder {
+  visibility: hidden;
+}
+.htContextMenu table tbody tr td {
+  background: white;
+  border-width: 0;
+  padding: 4px 6px 0px 6px;
+  cursor: pointer;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.htContextMenu table tbody tr td:first-child {
+  border: 0;
+}
+.htContextMenu table tbody tr td.htDimmed {
+  font-style: normal;
+  color: #323232;
+}
+.htContextMenu table tbody tr td.current {
+  background: #e9e9e9;
+}
+.htContextMenu table tbody tr td.htSeparator {
+  border-top: 1px solid #bbb;
+  height: 0;
+  padding: 0;
+}
+.htContextMenu table tbody tr td.htDisabled {
+  color: #999;
+}
+.htContextMenu table tbody tr td.htDisabled:hover {
+  background: white;
+  color: #999;
+  cursor: default;
+}
+.handsontable td.htSearchResult {
+  background: #fcedd9;
+  color: #583707;
+}
+/*WalkontableDebugOverlay*/
+.wtDebugHidden {
+  display: none;
+}
+.wtDebugVisible {
+  display: block;
+  -webkit-animation-duration: 0.5s;
+  -webkit-animation-name: wtFadeInFromNone;
+  animation-duration: 0.5s;
+  animation-name: wtFadeInFromNone;
+}
+@keyframes wtFadeInFromNone {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+  1% {
+    display: block;
+    opacity: 0;
+  }
+  100% {
+    display: block;
+    opacity: 1;
+  }
+}
+@-webkit-keyframes wtFadeInFromNone {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+  1% {
+    display: block;
+    opacity: 0;
+  }
+  100% {
+    display: block;
+    opacity: 1;
+  }
+}
+.handsontable tbody td {
+  margin: 0;
+  padding: 5px 12px;
+}
+
+mark, .mark {
+  padding: .2em;
+  background-color: yellow;
+}
+
+.modal-footer button#btnPrint {
+  border: 2px solid #3E9DD6;
+  background: transparent;
+  color: white;
+  font-weight: bold;
+  padding: 10px 40px;
+  text-transform: uppercase;
+}
+.modal-footer button#btnPrint:hover {
+  border: 2px solid #3E9DD6;
+  background: #3E9DD6;
+  color: black;
+  font-weight: bold;
+  padding: 10px 40px;
+  text-transform: uppercase;
+}
+
+/* CSS FOR PRINTING MODAL */
+@media print {
+  body * {
+visibility:hidden;
+}
+.modal-body, .modal-body * {
+visibility:visible;
+}
+
+.modal-dialog {
+z-index: 99999;
+}
+.modal.fade .modal-dialog {
+-webkit-transition: -webkit-transform .3s ease-out;
+-o-transition: -o-transform .3s ease-out;
+transition: transform .3s ease-out;
+-webkit-transform: translate(0, 0%);
+-ms-transform: translate(0, 0%);
+-o-transform: translate(0, 0%);
+transform: translate(0, 0%)
+}
+
+.modal.in .modal-dialog {
+-webkit-transform: translate(0, 0);
+-ms-transform: translate(0, 10%);
+-o-transform: translate(0, 10%);
+transform: translate(0, 10%)
+}
+
+.modal-selections-js {
+text-transform: capitalize;
+text-align: left;
+}
+
+table.htCore td {
+text-align: left;
+}
+
+[class^='modal-section-'] span:first-of-type {
+display: initial;
+font-weight: bold;
+/* background: #222;
+margin: 2px 0; */
+text-decoration: underline;
+color: #222;
+font-variant: petite-caps;
+}
+
+[class^='modal-section-'] span:nth-of-type(2) {
+display: block;
+padding: 2px 0px 2px 5px;
+}
+
+.modal-footer {
+background: #222;
+}
+.modal-footer button#closeModal {
+border: 2px solid #3E9DD6;
+background: transparent;
+color: white;
+font-weight: bold;
+padding: 10px 40px;
+text-transform: uppercase;
+}
+
+.modal-footer button#closeModal:hover {
+border-color: #3D3D3D;
+background: yellow;
+color: #000;
+}
+
+.close {
+float: right;
+font-size: 21px;
+font-weight: 700;
+line-height: 1;
+color: white;
+text-shadow: 0 1px 0 brown;
+filter: alpha(opacity=20);
+opacity: 1;
+}
+
+.close:hover {
+color: yellow;
+text-shadow: 0 1px 0 brown;
+filter: alpha(opacity=20);
+opacity: 1;
+}
+
+input[type='radio']:after {
+width: 15px;
+height: 15px;
+border-radius: 15px;
+top: -2px;
+left: -1px;
+position: relative;
+background-color: #d1d3d1;
+content: '';
+display: inline-block;
+visibility: visible;
+border: 2px solid white;
+}
+
+input[type='radio']:checked:after {
+width: 15px;
+height: 15px;
+border-radius: 15px;
+top: -2px;
+left: -1px;
+position: relative;
+background-color: #3E9DD6;
+content: '';
+display: inline-block;
+visibility: visible;
+border: 2px solid white;
+}
+
+button.btn {
+color: #000;
+border: none;
+border-radius: 0;
+
+padding: 15px 25px;
+font-weight: bold;
+text-transform: uppercase;
+max-width: 100%;
+}
+.clearBtn {
+border: 2px solid #3E9DD6 !important;
+background: transparent;
+color: white !important;
+margin-top: 30px;
+margin-bottom: 15px;
+}
+.clearBtn:hover {
+border: 2px solid yellow !important;
+background: yellow;
+color: #000 !important;
+}
+
+.finishBtn {
+border: 2px solid #3E9DD6 !important;
+background: transparent;
+color: white !important;
+}
+
+.finishBtn:hover {
+border: 2px solid yellow !important;
+background: yellow;
+color: #000 !important;
+}
+
+em.fas.fa-hat-wizard {
+color: #3E9DD6;
+}
+
+mark, .mark {
+padding: .2em;
+background-color: yellow;
+}
+.handsontable th {
+background-color: #eee !important;
+color: #222;
+text-align: center;
+font-weight: normal;
+white-space: nowrap;
+}
 }

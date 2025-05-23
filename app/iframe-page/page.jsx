@@ -45,32 +45,45 @@ export default function IframePage() {
 
   // Ensure the component is mounted on the client
   useEffect(() => {
-    // set custom stylesheet
-    const customStylesheet = document.createElement('link');
-    customStylesheet.rel = 'stylesheet';
-    customStylesheet.href = '/css/previewCustom.css'; // make sure this file exists in /public
-    customStylesheet.id = 'custom-stylesheet';
-    document.head.appendChild(customStylesheet);
+  let defaultLoaded = false;
+  let customLoaded = false;
 
-    // ✅ Load Default Theme Stylesheet (Simple Square)
-    const defaultTheme = 'theme0Style';
-    const defaultStylesheet = document.createElement('link');
-    defaultStylesheet.rel = 'stylesheet';
-    defaultStylesheet.href = '/css/simpleSquare.css'; // make sure this file exists in /public
-    defaultStylesheet.id = 'theme-stylesheet';
-    document.head.insertBefore(defaultStylesheet, customStylesheet);
+  function tryLoadJQuery() {
+    if (defaultLoaded && customLoaded) {
+      const jQueryScript = document.createElement('script');
+      jQueryScript.src = '/js/jquery-1.9.1.min.js';
+      jQueryScript.async = true;
+      jQueryScript.onload = () => {
+        setIsClient(true);
+        //console.log('jQuery is loaded');
+      }
+      document.head.appendChild(jQueryScript);
+    }
+  }
 
-    // ✅ Set Default Theme Class on <body>
-    document.body.classList.add(defaultTheme);
-    
-    const jQueryScript = document.createElement('script');
-    jQueryScript.src = '/js/jquery-1.9.1.min.js';
-    jQueryScript.async = true;
-    jQueryScript.onload = () => {
-      // Now jQuery is loaded, safe to proceed
-      setIsClient(true);
-    };
-    document.head.appendChild(jQueryScript);
+  const customStylesheet = document.createElement('link');
+  customStylesheet.rel = 'stylesheet';
+  customStylesheet.href = '/css/previewCustom.css';
+  customStylesheet.id = 'custom-stylesheet';
+  customStylesheet.onload = () => {
+    customLoaded = true;
+    //console.log('custom stylesheet loaded');
+    tryLoadJQuery();
+  };
+  document.head.appendChild(customStylesheet);
+
+  const defaultStylesheet = document.createElement('link');
+  defaultStylesheet.rel = 'stylesheet';
+  defaultStylesheet.href = '/css/simpleSquare.css';
+  defaultStylesheet.id = 'theme-stylesheet';
+  defaultStylesheet.onload = () => {
+    defaultLoaded = true;
+    //console.log('theme stylesheet loaded');
+    tryLoadJQuery();
+  };
+  document.head.insertBefore(defaultStylesheet, customStylesheet);
+
+  document.body.classList.add('theme0Style');
 
 
   }, []);
