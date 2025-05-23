@@ -1,6 +1,6 @@
 'use client';
 import {useSearchParams} from "next/navigation";
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import categories from '../data/categories';
 import { footerOptions } from "../data/categories";
 import {formatUrlHeaderCategory} from "@/utils/helpers";
@@ -14,6 +14,7 @@ const FinishModal = ({ isModalOpen, setIsModalOpen }) => {
     const [headerChoice, setHeaderChoice] = useState({});
     const [megamenuChoice, setMegamenuChoice] = useState(false);
     const [memberToolsChoice, setMemberToolsChoice] = useState(true);
+    const modalBodyRef = useRef();
 
 
     useEffect(() => {
@@ -123,6 +124,19 @@ const FinishModal = ({ isModalOpen, setIsModalOpen }) => {
         setIsModalOpen(false);
     };
 
+    const handleModalPrintClick = () => {
+        	var domClone = document.getElementsByClassName('modal-body')[0].cloneNode(true);
+            var modalContent = document.querySelector('.modal-content');
+            var modalFooter = document.querySelector('.modal-footer');
+			var $printSection = document.getElementsByClassName('modal-body')[0];
+			
+			//$printSection.innerHTML = '';
+            $printSection.remove()
+            modalContent.insertBefore(domClone, modalFooter);
+			//$printSection.appendChild(domClone);
+			window.print();
+    }
+
     return ( 
         <div className={`modal fade ${showInClass ? 'in' : ''}`} id="finishModal" tabIndex="-1" role="dialog" aria-labelledby="Finish Modal" aria-hidden={isModalOpen ? 'false' : 'true'} style={{boxSizing: "border-box", display: isModalOpen ? "block": "none"}}>
             <div className={`modal-backdrop fade ${showInClass ? 'in' : 'out'}`}></div>
@@ -139,7 +153,7 @@ const FinishModal = ({ isModalOpen, setIsModalOpen }) => {
                             <span aria-hidden="true">×</span>
                         </button>
                     </div>
-                    <div className="modal-body">
+                    <div ref={modalBodyRef} className="modal-body">
                         <p><strong>DIRECTIONS: </strong>The row numbers in the left hand column correspond to the starting line numbers in in your Blueprint Questionnaire Excel Spreadsheet. You simply place the information in Column C from this diagram into Column C at their corresponding line numbers in the Blueprint Questionnaire Excel Spreadsheet. If not, you are unable to find each item, then select "Edit" from Excel's dropdown menu, and then "Find".</p>
                         <div className="handsontable" id="example">
                             <table className="htCore">
@@ -230,7 +244,7 @@ const FinishModal = ({ isModalOpen, setIsModalOpen }) => {
                     </div>
                     <div className="modal-footer">
                         <button  type="button" onClick={handleModalCloseClick} id="closeModal" className="close-modal">Done</button>
-                        <button id="btnPrint" type="button" className="btn btn-default">Print</button>
+                        <button id="btnPrint" onClick={handleModalPrintClick} type="button" className="btn btn-default">Print</button>
                     </div>
                 </div>
             </div>
