@@ -34,6 +34,7 @@ const HeaderSectionControl = ({ iframeRef, isIframeReady }) => {
       const [category, item] = headerParam.split('-');
       const formattedCat = formatUrlHeaderCategory(category);
       const formattedItem = formatUrlHeaderItem(formattedCat, item);
+ 
       //console.log(formattedCat, item);
       setHeaderState({ category: formattedCat, item: formattedItem || '' });
       

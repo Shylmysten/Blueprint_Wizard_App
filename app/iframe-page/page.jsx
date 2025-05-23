@@ -341,7 +341,7 @@ export default function IframePage() {
               </div>
             </section>
 
-            <div className={`imod-membertools-1 memberTools hidden-sm hidden-xs ${isMemberToolsToggleSwitchOff ? '' : 'hidden-lg'}`} data-sectionname="membertools-1">
+            <div className={`imod-membertools-1 memberTools ${isMemberToolsToggleSwitchOff ? 'hidden-sm hidden-xs' : 'hidden'}`} data-sectionname="membertools-1">
                 <div className="container">
                     <div className="row">
                         <nav id="ContentMemberTools" runat="server" className="memberToolInner col-md-12 imodSiteMap" aria-label="Community">
