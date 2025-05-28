@@ -191,7 +191,7 @@ img {
 }
 
 :not(.mobileNav) .desktopNav .desktopNavInner li a:hover {
-    background: #04274b !important
+    /*background: #04274b !important*/
 }
 
 :not(.mobileNav) .desktopNav .desktopNavInner li li a:hover {
@@ -1041,7 +1041,7 @@ body #bpSection3 a.button:hover {
 }
 
 .theme3Style .utilityNav ul li a {
-    color: #d37507
+    color: #222
 }
 
 .theme3Style .imod-header-3 a#searchToggleBtn {

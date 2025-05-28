@@ -135,6 +135,24 @@ const FinishModal = ({ isModalOpen, setIsModalOpen }) => {
             modalContent.insertBefore(domClone, modalFooter);
 			//$printSection.appendChild(domClone);
 			window.print();
+
+            //  if (modalBodyRef.current) {
+            //    const printContents = modalBodyRef.current.innerHTML;
+            //    const printWindow = window.open('', '', 'height=600,width=800');
+            //    printWindow.document.write('<html><head><title>Print</title></head><body>');
+            //    printWindow.document.write(printContents);
+            //    printWindow.document.write('</body></html>');
+            //    printWindow.document.close();
+            //    printWindow.print();
+            //}
+
+            //var domClone = document.getElementsByClassName('modal-body')[0].cloneNode(true);
+			
+			//var $printSection = document.getElementsByClassName('modal-body')[0];
+			
+			//$printSection.innerHTML = '';
+			//$printSection.appendChild(domClone);
+			//window.print();
     }
 
     return ( 
