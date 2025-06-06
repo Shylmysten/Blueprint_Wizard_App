@@ -30,6 +30,7 @@ export default function HomePage() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [isInterior, setIsInterior] = useState(false);
+  const [resetSectionsKey, setResetSectionsKey] = useState(0);
 
   useEffect(() => {
      setIsInterior(searchParams.get('template') === 'int' ? true : false);
@@ -149,6 +150,7 @@ export default function HomePage() {
         '*'
       );
     }
+    setResetSectionsKey(prev => prev + 1); // <-- increment to trigger reset    
   }
   
   const handleFinshBtnClick = () => {
@@ -188,6 +190,7 @@ export default function HomePage() {
               categories={intCategories}
               iframeRef={iframeRef}
               isIframeReady={iframeReady}
+             
             />
 
           </>
@@ -201,6 +204,7 @@ export default function HomePage() {
               categories={categories}
               iframeRef={iframeRef}
               isIframeReady={iframeReady}
+              resetKey={resetSectionsKey}
             />
 
             {/* Section 2 */}
@@ -210,6 +214,7 @@ export default function HomePage() {
               categories={categories}
               iframeRef={iframeRef}
               isIframeReady={iframeReady}
+              resetKey={resetSectionsKey}
             />
 
             {/* Section 3 */}
@@ -219,6 +224,7 @@ export default function HomePage() {
               categories={categories}
               iframeRef={iframeRef}
               isIframeReady={iframeReady}
+              resetKey={resetSectionsKey}
             />
 
             {/* Section 4 */}
@@ -228,6 +234,7 @@ export default function HomePage() {
               categories={categories}
               iframeRef={iframeRef}
               isIframeReady={iframeReady}
+              resetKey={resetSectionsKey}
             />
 
             {/* Section 5 */}
@@ -237,6 +244,7 @@ export default function HomePage() {
               categories={categories}
               iframeRef={iframeRef}
               isIframeReady={iframeReady}
+              resetKey={resetSectionsKey}
             />
 
             {/* Section 6 */}
@@ -246,6 +254,7 @@ export default function HomePage() {
               categories={categories}
               iframeRef={iframeRef}
               isIframeReady={iframeReady}
+              resetKey={resetSectionsKey}
             />
           </>
 

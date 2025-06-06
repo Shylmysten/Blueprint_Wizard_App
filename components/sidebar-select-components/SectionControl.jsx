@@ -6,7 +6,7 @@ import { updateIframe } from '@/utils/actions';
 import {useRouter, useSearchParams} from 'next/navigation';
 import {formatSectionCategory} from '@/utils/helpers';
 
-export default function SectionControl({ sectionIndex, categories, iframeRef, isIframeReady }) {
+export default function SectionControl({ sectionIndex, categories, iframeRef, isIframeReady, resetKey }) {
     const [sectionState, setSectionState] = useState({ category: '', item: '' });
     const [isClient, setIsClient] = useState(false);
     const router = useRouter();
@@ -17,6 +17,12 @@ export default function SectionControl({ sectionIndex, categories, iframeRef, is
     useEffect(() => {
         setIsClient(true);
     }, []);
+    
+    useEffect(() => {
+        // Reset local state when resetKey changes
+        setSectionState({ category: '', item: '' });
+        userInteracted.current = false;
+    }, [resetKey]);
 
     useEffect(() => {
         if (!isIframeReady) return;
