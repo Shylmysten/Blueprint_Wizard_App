@@ -2,7 +2,7 @@
 import '@fortawesome/fontawesome-free/css/all.css';
 import '@fortawesome/fontawesome-free/css/v4-shims.css';
 import { useEffect, useState, useContext, useRef } from 'react';
-import { updateTheme, updateSection, updateFooter, updateHeader } from '../../utils/actions';
+import { updateTheme, updateSection, updateFooter, updateHeader, updateInteriorSection } from '../../utils/actions';
 import { trapKeyBoardMobileNav, handleDrawerOpen, handleDrawerClose } from '@/utils/offCanvasUtils';
 import { MemberToolsToggleContext } from '@/utils/MemberToolsToggleContext';
 import { SocialMediaToggleContext } from '@/utils/SocialMediaToggleContext';
@@ -36,11 +36,16 @@ export default function IframePage() {
   const offCanvasRef = useRef(null); // Ref for the #off-canvas element
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const { isLoading, setIsLoading } = useContext(LoadingContext);
+  const [isInterior, setIsInterior] = useState(false);
 
 
   //useEffect(() => {
   //  console.log('isLoading state in IframePage:', isLoading);
   //}, [isLoading]);
+
+
+
+
 
 
   // Ensure the component is mounted on the client
@@ -93,6 +98,15 @@ export default function IframePage() {
       const { type, payload } = event.data || {};
 
       switch (type) {
+        case 'CLEAR_SECTIONS':
+          // Clear all sections
+          for (let i = 0; i < 6; i++) {
+            updateSection({ index: i, category: '', item: '' });
+          }
+          break;
+        case 'SET_IS_INTERIOR':
+          setIsInterior(payload.isInterior);
+          break;
         case 'UPDATE_THEME':
           updateTheme(payload);
           break;
@@ -125,6 +139,9 @@ export default function IframePage() {
         case 'UPDATE_SECTION':
           updateSection(payload);
           break;
+        case 'UPDATE_INTERIOR_SECTION':
+          updateInteriorSection(payload);
+          break;
         case 'UPDATE_FOOTER':
           updateFooter(payload);
           break;
@@ -140,6 +157,13 @@ export default function IframePage() {
     
   useEffect(() => {
     if (!isClient) return;
+
+    // ✅ Set the body class of iFrame based on isInterior state
+    if (isInterior === true) {
+        const body = document.querySelector('body');
+        body.classList.remove('home', 'home-full');
+        body.classList.add('interior', 'interior-full');
+    }
 
     // ✅ Load modernizr only after jQuery is loaded
     const modernizrScript = document.createElement('script');
@@ -194,7 +218,7 @@ export default function IframePage() {
    // Mark as initialized
    setIsInitialized(true);
 
-  }, [isClient]);
+  }, [isClient, isInterior]);
 
   const renderHeaderComponent = () => {
     if (headerCategory === 'Header 1') {
@@ -358,34 +382,43 @@ export default function IframePage() {
             <section className="bp-preview-section header-section empty" id="bpHeader">
             {renderHeaderComponent()}
             </section>
-
-            <section className='bp-preview-section body-section empty odd home-section' id='bpSection1'>
+            
+            <section className={`bp-preview-section body-section ${!isInterior ? 'empty odd home-section' : ''}`} id='bpSection1'>
               <div className="empty"><h2 className="previewDefault">Section 1</h2></div>
             </section>
+            
+            
+            {!isInterior && (
+              <>
+                 <section className='bp-preview-section body-section empty home-section' id='bpSection2'>
+                  <div className="empty"><h2 className="previewDefault">Section 2</h2></div>
+                </section>
 
-            <section className='bp-preview-section body-section empty home-section' id='bpSection2'>
-              <div className="empty"><h2 className="previewDefault">Section 2</h2></div>
-            </section>
+                <section className='bp-preview-section body-section empty odd home-section' id='bpSection3'>
+                  <div className="empty"><h2 className="previewDefault">Section 3</h2></div>
+                </section>
 
-            <section className='bp-preview-section body-section empty odd home-section' id='bpSection3'>
-              <div className="empty"><h2 className="previewDefault">Section 3</h2></div>
-            </section>
+                <section className='bp-preview-section body-section empty home-section' id='bpSection4'>
+                  <div className="empty"><h2 className="previewDefault">Section 4</h2></div>
+                </section>
 
-            <section className='bp-preview-section body-section empty home-section' id='bpSection4'>
-              <div className="empty"><h2 className="previewDefault">Section 4</h2></div>
-            </section>
+                <section className='bp-preview-section body-section empty odd home-section' id='bpSection5'>
+                  <div className="empty"><h2 className="previewDefault">Section 5</h2></div>
+                </section>
 
-            <section className='bp-preview-section body-section empty odd home-section' id='bpSection5'>
-              <div className="empty"><h2 className="previewDefault">Section 5</h2></div>
-            </section>
+                <section className='bp-preview-section body-section empty home-section' id='bpSection6'>
+                  <div className="empty"><h2 className="previewDefault">Section 6</h2></div>
+                </section>
+              </>
 
-            <section className='bp-preview-section body-section empty home-section' id='bpSection6'>
-              <div className="empty"><h2 className="previewDefault">Section 6</h2></div>
-            </section>
+            )}
 
             <section className="bp-preview-section footer-section empty" id="bpFooter">
               <div className="empty"><h2 className="previewDefault">Footer</h2></div>
             </section>
+
+
+           
 
             {/* Navigation Drawer */}
             <OffCanvasDrawer

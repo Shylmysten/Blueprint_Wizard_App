@@ -140,7 +140,7 @@ export const formatSectionCategory = (sectionCategory) => {
             formattedSectionCategory = 'giving';
             break
         case 'Campaign Progress Indicators':
-            formattedSectionCategory = 'cpi';
+            formattedSectionCategory = 'campaign';
             break
         case 'CrowdFunding Grid Patterns':
             formattedSectionCategory = 'crowdfunding';
@@ -154,8 +154,8 @@ export const formatSectionCategory = (sectionCategory) => {
         case 'Quotes':
             formattedSectionCategory = 'quotes';
             break
-        case 'Tab Patterns':
-            formattedSectionCategory = 'tabs';
+        case 'Tabbed Content':
+            formattedSectionCategory = 'tab';
             break
         default: 
             formattedSectionCategory = 'Invalid'; 

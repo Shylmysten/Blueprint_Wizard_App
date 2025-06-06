@@ -40,11 +40,29 @@ import QuotesPatternTwo from '@/components/quotes-pattern-components/QuotesPatte
 import HorizantalTabsPattern from '@/components/tab-pattern-components/HorizontalTabsPattern';
 import VerticalTabsPattern from '@/components/tab-pattern-components/VerticalTabsPattern';
 import FullWidthTabsPattern from '@/components/tab-pattern-components/FullWidthTabsPattern';
+import Layout1Left from '@/components/interior-page-components/layout1/Layout1Left';
+import Layout1Right from '@/components/interior-page-components/layout1/Layout1Right';
+import Layout1Both from '@/components/interior-page-components/layout1/Layout1Both';
+import Layout1None from '@/components/interior-page-components/layout1/Layout1None';
+import Layout2Left from '@/components/interior-page-components/layout2/Layout2Left';
+import Layout2Right from '@/components/interior-page-components/layout2/Layout2Right';
+import Layout2Both from '@/components/interior-page-components/layout2/Layout2Both';
+import Layout2None from '@/components/interior-page-components/layout2/Layout2None';
 
 export const updateIframe = (index, category, item, iframeRef) => {
   iframeRef.current?.contentWindow?.postMessage(
     {
       type: 'UPDATE_SECTION',
+      payload: { index, category, item },
+    },
+    '*'
+  );
+};
+
+export const updateIframeInterior = (index, category, item, iframeRef) => {
+  iframeRef.current?.contentWindow?.postMessage(
+    {
+      type: 'UPDATE_INTERIOR_SECTION',
       payload: { index, category, item },
     },
     '*'
@@ -209,3 +227,46 @@ export function updateFooter({ content, sectionId }, iframe = null) {
   }
 }
 
+const interiorComponentMapping = {
+  "Layout Option 1": {
+    Layout1Left: Layout1Left,
+    Layout1Right: Layout1Right,
+    Layout1Both: Layout1Both,
+    Layout1None: Layout1None,
+  },
+  "Layout Option 2": {
+    Layout2Left: Layout2Left,
+    Layout2Right: Layout2Right,
+    Layout2Both: Layout2Both,
+    Layout2None: Layout2None,
+  },
+  "Crowdfunding Layouts": {
+    //CFCircularLeft: CFCircularLeft,
+    //CFCircularRight: CFCircularRight,
+    //CFBarLeft: CFBarLeft,
+    //CFBarRight: CFBarRight,
+  },
+}
+
+export function updateInteriorSection({ index, category, item }) {
+  const section = document.getElementById('bpSection1');
+
+  if (section) {
+    const Component = interiorComponentMapping[category]?.[item] || null;
+
+    if (Component) {
+      if (!section._reactRoot) {
+        section._reactRoot = createRoot(section);
+      }
+      section._reactRoot.render(<Component />);
+      section.classList.remove('empty');
+    } else {
+      if (section._reactRoot) {
+        section._reactRoot.unmount();
+        delete section._reactRoot;
+      }
+      section.innerHTML = `<div class="empty"><h2 class="previewDefault">Section 1</h2></div>`;
+      section.classList.add('empty');
+    }
+  }
+}

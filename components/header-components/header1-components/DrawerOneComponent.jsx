@@ -207,18 +207,10 @@ const DrawerOneComponent = ({ isDropdownToggleSwitchOn, isSocialMediaToggleSwitc
                                         src="/logo.png" 
                                         alt="Home" 
                                         className="darkTxt"
-                                        width={2704}
-                                        height={625}
-                                        style={{width: '100%'}}
+                                        width={400}
+                                        height={92}
+                                        style={{maxWidth: '100%'}}
                                         priority
-                                    />
-                                    <Image 
-                                        src="/logo-white.png" 
-                                        alt="Home" 
-                                        className="whiteTxt"
-                                        width={2704}
-                                        height={625}
-                                        style={{width: '100%'}}
                                     />
                                 </a>
                             </div>

@@ -1386,12 +1386,12 @@ img {
 
 .collapse {
     display: none;
-    visibility: hidden
+    /*visibility: hidden*/
 }
 
 .collapse.in {
     display: block;
-    visibility: visible
+    /*visibility: visible*/
 }
 
 tr.collapse.in {
@@ -2410,7 +2410,7 @@ tbody.collapse.in {
 }
 
 .interior .eventDetailLayout1 .eventLeft .mobileEventButtons ul li.register a {
-    background: #d37507
+    background: #0054bc
 }
 
 .interior .eventDetailLayout1 .eventLeft .mobileEventButtons ul li a {
@@ -2451,7 +2451,7 @@ tbody.collapse.in {
 }
 
 .interior .eventDetailLayout1 .eventRight .eventButtons ul li.register a {
-    background: #d37507
+    background: #0054bc
 }
 
 .interior .eventDetailLayout1 .eventRight .eventButtons ul li a {
@@ -2484,7 +2484,7 @@ tbody.collapse.in {
 
 .interior .eventDetailLayout1 .eventRight .whenWhere ul li i {
     font-size: 30px;
-    color: #d37507;
+    color: #0054bc;
     top: -0.1em
 }
 
@@ -2572,7 +2572,7 @@ tbody.collapse.in {
 
 .interior .eventDetailLayout2 .eventLeft .eventDateTime ul li.timeTitle {
     font-size: 25px;
-    color: #d37507
+    color: #0054bc
 }
 
 .interior .eventDetailLayout2 .eventLeft .eventDateTime ul li.timeTitle .fa {
@@ -2581,7 +2581,7 @@ tbody.collapse.in {
 
 .interior .eventDetailLayout2 .eventLeft .eventDateTime ul li i {
     font-size: 30px;
-    color: #d37507;
+    color: #0054bc;
     top: -0.1em
 }
 
@@ -2611,7 +2611,7 @@ tbody.collapse.in {
 }
 
 .interior .eventDetailLayout2 .eventLeft .eventSummary .mobileEventButtons ul li.register a {
-    background: #d37507
+    background: #0054bc
 }
 
 .interior .eventDetailLayout2 .eventLeft .eventSummary .mobileEventButtons ul li a {
@@ -2652,7 +2652,7 @@ tbody.collapse.in {
 }
 
 .interior .eventDetailLayout2 .eventRight .eventButtons ul li.register a {
-    background: #d37507
+    background: #0054bc
 }
 
 .interior .eventDetailLayout2 .eventRight .eventButtons ul li a {
@@ -2685,7 +2685,7 @@ tbody.collapse.in {
 
 .interior .eventDetailLayout2 .eventRight .whenWhere ul li i {
     font-size: 30px;
-    color: #d37507;
+    color: #0054bc;
     top: -0.1em
 }
 
@@ -2858,7 +2858,7 @@ tbody.collapse.in {
 }
 
 .interior .classnotes .classnotes-options .imod-pill-nav>div a:hover {
-    color: #d37507
+    color: #0054bc
 }
 
 .interior .classnotes .classnotes-options .imod-pill-nav>div a.selected,
@@ -2964,7 +2964,7 @@ tbody.collapse.in {
 }
 
 .interior .classnotes .classnote-item .classnote-header .classnote-edit a {
-    background: #d37507 none repeat scroll 0 0 !important;
+    background: #0054bc none repeat scroll 0 0 !important;
     border-radius: 3px;
     color: #fff;
     display: inline-block;
@@ -3167,7 +3167,7 @@ tbody.collapse.in {
 }
 
 .breadCrumbs ul li:before {
-    content: "Â»"
+    content: "»"
 }
 
 .breadCrumbs ul li a {
@@ -3326,18 +3326,18 @@ tbody.collapse.in {
 }
 
 .home-section.section-2 a {
-    color: #d37507
+    color: #0054bc
 }
 
 .home-section.section-2 .sectionHeader h2 {
-    color: #d37507
+    color: #0054bc
 }
 
 .home-section.section-2 h2,
 .home-section.section-2 h3,
 .home-section.section-2 h4,
 .home-section.section-2 h5 {
-    color: #d37507
+    color: #0054bc
 }
 
 .home-section.section-3 {
@@ -3647,7 +3647,7 @@ tbody.collapse.in {
 }
 
 .imod-cpi-1 .imod-progWidget .data-viz .vizWrapper .bar .progressBar {
-    background: #d37507;
+    background: #0054bc;
     position: absolute;
     left: 0;
     top: 0;
@@ -3753,7 +3753,7 @@ tbody.collapse.in {
     top: auto;
     width: 100%;
     z-index: 2;
-    background-color: #d37507
+    background-color: #0054bc
 }
 
 .cpiBasicCF .fundRow {
@@ -3897,7 +3897,7 @@ tbody.collapse.in {
 }
 
 .cpiBasicCF .fundItem .fundInner .progressInfo .data-viz .vizWrapper .bar .progressBar {
-    background: #d37507;
+    background: #0054bc;
     position: absolute;
     left: 0;
     top: 0;
@@ -4064,7 +4064,7 @@ tbody.collapse.in {
 }
 
 .cpiDesign2 .fundRow .fundItem .fundInner .title a {
-    color: #d37507;
+    color: #0054bc;
     text-decoration: none
 }
 
@@ -4115,11 +4115,11 @@ tbody.collapse.in {
     height: 35px;
     width: 100%;
     border-radius: 0px;
-    border: 1px solid #d37507
+    border: 1px solid #0054bc
 }
 
 .cpiDesign2 .fundRow .fundItem .fundInner .campaignStats .data-viz .vizWrapper .bar .progressBar {
-    background: #d37507;
+    background: #0054bc;
     position: absolute;
     left: 0;
     top: 0;
@@ -4203,7 +4203,7 @@ tbody.collapse.in {
     text-decoration: none;
     color: #fff;
     width: 50%;
-    background: #d37507;
+    background: #0054bc;
     transition: all .3s ease;
     -webkit-transition: all .3s ease
 }
@@ -4299,7 +4299,7 @@ tbody.collapse.in {
 }
 
 .admin-code button.generate-html {
-    background: #d37507;
+    background: #0054bc;
     border: none;
     box-shadow: none;
     color: #fff;
@@ -5241,7 +5241,7 @@ tbody.collapse.in {
 .cpiBasicCF .fundItem .fundInner.cpi2 .campaignStats .progressInfo .widgetStat.largeTxt .value {
     font-size: 22px;
     line-height: 30px;
-    color: #d37507
+    color: #0054bc
 }
 
 @media only screen and (min-width: 700px) and (max-width: 1023px) {
@@ -5418,7 +5418,7 @@ tbody.collapse.in {
     line-height: 1;
     font-weight: bold;
     display: block;
-    color: #d37507;
+    color: #0054bc;
     margin-bottom: 3px
 }
 
@@ -5856,7 +5856,7 @@ tbody.collapse.in {
     top: auto;
     width: 100%;
     z-index: 2;
-    background-color: #d37507
+    background-color: #0054bc
 }
 
 .interior .crowdfunding-interior .sideBar .cpiProjectDetail .imod-progWidget.bubbleViz .giveBtn {
@@ -6086,7 +6086,7 @@ tbody.collapse.in {
     text-decoration: none;
     color: #fff;
     width: 100%;
-    background: #d37507;
+    background: #0054bc;
     transition: all .3s ease;
     -webkit-transition: all .3s ease
 }
@@ -6431,7 +6431,7 @@ footer p {
 
 footer .button {
     margin-top: 20px;
-    background-color: #d37507;
+    background-color: #0054bc;
     color: #fff
 }
 
@@ -6481,7 +6481,7 @@ footer .social li a {
 }
 
 footer .social li a:hover {
-    background: #d37507;
+    background: #0054bc;
     color: #fff
 }
 
@@ -7551,7 +7551,7 @@ h2,
 .PageSubTitleHeader {
     font-size: 1.714em;
     line-height: 1.25em;
-    color: #d37507;
+    color: #0054bc;
     font-family: Helvetica, Arial, sans-serif
 }
 
@@ -7658,7 +7658,7 @@ img[src="/images/icons/v2/bomb.png"] {
 }
 
 .admin-page-secondary {
-    background-color: #d37507 !important
+    background-color: #0054bc !important
 }
 
 .admin-page-tertiary {
@@ -7741,7 +7741,7 @@ img[src="/images/icons/v2/bomb.png"] {
 }
 
 .structSearch .search input:focus {
-    border-color: #d37507
+    border-color: #0054bc
 }
 
 .structSearch .search img,
@@ -7761,7 +7761,7 @@ img[src="/images/icons/v2/bomb.png"] {
 .structSearch .search img:focus,
 .structSearch .search img[id$="_imgbtnSearch"]:focus {
     background: #e1e1e1;
-    border-color: #d37507
+    border-color: #0054bc
 }
 
 .structSearch .search .SearchModuleSpacer {
@@ -7905,7 +7905,7 @@ img[src="/images/icons/v2/bomb.png"] {
 
 .memberTools a:hover,
 .memberTools a:focus {
-    color: #d37507;
+    color: #0054bc;
     background: transparent
 }
 
@@ -7959,7 +7959,7 @@ img[src="/images/icons/v2/bomb.png"] {
 
 .utilityNav ul li a:hover,
 .utilityNav ul li a:focus {
-    color: #d37507
+    color: #0054bc
 }
 
 .headerSocial ul {
@@ -8010,7 +8010,7 @@ img[src="/images/icons/v2/bomb.png"] {
 
 .headerSocial ul li a:hover,
 .headerSocial ul li a:focus-visible {
-    background: #d37507
+    background: #0054bc
 }
 
 .headerSocial ul li a:focus-visible {
@@ -8025,7 +8025,7 @@ img[src="/images/icons/v2/bomb.png"] {
 }
 
 .headerSocial ul li.searchToggle a {
-    background-color: #d37507
+    background-color: #0054bc
 }
 
 .desktopNav {
@@ -8065,7 +8065,7 @@ img[src="/images/icons/v2/bomb.png"] {
 }
 
 .desktopNav .desktopNavInner li.highlight {
-    background: #d37507
+    background: #0054bc
 }
 
 .desktopNav .desktopNavInner li.highlight a {
@@ -8550,14 +8550,14 @@ only screen and (min-width: 1180px) {
 }
 
 .structHead.imod-header-3 .desktopNav li.highlight {
-    background: #d37507
+    background: #0054bc
 }
 
 .structHead.imod-header-3 .desktopNav li.highlight a {
     color: white
 }
 .desktopNav .desktopNavInner li.highlight {
-    background: #d37507
+    background: #0054bc
 }
 
 .desktopNav .desktopNavInner li.highlight a {
@@ -9834,7 +9834,7 @@ a.m-pikabu-nav-toggle {
     float: right;
     line-height: 40px;
     color: #fff;
-    background: #d37507;
+    background: #0054bc;
     text-decoration: none;
     padding: 0 15px;
     border-radius: 5px;
@@ -9908,7 +9908,7 @@ body.has-offcanvas--visible {
 
 #off-canvas .menuTitleBar {
     padding: 15px;
-    background: #d37507;
+    background: #0054bc;
     position: relative
 }
 
@@ -9946,7 +9946,7 @@ body.has-offcanvas--visible {
 
 a#nav-close-btn {
     display: block;
-    background: #d37507;
+    background: #0054bc;
     color: #fff;
     padding: 15px 20px;
     text-decoration: none;
@@ -9972,7 +9972,7 @@ a#nav-close-btn .fa {
 }
 
 #off-canvas .mainNav ul li a:focus {
-    outline: 2px solid #d37507;
+    outline: 2px solid #0054bc;
     text-decoration: underline
 }
 
@@ -9988,7 +9988,7 @@ a#nav-close-btn .fa {
 }
 
 #off-canvas .mainNav ul li button.accordion-btn-wrap:focus {
-    outline: 2px solid #d37507
+    outline: 2px solid #0054bc
 }
 
 #off-canvas .mainNav ul li.active {
@@ -10061,7 +10061,7 @@ a#nav-close-btn .fa {
 }
 
 #off-canvas .mobileUtilityNavNow>ul>li>a:focus {
-    outline: 2px solid #d37507;
+    outline: 2px solid #0054bc;
     text-decoration: underline
 }
 
@@ -10111,7 +10111,7 @@ a#nav-close-btn .fa {
 #off-canvas .search input:focus,
 .drawer .mobileNav .search input:focus,
 .overlay .mobileNav .search input:focus {
-    border-color: #d37507
+    border-color: #0054bc
 }
 
 #off-canvas .search img,
@@ -10136,7 +10136,7 @@ a#nav-close-btn .fa {
 #off-canvas .search img[id$="_imgbtnSearch"]:focus,
 .drawer .mobileNav .search img[id$="_imgbtnSearch"]:focus,
 .overlay .mobileNav .search img[id$="_imgbtnSearch"]:focus {
-    outline: 2px solid #d37507
+    outline: 2px solid #0054bc
 }
 
 #off-canvas .search .SearchModuleSpacer,
@@ -10988,123 +10988,117 @@ input[type="submit"]:focus {
         padding-right: 0px
     }
 }
-
 .accordion {
-    margin: 20px 0;
-    float: left;
-    width: 100%
+	 margin: 20px 0;
+	 float: left;
+	 width: 100%;
 }
-
-.accordion>.accordion {
-    margin: 0
+ .accordion > .accordion {
+	 margin: 0;
 }
-
-.accordion .collapseItem {
-    margin: 0 0 10px
+ .accordion .collapseItem {
+	 margin: 0 0 10px;
 }
-
-.accordion .collapseItem .panel-heading {
-    background: #e1e1e1;
-    display: block;
-    font-family: Helvetica, Arial, sans-serif;
-    font-weight: bold;
-    position: relative;
-    font-size: 1.25rem;
-    line-height: 1.5
+ .accordion .collapseItem.open h3 a, .accordion .collapseItem.open h3 button, .accordion .collapseItem.open .panel-heading a, .accordion .collapseItem.open .panel-heading button {
+	 background: #07407b;
+	 color: #fff;
 }
-
-@media only screen and (max-width: 699px) {
-    .accordion .collapseItem .panel-heading {
-        font-size: 1.1em;
-        line-height: normal
-    }
+ .accordion .collapseItem.open h3 a .fa, .accordion .collapseItem.open h3 button .fa, .accordion .collapseItem.open .panel-heading a .fa, .accordion .collapseItem.open .panel-heading button .fa {
+	 background: rgba(0,0,0,0.2);
+	 color: #fff;
 }
-
-.accordion .collapseItem .panel-heading a {
-    display: block;
-    padding: 10px 10px 10px 70px;
-    text-decoration: none;
-    color: #222;
-    min-height: 50px
+ .accordion .collapseItem h3, .accordion .collapseItem .panel-heading {
+	 background: #e1e1e1;
+	 display: block;
+	 font-weight: bold;
+	 position: relative;
+	 font-size: 1.25rem;
+	 line-height: 1.5;
+	 margin: 0;
 }
-
-.accordion .collapseItem .panel-heading a:active,
-.accordion .collapseItem .panel-heading a:focus {
-    outline: 3px solid #07407B
+ @media only screen and (max-width: 699px) {
+	 .accordion .collapseItem h3, .accordion .collapseItem .panel-heading {
+		 font-size: 1.1em;
+		 line-height: normal;
+	}
 }
-
-.accordion .collapseItem .panel-heading a .fa {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 50px;
-    line-height: 50px;
-    background: #07407B;
-    color: #fff;
-    text-align: center;
-    font-size: 30px
+ .accordion .collapseItem h3 a, .accordion .collapseItem h3 button, .accordion .collapseItem .panel-heading a, .accordion .collapseItem .panel-heading button {
+	 display: block;
+	 padding: 10px 10px 10px 70px;
+	 text-decoration: none;
+	 color: #222;
+	 min-height: 50px;
+	 width: 100%;
+	 text-align: left;
+	 font-weight: bold;
+	 border: none;
+	 background: transparent;
+	 transition: all 0.3s ease;
 }
-
-.accordion .collapseItem .panel-heading a.open {
-    background: #07407B;
-    color: #fff
+ .accordion .collapseItem h3 a:focus-visible, .accordion .collapseItem h3 button:focus-visible, .accordion .collapseItem .panel-heading a:focus-visible, .accordion .collapseItem .panel-heading button:focus-visible {
+	 outline: 2px dotted #07407b;
+	 outline-offset: 2px;
 }
-
-.accordion .collapseItem .panel-heading a.open .fa {
-    background: rgba(0, 0, 0, 0.2)
+ .accordion .collapseItem h3 a .fa, .accordion .collapseItem h3 button .fa, .accordion .collapseItem .panel-heading a .fa, .accordion .collapseItem .panel-heading button .fa {
+	 position: absolute;
+	 top: 0;
+	 left: 0;
+	 height: 100%;
+	 width: 50px;
+	 line-height: 50px;
+	 background: #07407b;
+	 color: #fff;
+	 text-align: center;
+	 font-size: 30px;
+	 transition: all 0.3s ease;
 }
-
-.accordion .collapseItem .accordionPanelWrap {
-    padding: 20px;
-    overflow: hidden;
-    background: #f6f6f6;
-    border-left: 50px solid #e1e1e1
+ .accordion .collapseItem h3 button, .accordion .collapseItem .panel-heading button {
+	 width: 100%;
+	 border: none;
+	 background: transparent;
+	 text-align: left;
 }
-
-@media only screen and (max-width: 699px) {
-    .accordion .collapseItem .accordionPanelWrap {
-        border-left: none
-    }
+ .accordion .collapseItem .accordionPanelWrap {
+	 padding: 20px;
+	 overflow: hidden;
+	 background: #f6f6f6;
+	 border-left: 50px solid #e1e1e1;
 }
-
-.accordion .collapseItem .accordionPanelWrap .thumb {
-    float: left;
-    margin: 0 20px 10px 0;
-    width: 200px;
-    border: 4px solid #fff
+ @media only screen and (max-width: 699px) {
+	 .accordion .collapseItem .accordionPanelWrap {
+		 border-left: none;
+	}
 }
-
-@media only screen and (max-width: 479px) {
-    .accordion .collapseItem .accordionPanelWrap .thumb {
-        float: none;
-        width: 100%
-    }
-
-    .accordion .collapseItem .accordionPanelWrap .thumb img {
-        width: 100%
-    }
+ .accordion .collapseItem .accordionPanelWrap .thumb {
+	 float: left;
+	 margin: 0 20px 10px 0;
+	 width: 200px;
+	 border: 4px solid #fff;
 }
-
-.accordion .collapseItem .accordionPanelWrap .more {
-    padding-top: 10px
+ @media only screen and (max-width: 479px) {
+	 .accordion .collapseItem .accordionPanelWrap .thumb {
+		 float: none;
+		 width: 100%;
+	}
+	 .accordion .collapseItem .accordionPanelWrap .thumb img {
+		 width: 100%;
+	}
 }
-
-.accordion .collapseItem .accordionPanelWrap .more span {
-    display: none
+ .accordion .collapseItem .accordionPanelWrap .more {
+	 padding-top: 10px;
 }
-
-.accordion .collapseItem .accordionPanelWrap .more a>span {
-    display: block
+ .accordion .collapseItem .accordionPanelWrap .more span {
+	 display: none;
 }
-
-.accordion .collapseItem .accordionPanelWrap .more a {
-    display: inline-block
+ .accordion .collapseItem .accordionPanelWrap .more a > span {
+	 display: block;
 }
-
-.accordion .collapseItem .accordionPanelWrap .more a .button {
-    background: #07407B;
-    margin: 0
+ .accordion .collapseItem .accordionPanelWrap .more a {
+	 display: inline-block;
+}
+ .accordion .collapseItem .accordionPanelWrap .more a .button {
+	 background: #07407b;
+	 margin: 0;
 }
 
 @media only screen and (min-width: 700px) and (max-width: 1023px) {
@@ -11202,7 +11196,7 @@ input[type="submit"]:focus {
 }
 
 .imod-quicklinks-2 .icon .iconInner {
-    background: #d37507;
+    background: #0054bc;
     opacity: 1;
     transition: .3s ease all;
     -webkit-transition: .3s ease all
@@ -12375,7 +12369,7 @@ input[type="submit"]:focus {
 }
 
 .tabSection .section-tabs .tabs-wrap.imodTabs .menuwrap ul.imodTabs-nav .imodTabs-tab:focus {
-    outline: 2px solid #d37507
+    outline: 2px solid #0054bc
 }
 
 .tabSection .section-tabs .tabs-wrap.imodTabs .menuwrap ul.imodTabs-nav .imodTabs-tab+.imodTabs-tab {
@@ -12459,7 +12453,7 @@ input[type="submit"]:focus {
     line-height: 40px;
     width: 44px;
     height: 44px;
-    border: 2px solid #d37507;
+    border: 2px solid #0054bc;
     border-radius: 60px;
     margin-left: 20px;
     text-align: center
@@ -12500,7 +12494,7 @@ input[type="submit"]:focus {
 
 .tabSection .section-tabs .tabs-wrap.imodTabs .content .imodTabs-accordion-title.imodTabs-state-active::after {
     content: '\f068';
-    background: #d37507
+    background: #0054bc
 }
 
 .tabSection .section-tabs .tabs-wrap.imodTabs .content .imodTabs-accordion-title.imodTabs-state-active a.imodTabs-anchor {
@@ -12873,7 +12867,7 @@ input[type="submit"]:focus {
     position: relative;
     width: 100px;
     height: 100px;
-    background: #d37507;
+    background: #0054bc;
     text-transform: uppercase
 }
 
@@ -13015,7 +13009,7 @@ input[type="submit"]:focus {
     position: relative;
     width: 100px;
     height: 100px;
-    background: #d37507;
+    background: #0054bc;
     text-transform: uppercase;
     margin: 0 auto
 }
@@ -13202,7 +13196,7 @@ input[type="submit"]:focus {
     content: "\f041";
     padding-right: 5px;
     font-weight: bold;
-    color: #d37507
+    color: #0054bc
 }
 
 @media only screen and (max-width: 699px) {
@@ -13219,7 +13213,7 @@ input[type="submit"]:focus {
     font-family: "Font Awesome 5 Free", "FontAwesome";
     content: "\f017";
     padding-right: 5px;
-    color: #d37507
+    color: #0054bc
 }
 
 @media only screen and (max-width: 699px) {
@@ -13266,7 +13260,7 @@ input[type="submit"]:focus {
 }
 
 .interior .secondaryNav>ul {
-    background-color: #d37507;
+    background-color: #0054bc;
     margin-top: 0px;
     position: relative;
     z-index: 100;
@@ -13288,7 +13282,7 @@ input[type="submit"]:focus {
     -webkit-transform-origin: 0 0;
     -ms-transform-origin: 0 0;
     transform-origin: 0 0;
-    background-color: #d37507
+    background-color: #0054bc
 }
 
 @media only screen and (min-width: 700px) and (max-width: 1023px) {
@@ -13366,6 +13360,14 @@ input[type="submit"]:focus {
 }
 
 .interior-type1.sidebar-right .sideBar {
+    padding-top: 20px
+}
+
+.interior-type1.sidebar-both {
+    padding-top: 70px;
+}
+
+.interior-type1.sidebar-both .midWrap {
     padding-top: 20px
 }
 
@@ -13690,7 +13692,7 @@ input[type="submit"] {
 }
 
 .home-section .sectionRow.imod-countdown-2 .sectionContent .countdownWidget2 .unit .unitInner {
-    background-color: #d37507;
+    background-color: #0054bc;
     position: relative
 }
 
@@ -13709,7 +13711,7 @@ input[type="submit"] {
     -webkit-transform-origin: 0 0;
     -ms-transform-origin: 0 0;
     transform-origin: 0 0;
-    background-color: #d37507
+    background-color: #0054bc
 }
 
 .home-section .sectionRow.imod-countdown-2 .sectionContent .countdownWidget2 .unit .unitInner .val {
@@ -13773,7 +13775,7 @@ input[type="submit"] {
 .home-section .sectionRow.imod-cpi-1 .imod-progWidget .title {
     padding-top: 0;
     font-family: Helvetica, Arial, sans-serif;
-    border-bottom: 4px solid #d37507;
+    border-bottom: 4px solid #0054bc;
     display: inline-block;
     padding-bottom: 4px;
     margin-bottom: 0px
@@ -13947,7 +13949,7 @@ input[type="submit"] {
 .home-section .sectionRow.imod-cpi-2 .imod-progWidget .text .title {
     padding-top: 0;
     font-family: Helvetica, Arial, sans-serif;
-    border-bottom: 4px solid #d37507;
+    border-bottom: 4px solid #0054bc;
     display: inline-block;
     padding-bottom: 4px;
     margin-bottom: 15px
@@ -14358,7 +14360,7 @@ input[type="submit"] {
 
 .sectionRow.imod-events-1 .eventsItem.stacked .text .title a {
     text-decoration: none;
-    border-bottom: 4px solid #d37507
+    border-bottom: 4px solid #0054bc
 }
 
 .sectionRow.imod-events-1 .eventsItem.stacked .text .title a:hover {
@@ -14518,7 +14520,7 @@ input[type="submit"] {
 
 .imod-events-2 .eventsItem.horiz .text .title a {
     text-decoration: none;
-    border-bottom: 3px solid #d37507
+    border-bottom: 3px solid #0054bc
 }
 
 .imod-events-2 .eventsItem.horiz .text .title a:hover,
@@ -14687,7 +14689,7 @@ input[type="submit"] {
 
 .imod-events-3 .eventsItem.stacked .text .title a {
     text-decoration: none;
-    border-bottom: 3px solid #d37507
+    border-bottom: 3px solid #0054bc
 }
 
 .imod-events-3 .eventsItem.stacked .text .title a:hover {
@@ -14869,7 +14871,7 @@ input[type="submit"] {
 
 .imod-events-4 .eventsItem.horiz .text .title a {
     text-decoration: none;
-    border-bottom: 3px solid #d37507
+    border-bottom: 3px solid #0054bc
 }
 
 .imod-events-4 .eventsItem.horiz .text .title a:hover {
@@ -14945,7 +14947,7 @@ input[type="submit"] {
 
 .imod-events-5 .eventsItem.vert .title a {
     text-decoration: none;
-    border-bottom: 3px solid #d37507
+    border-bottom: 3px solid #0054bc
 }
 
 .imod-events-5 .eventsItem.vert .title a:hover,
@@ -15107,7 +15109,7 @@ footer .social li a {
 .home-section .imod-giveBtns-1 ul.giveBtnsList li a span.sm {
     float: none;
     top: 0;
-    color: #d37507
+    color: #0054bc
 }
 
 .home-section .imod-giveBtns-1 ul.giveBtnsList li a:hover,
@@ -15118,7 +15120,7 @@ footer .social li a {
 }
 
 .home-section .imod-giveBtns-1 ul.giveBtnsList li a.otherAmt {
-    background-color: #d37507;
+    background-color: #0054bc;
     font-size: 1.2em;
     font-weight: bold
 }
@@ -15126,7 +15128,7 @@ footer .social li a {
 .home-section .imod-giveBtns-1 ul.giveBtnsList li a.otherAmt:hover,
 .home-section .imod-giveBtns-1 ul.giveBtnsList li a.otherAmt:focus {
     background: transparent;
-    border-color: #d37507;
+    border-color: #0054bc;
     color: #222 !important
 }
 
@@ -15709,7 +15711,7 @@ blockquote p:last-child {
     font-size: .65em;
     line-height: 1em;
     display: none;
-    background-color: #d37507
+    background-color: #0054bc
 }
 
 .home-section .newsItem.stacked a {
@@ -15882,7 +15884,7 @@ blockquote p:last-child {
     font-size: .65em;
     line-height: 1em;
     display: none;
-    background-color: #d37507
+    background-color: #0054bc
 }
 
 .home-section .newsItem.horiz .more a {
@@ -16368,6 +16370,7 @@ blockquote p:last-child {
 
 .home-section .imageRotator.imod-rotator-1 .slick-slide .gradientOverlay {
     background: rgba(211, 117, 7, 0.8);
+    background: rgba(0,84,188,0.8);
     -webkit-transform: rotate(-5deg);
     -ms-transform: rotate(-5deg);
     transform: rotate(-5deg);
@@ -16537,7 +16540,7 @@ blockquote p:last-child {
     text-transform: none;
     font-size: 2em;
     line-height: 1;
-    border-bottom: 4px solid #d37507;
+    border-bottom: 4px solid #0054bc;
     display: inline-block;
     margin-bottom: 20px
 }
@@ -16638,7 +16641,7 @@ p:first-child {
 }
 
 .imod-text-3 .sectionContent .icon {
-    background: #d37507;
+    background: #0054bc;
     padding: 15px 10px;
     position: relative;
     margin: 0 0 15px;
@@ -16689,7 +16692,7 @@ p:first-child {
 .imod-text-3 .sectionContent a:focus .icon {
     background: #fff;
     color: #222;
-    border-color: #d37507
+    border-color: #0054bc
 }
 
 @media only screen and (min-width: 700px) and (max-width: 1023px) {
@@ -16803,7 +16806,7 @@ p:first-child {
 
 @media only screen and (min-width: 700px) and (max-width: 1023px) {
     .cpiBasicCF .fundItem .fundInner.cpi1 .campaignStats .progressInfo .data-viz .vizWrapper .bar .progressBar {
-        background-color: #d37507
+        background-color: #0054bc
     }
 }
 
@@ -17110,7 +17113,8 @@ p:first-child {
     .interior .crowdfunding-interior.sidebar-left,
     .interior .interior-type1.sidebar-left,
     .interior .crowdfunding-interior.sidebar-right,
-    .interior .interior-type1.sidebar-right {
+    .interior .interior-type1.sidebar-right,
+    .interior .interior-type1.sidebar-both {
         padding-top: 0
     }
 }
@@ -17123,7 +17127,8 @@ p:first-child {
 @media only screen and (max-width: 699px) {
 
     .interior .crowdfunding-interior.sidebar-left .midWrap,
-    .interior .interior-type1.sidebar-left .midWrap {
+    .interior .interior-type1.sidebar-left .midWrap,
+    .interior .interior-type1.sidebar-both .midWrap {
         padding-top: 0
     }
 }
@@ -17180,7 +17185,7 @@ p:first-child {
 
 .utilityNav ul li a:hover,
 .utilityNav ul li a:focus {
-    color: #d37507
+    color: #0054bc
 }
 
 .desktopNav .desktopNavInner>ul>li>a {

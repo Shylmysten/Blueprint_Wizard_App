@@ -53,10 +53,10 @@ const CountDownTimerOne = () => {
                     secondBgColor:'#abacb1',
                     
                     //Circle color
-                    dayCircleColor: sectionName.includes('3') ? '#d37507' : '#000',
-                    hourCircleColor: sectionName.includes('3') ? '#d37507' : '#000',
-                    minuteCircleColor: sectionName.includes('3') ? '#d37507' : '#000',
-                    secondCircleColor: sectionName.includes('3') ? '#d37507' : '#000',
+                    dayCircleColor: sectionName.includes('3') ? '#0054bc' : '#000',
+                    hourCircleColor: sectionName.includes('3') ? '#0054bc' : '#000',
+                    minuteCircleColor: sectionName.includes('3') ? '#0054bc' : '#000',
+                    secondCircleColor: sectionName.includes('3') ? '#0054bc' : '#000',
                     
                     //Text font size
                     dayTextFontSize:12,
@@ -65,16 +65,16 @@ const CountDownTimerOne = () => {
                     secondTextFontSize:12,
                     
                     //Counter font color
-                    dayCounterFontColor: sectionName.includes('3') ? '#fff' : '#000',
-                    hourCounterFontColor: sectionName.includes('3') ? '#fff' : '#000',
-                    minuteCounterFontColor: sectionName.includes('3') ? '#fff' : '#000',
-                    secondCounterFontColor: sectionName.includes('3') ? '#fff' : '#000',
+                    dayCounterFontColor: '#000',
+                    hourCounterFontColor: '#000',
+                    minuteCounterFontColor: '#000',
+                    secondCounterFontColor: '#000',
                     
                     //Text font color
-                    dayTextFontColor: sectionName.includes('3') ? '#fff' : '#000',
-                    hourTextFontColor: sectionName.includes('3') ? '#fff' : '#000',
-                    minuteTextFontColor: sectionName.includes('3') ? '#fff' : '#000',
-                    secondTextFontColor: sectionName.includes('3') ? '#fff' : '#000',
+                    dayTextFontColor: '#000',
+                    hourTextFontColor: '#000',
+                    minuteTextFontColor: '#000',
+                    secondTextFontColor: '#000',
                     
                     //Texts top margin
                     dayTextMarginTop:3,

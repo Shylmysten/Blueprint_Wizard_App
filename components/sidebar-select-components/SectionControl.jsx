@@ -24,14 +24,16 @@ export default function SectionControl({ sectionIndex, categories, iframeRef, is
         const sectionParam = searchParams.get(`section${sectionIndex + 1}`);
 
         if (sectionParam && !userInteracted.current) {
+     
             const [category, itemIndex] = [sectionParam.slice(0, -1), parseInt(sectionParam.slice(-1)) - 1];
-
+            
             // Find the matching category key
             const matchedCategory = Object.keys(categories).find((key) =>
                 key.toLowerCase().includes(category)
             );
+        
             const matchedItem = categories[matchedCategory][itemIndex];
-            
+           
             if (matchedCategory) {
                 setSectionState((prevState) => ({
                     ...prevState,

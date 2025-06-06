@@ -92,8 +92,8 @@ h2.previewDefault span {
 }
 
 .bp-preview-section.home-section.odd[id="bpSection3"].odd>*:not(.empty) {
-    background-color: #07407b !important;
-    color: #fff
+    background-color: #EAF3F9 !important;
+    /*color: #fff*/
 }
 
 body.theme2Style .bp-preview-section.home-section.odd[id="bpSection3"].odd>*:not(.empty) {
@@ -195,7 +195,7 @@ img {
 }
 
 :not(.mobileNav) .desktopNav .desktopNavInner li li a:hover {
-    color: #d37507 !important
+    /*color: #0054bc !important*/
 }
 
 body:not(.home-crowdfunding):not(.theme3Style):not(.theme4Style) .home-section.odd:not([id="bpSection3"]):not(.empty) {
@@ -212,9 +212,9 @@ body:not(.theme2Style) nav#ContentAddress p {
 }
 
 body #bpSection3 a.button {
-    border: 2px solid #fff;
+    /*border: 2px solid #fff;
     text-decoration: none;
-    background: #fff0;
+    background: #fff0;*/
     font-weight: 700
 }
 
@@ -267,10 +267,10 @@ body #bpSection3 a.button:hover {
 }
 
 .theme0Style:not(.interior) .newsItem .newsInner>a:hover .title {
-    -webkit-text-decoration-color: #d37507 !important;
-    text-decoration-color: #d37507 !important;
+    -webkit-text-decoration-color: #0054bc !important;
+    text-decoration-color: #0054bc !important;
     text-decoration: underline;
-    color: #d37507
+    color: #0054bc
 }
 
 .theme0Style .imod-quotes-1 .quoteItem {
@@ -278,13 +278,13 @@ body #bpSection3 a.button:hover {
 }
 
 .theme0Style .home-section#bpSection3 .imod-quotes-1 a {
-    color: #fff
+    /*color: #fff*/
 }
 
 .theme0Style .imod-quotes-1 a:hover .title {
     text-decoration: underline;
-    -webkit-text-decoration-color: #d37507;
-    text-decoration-color: #d37507
+    -webkit-text-decoration-color: #0054bc;
+    text-decoration-color: #0054bc
 }
 
 .theme0Style .imod-quicklinks-2 .icon .iconInner a {
@@ -303,7 +303,7 @@ body #bpSection3 a.button:hover {
 }
 
 .theme0Style .imod-quicklinks-2 .icon .iconInner h2 {
-    color: #222
+    color: #FFF
 }
 
 .theme0Style .newsItem.horiz .thumb {
@@ -371,7 +371,7 @@ body #bpSection3 a.button:hover {
 }
 
 .theme0Style .home-section#bpSection3 .imod-quicklinks-1 .icon a .fa:before {
-    color: #fff
+    /*color: #fff*/
 }
 
 .theme0Style .imod-tabs-3 .section-tabs .tabs-wrap.horizontal .menuwrap {
@@ -393,20 +393,20 @@ body #bpSection3 a.button:hover {
 .theme0Style .home-section[id="bpSection3"] section:not([class^='imod-tabs-']) h3,
 .theme0Style .home-section[id="bpSection3"] h4,
 .theme0Style .home-section[id="bpSection3"] h5 {
-    color: #fff
+    /*color: #fff*/
 }
 
 .theme0Style .home-section#bpSection3 [class^='imod-events-'] .title a {
-    color: #fff;
+    /*color: #fff;
     text-decoration: underline;
     -webkit-text-decoration-color: #d37508 !important;
-    text-decoration-color: #d37508 !important
+    text-decoration-color: #d37508 !important*/
 }
 
 .theme0Style .home-section#bpSection3 [class^='imod-events-'] .title a:hover {
-    -webkit-text-decoration-color: #fff !important;
-    text-decoration-color: #fff !important;
-    color: #D37508
+    -webkit-text-decoration-color: #0054bc !important;
+    text-decoration-color: #0054bc !important;
+    color: #0054bc
 }
 
 .theme0Style .home-section#bpSection3 ul.giveBtnsList li a {
@@ -414,7 +414,7 @@ body #bpSection3 a.button:hover {
 }
 
 .theme0Style .home-section#bpSection3 ul.giveBtnsList li a:hover {
-    border-color: #d37508
+    border-color: #0054bc
 }
 
 .theme0Style .imod-quotes-2 .quoteItem .main .preview:before {
@@ -509,7 +509,7 @@ body #bpSection3 a.button:hover {
 }
 
 .theme1Style .home-section#bpSection3 .text {
-    color: #fff
+    /*color: #fff*/
 }
 
 .theme1Style .imod-quotes-1 .quoteItem {
@@ -517,7 +517,7 @@ body #bpSection3 a.button:hover {
 }
 
 .theme1Style .imod-quicklinks-2 .icon .iconInner:hover h2 {
-    color: #222
+    /*color: #222*/
 }
 
 .theme1Style .odd .imod-tabs-1 .section-tabs .tabs-wrap.horizontal .menuwrap ul.menu li a,
@@ -560,7 +560,7 @@ body #bpSection3 a.button:hover {
 .theme1Style .home-section[id="bpSection3"] section:not([class^='imod-tabs-']) h3,
 .theme1Style .home-section[id="bpSection3"] h4,
 .theme1Style .home-section[id="bpSection3"] h5 {
-    color: #fff
+    /*color: #fff*/
 }
 
 .theme1Style .cfDesign2.sectionRow {
@@ -572,7 +572,8 @@ body #bpSection3 a.button:hover {
 }
 
 .interior .gridItem .gridInner .thumb {
-    margin-bottom: 15px
+    margin-bottom: 15px;
+    background-size: cover
 }
 
 .interior .gridItem .gridInner .title {
@@ -586,7 +587,7 @@ body #bpSection3 a.button:hover {
 
 .interior .gridItem .gridInner .preview {
     text-decoration: none;
-    color: initial
+    /*color: initial*/
 }
 
 @media only screen and (min-width:700px) and (max-width:1023px) {
@@ -764,8 +765,8 @@ body #bpSection3 a.button:hover {
 
 .theme2Style .home-section .imod-quotes-1 .text:hover .title {
     text-decoration: underline;
-    -webkit-text-decoration-color: #d37507;
-    text-decoration-color: #d37507
+    -webkit-text-decoration-color: #0054bc;
+    text-decoration-color: #0054bc
 }
 
 .theme2Style .home-section#bpSection1 .imod-quotes-2 .preview,
@@ -784,7 +785,7 @@ body #bpSection3 a.button:hover {
 }
 
 .theme2Style .home-section[id="bpSection3"] .imod-quicklinks-1 .icon .iconInner a:hover h2 {
-    color: #d37507
+    color: #0054bc
 }
 
 .theme2Style .home-section#bpSection3 .imod-quicklinks-2 .icon .iconInner a h2 {
@@ -837,7 +838,7 @@ body #bpSection3 a.button:hover {
 }
 
 .theme2Style .home-section#bpSection3 .imod-events-5 .eventsItem .eventInner .thumb .date {
-    border-right: 8px solid #d37507
+    border-right: 8px solid #0054bc
 }
 
 .theme2Style .home-section#bpSection1 .imod-events-5 .eventsItem .eventInner .text .title a,
@@ -852,8 +853,8 @@ body #bpSection3 a.button:hover {
 
 .theme2Style .imod-events-5 .eventsItem .eventInner .text .title a {
     text-decoration: none;
-    -webkit-text-decoration-color: #d37507 !important;
-    text-decoration-color: #d37507 !important
+    -webkit-text-decoration-color: #0054bc !important;
+    text-decoration-color: #0054bc !important
 }
 
 .theme2Style .imod-events-5 .eventsItem .eventInner .text .title:hover a {
@@ -885,7 +886,7 @@ body #bpSection3 a.button:hover {
     content: '';
     height: 40px;
     width: 275px;
-    border-bottom: solid 3px #d37507
+    border-bottom: solid 3px #0054bc
 }
 
 .theme2Style .home-section#bpSection1 .imod-cpi-1 .imod-progWidget .preview,
@@ -973,7 +974,14 @@ body #bpSection3 a.button:hover {
 .theme3Style .home-section[id="bpSection3"] h4,
 .theme3Style .home-section[id="bpSection3"] h5,
 .theme3Style .home-section[id="bpSection3"] .title,
-.theme3Style .home-section[id="bpSection3"] .title a {
+.theme3Style .home-section[id="bpSection3"] .title a,
+.theme3Style .home-section[id="bpSection3"] .eventsItem .preview,
+.theme3Style .home-section[id="bpSection3"] [class*="imod-text"] .sectionContent,
+.theme3Style .home-section[id="bpSection3"] [class*="imod-social"] .sectionContent,
+.theme3Style .home-section[id="bpSection3"] [class*="imod-give"] .sectionContent,
+.theme3Style .home-section[id="bpSection3"] [class*="imod-cpi"] .sectionContent,
+.theme3Style .home-section[id="bpSection3"] .sectionRow.imod-cpi-3.cpiBasicCF .fundRow .fundItem .fundInner .progressInfo .widgetStat .value {
+
     color: #fff
 }
 
@@ -1078,8 +1086,8 @@ body #bpSection3 a.button:hover {
 
 .theme3Style .home-section .imod-quotes-1 .text:hover .title {
     text-decoration: underline;
-    -webkit-text-decoration-color: #d37507;
-    text-decoration-color: #d37507
+    -webkit-text-decoration-color: #0054bc;
+    text-decoration-color: #0054bc
 }
 
 body.theme3Style:not(.interior) .home-section#bpSection1 .imod-rotator-2 a {
@@ -1150,8 +1158,8 @@ body.theme3Style:not(.interior) .home-section#bpSection1 .imod-rotator-2.section
     }
 }
 
-.theme4Style .home-section[id="bpSection3"] :not(.empty) h2,
-.theme4Style .home-section[id="bpSection3"] h3,
+
+.theme4Style .home-section[id="bpSection3"] section:not(.imod-text-5):not(.imod-countdown-1):not(.imod-countdown-2):not(.imod-tabs-3) h3,
 .theme4Style .home-section[id="bpSection3"] h4,
 .theme4Style .home-section[id="bpSection3"] h5 {
     color: #fff
@@ -1180,9 +1188,28 @@ body.theme3Style:not(.interior) .home-section#bpSection1 .imod-rotator-2.section
     box-shadow: 5px 5px 35px rgb(0 0 0 / .3);
     padding: 25px 50px
 }
+.theme4Style .imod-cpi-2 .imod-progWidget:after {
+    content: '';
+    display: block;
+    clear: both;
+}
 
 .theme4Style .imod-rotator-1 .controlsWrap .controlsBtn {
     display: inline
+}
+
+.theme4Style .imod-quicklinks-2 .icon .iconInner h2 {
+    background:white;
+    color: #626262;
+}
+
+.theme4Style .imod-quicklinks-2 .icon .iconInner a:hover h2,
+.theme4Style .imod-quicklinks-2 .icon .iconInner a:hover >span {
+    color: #0054bc;
+}
+
+.imod-quicklinks-2 .icon .iconInner:hover {
+    opacity: 1;
 }
 
 .theme4Style .structSearch .search input {
@@ -1207,7 +1234,7 @@ body.theme3Style:not(.interior) .home-section#bpSection1 .imod-rotator-2.section
 }
 
 .theme4Style .home-section#bpSection3 .imod-quotes-2 .title {
-    color: #fff
+    /*color: #fff*/
 }
 
 .theme4Style .home-section#bpSection3 .imod-quotes-2 .text {
@@ -1299,16 +1326,16 @@ body.theme3Style:not(.interior) .home-section#bpSection1 .imod-rotator-2.section
 }
 
 .theme2Style .bp-preview-section.home-section.odd[id="bpSection3"].odd .cpiBasicCF .fundItem .fundInner .text .title a {
-    color: #07407B !important;
-    -webkit-text-decoration-color: #d37507;
-    text-decoration-color: #d37507
+    color: #07407b !important;
+    -webkit-text-decoration-color: #0054bc;
+    text-decoration-color: #0054bc
 }
 
-.bp-preview-section.home-section.odd[id="bpSection3"].odd .imod-cpi-3.cpiBasicCF .fundItem .fundInner .text .title a,
-.bp-preview-section.home-section.odd[id="bpSection3"].odd .imod-cpi-4.cpiBasicCF .fundItem .fundInner .text .title a {
-    color: #fff;
-    -webkit-text-decoration-color: #d37507;
-    text-decoration-color: #d37507
+body:not(.theme3Style) .bp-preview-section.home-section.odd[id="bpSection3"].odd .imod-cpi-3.cpiBasicCF .fundItem .fundInner .text .title a,
+body:not(.theme3Style) .bp-preview-section.home-section.odd[id="bpSection3"].odd .imod-cpi-4.cpiBasicCF .fundItem .fundInner .text .title a {
+    color: #0054bc;
+    -webkit-text-decoration-color: #0054bc;
+    text-decoration-color: #0054bc
 }
 
 .cpiBasicCF.checkerboardTiling .fundWrapper {
@@ -1645,7 +1672,7 @@ body.theme3Style:not(.interior) .home-section#bpSection1 .imod-rotator-2.section
     }
 
     .theme2Style .imod-countdown-2 .counter .unit .unitInner {
-        border-color: #d37507
+        border-color: #0054bc
     }
 
     .theme2Style #bpSection1 .imod-rotator-2 {
@@ -1692,7 +1719,7 @@ body.theme3Style:not(.interior) .home-section#bpSection1 .imod-rotator-2.section
 
 .theme0Style .utilityNav ul li a:hover,
 .theme1Style .utilityNav ul li a:hover {
-    color: #D37508
+    color: #0054bc
 }
 
 .theme1Style .headerSocial ul li:not(.searchToggle) a {
@@ -1701,12 +1728,12 @@ body.theme3Style:not(.interior) .home-section#bpSection1 .imod-rotator-2.section
 
 .theme1Style .headerSocial ul li:not(.searchToggle) a:hover,
 .theme1Style .headerSocial ul li:not(.searchToggle) a:focus {
-    background: #D37508;
+    background: #0054bc;
     border: none
 }
 
 body:not(.theme4Style) .home-section#bpSection3 .imod-cpi-2 .text .title a {
-    color: #fff
+    /*color: #fff*/
 }
 
 .home-section#bpSection3 .imod-cpi-1 .imod-progWidget .giveBtn a,
@@ -1719,9 +1746,12 @@ body:not(.theme4Style) .home-section#bpSection3 .imod-cpi-2 .text .title a {
     background: #333
 }
 
-.theme3Style .home-section#bpSection3 .cpiBasicCF .fundItem .fundInner .text .title a {
+.theme3Style .home-section#bpSection3 .cpiBasicCF:not(.imod-cpi-3):not(.imod-cpi-4) .fundItem .fundInner .text .title a {
     text-decoration: none;
-    color: #d37507
+    color: #0054bc
+}
+.theme3Style .home-section#bpSection3 .sectionRow.imod-cpi-3.cpiBasicCF .fundRow .fundItem .fundInner .progressInfo .data-viz .vizWrapper .bar .progressBar {
+      background: #0054bc
 }
 
 .theme0Style .imod-header-3:not(.drawer) #searchToggleBtn,
@@ -1762,16 +1792,16 @@ body:not(.theme4Style) .home-section#bpSection3 .imod-cpi-2 .text .title a {
 }
 
 .theme4Style .home-section[id="bpSection3"] section[class^='imod-tabs-3'] p {
-    color: #fff
+    /*color: #fff*/
 }
 
 .home.theme4Style .home-section[id="bpSection3"] .imod-tabs-3.tabSection .section-tabs .tabs-wrap.full-width .menuwrap ul.imodTabs-nav .imodTabs-tab .imodTabs-anchor {
-    color: #fff
+    /*color: #fff*/
 }
 
 .home.theme4Style .home-section[id="bpSection3"] .imod-tabs-3.tabSection .section-tabs .tabs-wrap.full-width .menuwrap ul.imodTabs-nav .imodTabs-tab.imodTabs-state-active .imodTabs-anchor {
     background: #fff;
-    color: #07407B
+    color: #07407b
 }
 
 .theme1Style .odd .imod-tabs-1 .section-tabs .tabs-wrap.horizontal .menuwrap ul.menu li a,
@@ -1814,7 +1844,7 @@ body:not(.theme4Style) .home-section#bpSection3 .imod-cpi-2 .text .title a {
 .theme3Style .home-section#bpSection3 .imod-giveBtns-1 ul.giveBtnsList li a.otherAmt:hover,
 .theme3Style .home-section#bpSection3 .imod-giveBtns-1 ul.giveBtnsList li a.otherAmt:focus {
     background: #fff;
-    border-color: #d37507;
+    border-color: #0054bc;
     color: #222 !important
 }
 
@@ -1825,28 +1855,37 @@ body:not(.theme4Style) .home-section#bpSection3 .imod-cpi-2 .text .title a {
     background-color: #fff
 }
 
-.home-section#bpSection3 .imod-countdown-1 .countdownWidget.circular-countdown .count,
-body:not(.theme2Style) .home-section#bpSection3 .imod-countdown-2 .sectionContent .countdownWidget2 .unit .unitInner .val {
+.theme3Style .home-section#bpSection3 .imod-countdown-1 .countdownWidget.circular-countdown .count,
+.theme3Style .home-section#bpSection3 .imod-countdown-1 .countdownWidget.circular-countdown .text,
+.theme3Style .home-section#bpSection3 .imod-countdown-2 .sectionContent .countdownWidget2 .unit .unitInner .val,
+.theme3Style .home-section#bpSection3 .imod-countdown-2 .sectionContent .countdownWidget2 .unit .unitInner .label,
+.theme3Style .home-section#bpSection3 .sectionRow.imod-quicklinks-1 .icon .iconInner a,
+.theme3Style .home-section#bpSection3 .quotesWrapper .slick-arrow,
+.theme3Style .home-section#bpSection3 .imod-quotes-2 .quoteItem .main .preview {
     color: white !important
+}
+
+.theme3Style .home-section#bpSection3 .imod-countdown-1 h2 {
+    text-align: center;
 }
 
 .home-section#bpSection3 .imod-countdown-1 .countdownWidget.circular-countdown .text,
 .home-section#bpSection3 .imod-countdown-2 .countdownWidget.circular-countdown .text {
-    color: #fff
+    /*color: #fff*/
 }
 
 .theme2Style .home-section#bpSection1 .imod-countdown-1 .countdownWidget.circular-countdown .count,
 .theme2Style .home-section#bpSection1 .imod-countdown-1 .countdownWidget.circular-countdown .text {
-    color: white !important
+    /*color: white !important*/
 }
 
 body.theme1Style .home-section#bpSection3 .imod-countdown-2 .sectionContent .countdownWidget2 .unit .unitInner .val,
 body.theme1Style .home-section#bpSection3 .imod-countdown-2 .sectionContent .counter .unit .label {
-    color: #06407A !important
+    /*color: #06407A !important*/
 }
 
 body.theme1Style .home-section#bpSection3 .imod-countdown-2 .sectionContent .countdownWidget2 .unit .unitInner {
-    background: #fff
+    /*background: #fff*/
 }
 
 @media only screen and (min-width:700px) and (max-width:1023px) {
@@ -2082,4 +2121,14 @@ body.theme1Style .home-section#bpSection3 .imod-countdown-2 .sectionContent .cou
     .videoHero.imod-video-vimeo .heroItem .vimeoBtns {
         display: none
     }
+}
+
+.theme3Style.interior #bpSection1 .empty {
+    margin-top: 50px !important;
+    margin-bottom: 50px !important;
+}
+
+.theme3Style.interior.interior-full #bpSection1 section.contentRow.interior-type1,
+.theme3Style.interior.interior-full #bpSection1 section.contentRow.interior-type2 {
+    padding-bottom: 120px;
 }

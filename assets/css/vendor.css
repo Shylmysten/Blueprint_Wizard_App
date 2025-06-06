@@ -1228,12 +1228,12 @@ img {
 
 .collapse {
     display: none;
-    visibility: hidden
+    /*visibility: hidden*/
 }
 
 .collapse.in {
     display: block;
-    visibility: visible
+    /*visibility: visible*/
 }
 
 tr.collapse.in {

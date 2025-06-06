@@ -5,16 +5,18 @@ import { LoadingContext } from '@/utils/LoadingContext';
 import { MemberToolsToggleContext } from '@/utils/MemberToolsToggleContext';
 import { SocialMediaToggleContext } from '@/utils/SocialMediaToggleContext';
 import categories from '../data/categories';
+import { intCategories } from '../data/categories';
 import ThemeSelector from '../components/sidebar-select-components/ThemeSelector';
 import FooterSelector from '../components/sidebar-select-components/FooterSelector'; // adjust path if needed
 import DeviceViewSelector from '../components/sidebar-select-components/DeviceViewSelector';
 import HeaderSectionControl from '@/components/sidebar-select-components/HeaderSectionControl';
 import MegaMenuToggleSwitch from '@/components/sidebar-select-components/MegaMenuToggleSwitch';
 import SectionControl from '@/components/sidebar-select-components/SectionControl';
-import {useRouter} from 'next/navigation';
+import {useRouter, useSearchParams} from 'next/navigation';
 import SocialMediaToggleSwitch from '@/components/sidebar-select-components/SocialMediaToggleSwitch';
 import MemberToolsToggleSwitch from '@/components/sidebar-select-components/MemberToolsToggleSwitch';
 import FinishModal from '@/components/FinishModal';
+import InteriorSectionControl from '@/components/sidebar-select-components/InteriorSectionControl';
 
 export default function HomePage() {
   const [iframeReady, setIframeReady] = useState(false);
@@ -26,6 +28,24 @@ export default function HomePage() {
   const [iframeClass, setIframeClass] = useState('');
   const iframeRef = useRef();
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const [isInterior, setIsInterior] = useState(false);
+
+  useEffect(() => {
+     setIsInterior(searchParams.get('template') === 'int' ? true : false);
+  }, [searchParams])
+
+  useEffect(() => {
+  if (iframeReady && iframeRef.current) {
+    iframeRef.current.contentWindow.postMessage(
+      {
+        type: 'SET_IS_INTERIOR',
+        payload: { isInterior },
+      },
+      '*'
+    );
+  }
+}, [iframeReady, isInterior]);
 
   useEffect(() => {
     if (!iframeRef.current) {
@@ -35,14 +55,14 @@ export default function HomePage() {
   }, []);
 
   useEffect(() => {
-  const handleMessage = (event) => {
-    if (event.data?.type === 'IFRAME_READY') {
-      setIframeReady(true);
-    }
-  };
-  window.addEventListener('message', handleMessage);
-  return () => window.removeEventListener('message', handleMessage);
-}, []);
+    const handleMessage = (event) => {
+      if (event.data?.type === 'IFRAME_READY') {
+        setIframeReady(true);
+      }
+    };
+    window.addEventListener('message', handleMessage);
+    return () => window.removeEventListener('message', handleMessage);
+  }, []);
 
   useEffect(() => {
     //console.log('isLoading state in HomePage:', isLoading);
@@ -120,6 +140,15 @@ export default function HomePage() {
 
     // 4. Push the new URL (with only the desired params)
     router.push(newUrl);
+
+    // 5. Notify the iframe to clear its sections
+    const iframe = document.querySelector('iframe');
+    if (iframe && iframe.contentWindow) {
+      iframe.contentWindow.postMessage(
+        { type: 'CLEAR_SECTIONS' },
+        '*'
+      );
+    }
   }
   
   const handleFinshBtnClick = () => {
@@ -151,60 +180,77 @@ export default function HomePage() {
             <MegaMenuToggleSwitch label="Enable Feature" iframeRef={iframeRef} isIframeReady={iframeReady}/>
             <SocialMediaToggleSwitch label="Enable Feature" iframeRef={iframeRef} isIframeReady={iframeReady}/>
           </div>
+        {isInterior ? (
+          <>
+            <InteriorSectionControl 
+              key={1}
+              sectionIndex={5}
+              categories={intCategories}
+              iframeRef={iframeRef}
+              isIframeReady={iframeReady}
+            />
 
-          {/* Section 1 */}
-          <SectionControl 
-            key={0}
-            sectionIndex={0}
-            categories={categories}
-            iframeRef={iframeRef}
-            isIframeReady={iframeReady}
-          />
+          </>
+        ) : ( 
+          <>
 
-          {/* Section 2 */}
-          <SectionControl 
-            key={1}
-            sectionIndex={1}
-            categories={categories}
-            iframeRef={iframeRef}
-            isIframeReady={iframeReady}
-          />
+            {/* Section 1 */}
+            <SectionControl 
+              key={0}
+              sectionIndex={0}
+              categories={categories}
+              iframeRef={iframeRef}
+              isIframeReady={iframeReady}
+            />
 
-          {/* Section 3 */}
-          <SectionControl 
-            key={2}
-            sectionIndex={2}
-            categories={categories}
-            iframeRef={iframeRef}
-            isIframeReady={iframeReady}
-          />
+            {/* Section 2 */}
+            <SectionControl 
+              key={1}
+              sectionIndex={1}
+              categories={categories}
+              iframeRef={iframeRef}
+              isIframeReady={iframeReady}
+            />
 
-          {/* Section 4 */}
-          <SectionControl 
-            key={3}
-            sectionIndex={3}
-            categories={categories}
-            iframeRef={iframeRef}
-            isIframeReady={iframeReady}
-          />
+            {/* Section 3 */}
+            <SectionControl 
+              key={2}
+              sectionIndex={2}
+              categories={categories}
+              iframeRef={iframeRef}
+              isIframeReady={iframeReady}
+            />
 
-          {/* Section 5 */}
-          <SectionControl 
-            key={4}
-            sectionIndex={4}
-            categories={categories}
-            iframeRef={iframeRef}
-            isIframeReady={iframeReady}
-          />
+            {/* Section 4 */}
+            <SectionControl 
+              key={3}
+              sectionIndex={3}
+              categories={categories}
+              iframeRef={iframeRef}
+              isIframeReady={iframeReady}
+            />
 
-          {/* Section 6 */}
-          <SectionControl 
-            key={5}
-            sectionIndex={5}
-            categories={categories}
-            iframeRef={iframeRef}
-            isIframeReady={iframeReady}
-          />
+            {/* Section 5 */}
+            <SectionControl 
+              key={4}
+              sectionIndex={4}
+              categories={categories}
+              iframeRef={iframeRef}
+              isIframeReady={iframeReady}
+            />
+
+            {/* Section 6 */}
+            <SectionControl 
+              key={5}
+              sectionIndex={5}
+              categories={categories}
+              iframeRef={iframeRef}
+              isIframeReady={iframeReady}
+            />
+          </>
+
+        )}
+         
 
 
           <FooterSelector iframeRef={iframeRef} isIframeReady={iframeReady}/>

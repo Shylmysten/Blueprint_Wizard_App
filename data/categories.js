@@ -375,3 +375,77 @@ export const headerCategories = {
   'Header 3': [...header3],
   'Header 4': [...header4],
 }
+
+
+const layout1 = [
+  {
+    label: 'Left SideBar',
+    value: 'Layout1Left'
+  },
+  {
+    label: 'Right Sidebar',
+    value: 'Layout1Right'
+  },
+  {
+    label: 'Left & Right Sidebar',
+    value: 'Layout1Both'
+  },
+  {
+    label: 'No Sidebar',
+    value: 'Layout1None'
+  },
+  {
+    label: 'Clear Section',
+    value: ''
+  },
+]
+const layout2 = [
+  {
+    label: 'Left SideBar',
+    value: 'Layout2Left'
+  },
+  {
+    label: 'Right Sidebar',
+    value: 'Layout2Right'
+  },
+  {
+    label: 'Left & Right Sidebar',
+    value: 'Layout2Both'
+  },
+  {
+    label: 'No Sidebar',
+    value: 'Layout2None'
+  },
+  {
+    label: 'Clear Section',
+    value: ''
+  },
+]
+const crowdfundinglayouts = [
+  {
+    label: 'Circular Indicator - Left',
+    value: 'CFCircularLeft'
+  },
+  {
+    label: 'Bar Indicator - Left',
+    value: 'CFBarLeft'
+  },
+  {
+    label: 'Circular Indicator - Right',
+    value: 'CFCircularRight'
+  },
+  {
+    label: 'Bar Indicator - Right',
+    value: 'CFBarRight'
+  },
+  {
+    label: 'Clear Section',
+    value: ''
+  },
+]
+
+export const intCategories = {
+     'Layout Option 1': [...layout1],
+     'Layout Option 2': [...layout2],
+     'CrowdFunding Layouts': [...crowdfundinglayouts]
+}
