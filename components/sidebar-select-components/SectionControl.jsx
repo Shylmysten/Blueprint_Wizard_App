@@ -13,10 +13,10 @@ export default function SectionControl({ sectionIndex, categories, iframeRef, is
     const searchParams = useSearchParams();
     const userInteracted = useRef(false);
 
-  // Ensure the component is mounted on the client
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
+    // Ensure the component is mounted on the client
+    useEffect(() => {
+        setIsClient(true);
+    }, []);
 
     useEffect(() => {
         if (!isIframeReady) return;
