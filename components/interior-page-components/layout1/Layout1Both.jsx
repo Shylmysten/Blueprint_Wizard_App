@@ -39,7 +39,14 @@ const Layout1Both = () => {
                 <div className="row">
                         <section className="col-sm-12 col-md-9 col-md-push-3 midWrap">
                             <div id="ContentMiddleLayoutFtImgWide" runat="server" className="ftImg emptyCollapse-bottom">
-                                <img border="0" src="/interior-wide1.jpg"/>
+                                <Image 
+                                    border="0" 
+                                    src="/interior-wide1.jpg"
+                                    width={823}
+                                    height={242}
+                                    style={{width: '100%'}}
+                                    alt=''
+                                />
                             </div>
         
                             <div className="row">

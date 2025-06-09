@@ -17,11 +17,13 @@ const InteriorSectionControl = ({ sectionIndex, categories, iframeRef, isIframeR
     const handleItemChange = (e) => {
         userInteracted.current = true;
         const selectedItem = e.target.value;
+      
         setSectionState((prevState) => {
         const updatedState = { ...prevState, item: selectedItem };
 
         // Update iframe with the selected item
         const selectedCategory = selectedItem === '' ? '' : prevState.category;
+
 
         if (selectedItem === '') {
             updatedState.category = ''; // Reset category when "Clear Section" is selected

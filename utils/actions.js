@@ -48,6 +48,10 @@ import Layout2Left from '@/components/interior-page-components/layout2/Layout2Le
 import Layout2Right from '@/components/interior-page-components/layout2/Layout2Right';
 import Layout2Both from '@/components/interior-page-components/layout2/Layout2Both';
 import Layout2None from '@/components/interior-page-components/layout2/Layout2None';
+import CFCircularLeft from '@/components/interior-page-components/crowdfunding-layouts/CFCircularLeft';
+import CFBarLeft from '@/components/interior-page-components/crowdfunding-layouts/CFBarLeft';
+import CFCircularRight from '@/components/interior-page-components/crowdfunding-layouts/CFCircularRight';
+import CFBarRight from '@/components/interior-page-components/crowdfunding-layouts/CFBarRight';
 
 export const updateIframe = (index, category, item, iframeRef) => {
   iframeRef.current?.contentWindow?.postMessage(
@@ -240,11 +244,11 @@ const interiorComponentMapping = {
     Layout2Both: Layout2Both,
     Layout2None: Layout2None,
   },
-  "Crowdfunding Layouts": {
-    //CFCircularLeft: CFCircularLeft,
-    //CFCircularRight: CFCircularRight,
-    //CFBarLeft: CFBarLeft,
-    //CFBarRight: CFBarRight,
+  "CrowdFunding Layouts": {
+    CFCircularLeft: CFCircularLeft,
+    CFBarLeft: CFBarLeft,
+    CFCircularRight: CFCircularRight,
+    CFBarRight: CFBarRight,
   },
 }
 

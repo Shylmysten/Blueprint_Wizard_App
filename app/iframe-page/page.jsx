@@ -339,6 +339,7 @@ export default function IframePage() {
     {isLoading && (
       <LoadingSpinner />
     )}
+    <link rel="stylesheet" href="//design.imodules.com/css/controls/progressindicator/indicator.min.css"></link>
       <div className="frameWrap" style={{opacity: isInitialized ? '1' : '0', transition: '500ms ease-in all'}}>
         <div id="outer-wrap" className="m-pikabu-viewport">
           <div id="inner-wrap" className="m-pikabu-container">
