@@ -162,3 +162,11 @@ export const formatSectionCategory = (sectionCategory) => {
     }
     return formattedSectionCategory;
 }
+
+export function getCategoryFromSectionParam(sectionParam) {
+    if (!sectionParam) return '';
+    if (sectionParam.includes('layout1')) return 'Layout Option 1';
+    if (sectionParam.includes('layout2')) return 'Layout Option 2';
+    if (sectionParam.includes('CF')) return 'CrowdFunding Layouts';
+    return '';
+}

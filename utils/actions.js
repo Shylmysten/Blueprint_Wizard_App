@@ -64,6 +64,7 @@ export const updateIframe = (index, category, item, iframeRef) => {
 };
 
 export const updateIframeInterior = (index, category, item, iframeRef) => {
+  console.log(category, item);
   iframeRef.current?.contentWindow?.postMessage(
     {
       type: 'UPDATE_INTERIOR_SECTION',

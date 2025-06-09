@@ -159,10 +159,14 @@ export default function IframePage() {
     if (!isClient) return;
 
     // ✅ Set the body class of iFrame based on isInterior state
+    const body = document.querySelector('body');
     if (isInterior === true) {
-        const body = document.querySelector('body');
         body.classList.remove('home', 'home-full');
         body.classList.add('interior', 'interior-full');
+      } else {
+        body.classList.remove('interior', 'interior-full');
+        body.classList.add('home', 'home-full');
+
     }
 
     // ✅ Load modernizr only after jQuery is loaded

@@ -17,6 +17,7 @@ import SocialMediaToggleSwitch from '@/components/sidebar-select-components/Soci
 import MemberToolsToggleSwitch from '@/components/sidebar-select-components/MemberToolsToggleSwitch';
 import FinishModal from '@/components/FinishModal';
 import InteriorSectionControl from '@/components/sidebar-select-components/InteriorSectionControl';
+import Header from '@/components/shared/Header';
 
 export default function HomePage() {
   const [iframeReady, setIframeReady] = useState(false);
@@ -161,6 +162,7 @@ export default function HomePage() {
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
+      <Header isInterior={isInterior} setIsInterior={setIsInterior} />
       <main style={styles.container}>
         {/* Sidebar */}
        
@@ -186,7 +188,7 @@ export default function HomePage() {
           <>
             <InteriorSectionControl 
               key={1}
-              sectionIndex={5}
+              sectionIndex={0}
               categories={intCategories}
               iframeRef={iframeRef}
               isIframeReady={iframeReady}

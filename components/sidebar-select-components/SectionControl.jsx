@@ -26,6 +26,7 @@ export default function SectionControl({ sectionIndex, categories, iframeRef, is
 
     useEffect(() => {
         if (!isIframeReady) return;
+        if (searchParams.get('template') === 'int') return; 
 
         const sectionParam = searchParams.get(`section${sectionIndex + 1}`);
 
@@ -37,6 +38,7 @@ export default function SectionControl({ sectionIndex, categories, iframeRef, is
             const matchedCategory = Object.keys(categories).find((key) =>
                 key.toLowerCase().includes(category)
             );
+            if(!matchedCategory) return;
         
             const matchedItem = categories[matchedCategory][itemIndex];
            
@@ -75,7 +77,7 @@ export default function SectionControl({ sectionIndex, categories, iframeRef, is
             // Add 1 to the Index because rotator0 doesn't make sense
             //console.log(`Index of the selected item: ${itemIndex + 1}`);
 
-            // Add or update the 'header' query parameter
+            // Add or update the 'section' query parameter
             const query = `${formattedCat}${
             sectionState.item ? `${itemIndex + 1}` : ''
             }`;
