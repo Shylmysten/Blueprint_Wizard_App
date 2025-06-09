@@ -13,7 +13,7 @@ const Header = ({ isInterior, setIsInterior }) => {
         const params = new URLSearchParams(window.location.search);
 
         // Decide which parameters to keep
-        let allowed = ['header', 'footer', 'theme'];
+        let allowed = ['header', 'footer', 'theme', 'membertools', 'megamenu', 'socials'];
         const isInterior = e.target.text.includes('Interior');
         if (isInterior) {
             allowed.push('template');
