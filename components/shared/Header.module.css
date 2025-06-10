@@ -1,0 +1,13 @@
+.header {
+    padding: 10px 0;
+    border-bottom: 1px solid #dee2e6;
+}
+.navLink {
+    margin-right: 15px;
+    text-decoration: none;
+    color: #FFF;
+}
+.navLink:hover {
+    color: #FFF;
+    text-decoration: underline;
+}

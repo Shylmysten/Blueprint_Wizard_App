@@ -1,5 +1,6 @@
 import Link from "next/link";
 import {useRouter, useSearchParams} from "next/navigation";
+import styles from './Header.module.css';
 
 const Header = ({ isInterior, setIsInterior }) => {
     const router = useRouter();
@@ -44,13 +45,13 @@ const Header = ({ isInterior, setIsInterior }) => {
 
 
     return (
-        <header>
-            <div className="container">
+        <header className={styles.header}>
+            <div className="container-fluid">
                 <div className="row">
                 <div className="col-xs-12">
                     <nav style={{display: 'flex', gap: '20px', padding: '10px 15px'}}>
-                        <Link href="/" onClick={handleHomeClick}>Home Page Template</Link>
-                        <Link href="/?template=int" onClick={handleHomeClick}>Interior Page Template</Link>
+                        <Link className={styles.navLink} href="/" onClick={handleHomeClick}>Home Page Template</Link>
+                        <Link className={styles.navLink} href="/?template=int" onClick={handleHomeClick}>Interior Page Template</Link>
                     </nav>
                 </div>
                 </div>

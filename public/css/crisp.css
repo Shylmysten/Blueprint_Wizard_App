@@ -15100,7 +15100,7 @@ h2 {
 }
 
 .structHead .headerSocial ul li.searchToggle a:hover,
-.structHead .headerSocial ul li.searchToggle a:focus {
+.structHead .headerSocial ul li.searchToggle a:focus-visible {
     color: #fff
 }
 
