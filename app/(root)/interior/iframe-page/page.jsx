@@ -2,11 +2,11 @@
 import '@fortawesome/fontawesome-free/css/all.css';
 import '@fortawesome/fontawesome-free/css/v4-shims.css';
 import { useEffect, useState, useContext, useRef } from 'react';
-import { updateTheme, updateSection, updateFooter, updateHeader, updateInteriorSection } from '../../utils/actions';
+import { updateTheme, updateSection, updateFooter, updateHeader, updateInteriorSection } from '@/utils/actions';
 import { trapKeyBoardMobileNav, handleDrawerOpen, handleDrawerClose } from '@/utils/offCanvasUtils';
 import { MemberToolsToggleContext } from '@/utils/MemberToolsToggleContext';
 import { SocialMediaToggleContext } from '@/utils/SocialMediaToggleContext';
-import { DropdownToggleContext } from '../../utils/DropdownToggleContext';
+import { DropdownToggleContext } from '@/utils/DropdownToggleContext';
 import { LoadingContext } from '@/utils/LoadingContext';
 import DrawerOneComponent from '@/components/header-components/header1-components/DrawerOneComponent';
 import OverlayOneComponent from '@/components/header-components/header1-components/OverlayOneComponent';
@@ -36,7 +36,6 @@ export default function IframePage() {
   const offCanvasRef = useRef(null); // Ref for the #off-canvas element
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const { isLoading, setIsLoading } = useContext(LoadingContext);
-  const [isInterior, setIsInterior] = useState(false);
 
 
   //useEffect(() => {
@@ -104,9 +103,6 @@ export default function IframePage() {
             updateSection({ index: i, category: '', item: '' });
           }
           break;
-        case 'SET_IS_INTERIOR':
-          setIsInterior(payload.isInterior);
-          break;
         case 'UPDATE_THEME':
           updateTheme(payload);
           break;
@@ -153,21 +149,18 @@ export default function IframePage() {
 
     window.addEventListener('message', handleMessage);
     return () => window.removeEventListener('message', handleMessage);
-  }, [setIsDropdownToggleSwitchOn, isSocialMediaToggleSwitchOff, isMemberToolsToggleSwitchOff, isInterior]);
+  }, [setIsDropdownToggleSwitchOn, isSocialMediaToggleSwitchOff, isMemberToolsToggleSwitchOff]);
     
   useEffect(() => {
     if (!isClient) return;
 
     // ✅ Set the body class of iFrame based on isInterior state
     const body = document.querySelector('body');
-    if (isInterior === true) {
-        body.classList.remove('home', 'home-full');
-        body.classList.add('interior', 'interior-full');
-      } else {
-        body.classList.remove('interior', 'interior-full');
-        body.classList.add('home', 'home-full');
 
-    }
+    body.classList.remove('home', 'home-full');
+    body.classList.add('interior', 'interior-full');
+
+
 
     // ✅ Load modernizr only after jQuery is loaded
     const modernizrScript = document.createElement('script');
@@ -222,7 +215,7 @@ export default function IframePage() {
    // Mark as initialized
    setIsInitialized(true);
 
-  }, [isClient, isInterior]);
+  }, [isClient]);
 
   const renderHeaderComponent = () => {
     if (headerCategory === 'Header 1') {
@@ -388,35 +381,10 @@ export default function IframePage() {
             {renderHeaderComponent()}
             </section>
             
-            <section className={`bp-preview-section body-section ${!isInterior ? 'empty odd home-section' : ''}`} id='bpSection1'>
+            <section className={`bp-preview-section body-section`} id='bpSection1'>
               <div className="empty"><h2 className="previewDefault">Section 1</h2></div>
             </section>
             
-            
-            {!isInterior && (
-              <>
-                 <section className='bp-preview-section body-section empty home-section' id='bpSection2'>
-                  <div className="empty"><h2 className="previewDefault">Section 2</h2></div>
-                </section>
-
-                <section className='bp-preview-section body-section empty odd home-section' id='bpSection3'>
-                  <div className="empty"><h2 className="previewDefault">Section 3</h2></div>
-                </section>
-
-                <section className='bp-preview-section body-section empty home-section' id='bpSection4'>
-                  <div className="empty"><h2 className="previewDefault">Section 4</h2></div>
-                </section>
-
-                <section className='bp-preview-section body-section empty odd home-section' id='bpSection5'>
-                  <div className="empty"><h2 className="previewDefault">Section 5</h2></div>
-                </section>
-
-                <section className='bp-preview-section body-section empty home-section' id='bpSection6'>
-                  <div className="empty"><h2 className="previewDefault">Section 6</h2></div>
-                </section>
-              </>
-
-            )}
 
             <section className="bp-preview-section footer-section empty" id="bpFooter">
               <div className="empty"><h2 className="previewDefault">Footer</h2></div>

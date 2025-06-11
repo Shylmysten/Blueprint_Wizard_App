@@ -2132,3 +2132,7 @@ body.theme1Style .home-section#bpSection3 .imod-countdown-2 .sectionContent .cou
 .theme3Style.interior.interior-full #bpSection1 section.contentRow.interior-type2 {
     padding-bottom: 120px;
 }
+
+.circular-countdown {
+    overflow: hidden;
+}

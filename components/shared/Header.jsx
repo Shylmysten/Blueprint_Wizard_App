@@ -29,16 +29,20 @@ const Header = ({ isInterior, setIsInterior }) => {
             }
         });
 
+        let newUrl = '';
         // For Interior Page Template, always set template=int
         if (isInterior) {
             newParams.set('template', 'int');
             setIsInterior(true);
+                    // Build new URL
+           newUrl = newParams.toString() ? `/interior?${newParams.toString()}` : '/';
         } else {
             setIsInterior(false);
+            // Build new URL
+            newUrl = newParams.toString() ? `/?${newParams.toString()}` : '/';
         }
 
-        // Build new URL
-        const newUrl = newParams.toString() ? `/?${newParams.toString()}` : '/';
+
 
         // Navigate
         router.push(newUrl);
@@ -52,7 +56,7 @@ const Header = ({ isInterior, setIsInterior }) => {
                 <div className="col-xs-12">
                     <nav style={{display: 'flex', gap: '20px', padding: '10px 15px'}}>
                         <Link className={styles.navLink} href="/" onClick={handleHomeClick}>Home Page Template</Link>
-                        <Link className={styles.navLink} href="/?template=int" onClick={handleHomeClick}>Interior Page Template</Link>
+                        <Link className={styles.navLink} href="/interior?template=int" onClick={handleHomeClick}>Interior Page Template</Link>
                     </nav>
                 </div>
                 </div>
