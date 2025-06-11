@@ -38,9 +38,30 @@ export default function IframePage() {
   const { isLoading, setIsLoading } = useContext(LoadingContext);
 
 
-  //useEffect(() => {
-  //  console.log('isLoading state in IframePage:', isLoading);
-  //}, [isLoading]);
+  useEffect(() => {
+    // Notify parent that iframe is ready
+    window.parent.postMessage({ type: 'IFRAME_READY' }, '*');
+  }, []);
+
+  useEffect(() => {
+    function handleMessage(event) {
+      const { type, payload } = event.data || {};
+      if (type === 'UPDATE_MEMBERTOOLS_STATE') {
+        setIsMemberToolsToggleSwitchOff(payload.isMemberToolsToggleSwitchOff);
+      }
+      if (type === 'UPDATE_DROPDOWN_STATE') {
+        setIsDropdownToggleSwitchOn(payload.isDropdownToggleSwitchOn);
+      }
+      if (type === 'UPDATE_SOCIALMEDIA_STATE') {
+        setIsSocialMediaToggleSwitchOff(payload.isSocialMediaToggleSwitchOff);
+      }
+      if (type === 'UPDATE_LOADING_STATE') {
+        setIsLoading(payload.isLoading);
+      }
+    }
+    window.addEventListener('message', handleMessage);
+    return () => window.removeEventListener('message', handleMessage);
+  }, [setIsDropdownToggleSwitchOn, setIsLoading, setIsMemberToolsToggleSwitchOff, setIsSocialMediaToggleSwitchOff]);
 
 
 
