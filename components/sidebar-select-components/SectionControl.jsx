@@ -4,7 +4,7 @@ import CategorySelect from './CategorySelect';
 import ItemSelect from './ItemSelect';
 import { updateIframe } from '@/utils/actions';
 import {useRouter, useSearchParams} from 'next/navigation';
-import {formatSectionCategory} from '@/utils/helpers';
+import {formatSectionCategory, parseSectionParam} from '@/utils/helpers';
 
 export default function SectionControl({ sectionIndex, categories, iframeRef, isIframeReady, resetKey }) {
     const [sectionState, setSectionState] = useState({ category: '', item: '' });
@@ -31,16 +31,8 @@ export default function SectionControl({ sectionIndex, categories, iframeRef, is
         const sectionParam = searchParams.get(`section${sectionIndex + 1}`);
 
         if (sectionParam && !userInteracted.current) {
-     
-            const [category, itemIndex] = [sectionParam.slice(0, -1), parseInt(sectionParam.slice(-1)) - 1];
-            
-            // Find the matching category key
-            const matchedCategory = Object.keys(categories).find((key) =>
-                key.toLowerCase().includes(category)
-            );
-            if(!matchedCategory) return;
-        
-            const matchedItem = categories[matchedCategory][itemIndex];
+
+            const [matchedCategory, matchedItem] = parseSectionParam(sectionParam, categories);
            
             if (matchedCategory) {
                 setSectionState((prevState) => ({

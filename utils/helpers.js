@@ -170,3 +170,17 @@ export function getCategoryFromSectionParam(sectionParam) {
     if (sectionParam.includes('CF')) return 'CrowdFunding Layouts';
     return '';
 }
+
+export function parseSectionParam(sectionParam, categories) {
+    const [category, itemIndex] = [sectionParam.slice(0, -1), parseInt(sectionParam.slice(-1)) - 1];
+            
+    // Find the matching category key
+    const matchedCategory = Object.keys(categories).find((key) =>
+        key.toLowerCase().includes(category)
+    );
+    if(!matchedCategory) return;
+
+    const matchedItem = categories[matchedCategory][itemIndex];
+
+    return [matchedCategory, matchedItem]
+}

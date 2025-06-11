@@ -153,7 +153,7 @@ export default function IframePage() {
 
     window.addEventListener('message', handleMessage);
     return () => window.removeEventListener('message', handleMessage);
-  }, [setIsDropdownToggleSwitchOn, isSocialMediaToggleSwitchOff, isMemberToolsToggleSwitchOff]);
+  }, [setIsDropdownToggleSwitchOn, isSocialMediaToggleSwitchOff, isMemberToolsToggleSwitchOff, isInterior]);
     
   useEffect(() => {
     if (!isClient) return;
