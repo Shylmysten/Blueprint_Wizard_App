@@ -1,9 +1,8 @@
 import {Roboto, Montserrat} from 'next/font/google';
 import '@fortawesome/fontawesome-free/css/all.css';
 import '@fortawesome/fontawesome-free/css/v4-shims.css';
-import "@/assets/css/vendor.css";
-import "@/assets/css/globals.css";
-import '@/assets/css/offcanvas.css';
+import "../assets/css/vendor.css";
+import "../assets/css/globals.css";
 import {DropdownToggleProvider} from '@/utils/DropdownToggleContext';
 import {LoadingProvider} from '@/utils/LoadingContext';
 import {SocialMediaToggleProvider} from '@/utils/SocialMediaToggleContext';
@@ -42,6 +41,9 @@ export default function RootLayout({children}) {
   return (
     <html lang="en">
       <body className={`${roboto.variable} ${montserrat.variable} home home-full`}>
+
+          
+
             <MemberToolsToggleProvider>
               <SocialMediaToggleProvider >
                 <LoadingProvider>
@@ -51,6 +53,8 @@ export default function RootLayout({children}) {
                 </LoadingProvider>
               </SocialMediaToggleProvider>
             </MemberToolsToggleProvider>
+
+
       </body>
     </html>
   );

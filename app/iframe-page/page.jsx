@@ -2,11 +2,11 @@
 import '@fortawesome/fontawesome-free/css/all.css';
 import '@fortawesome/fontawesome-free/css/v4-shims.css';
 import { useEffect, useState, useContext, useRef } from 'react';
-import { updateTheme, updateSection, updateFooter, updateHeader, updateInteriorSection } from '../../../../utils/actions';
+import { updateTheme, updateSection, updateFooter, updateHeader, updateInteriorSection } from '../../utils/actions';
 import { trapKeyBoardMobileNav, handleDrawerOpen, handleDrawerClose } from '@/utils/offCanvasUtils';
 import { MemberToolsToggleContext } from '@/utils/MemberToolsToggleContext';
 import { SocialMediaToggleContext } from '@/utils/SocialMediaToggleContext';
-import { DropdownToggleContext } from '../../../../utils/DropdownToggleContext';
+import { DropdownToggleContext } from '../../utils/DropdownToggleContext';
 import { LoadingContext } from '@/utils/LoadingContext';
 import DrawerOneComponent from '@/components/header-components/header1-components/DrawerOneComponent';
 import OverlayOneComponent from '@/components/header-components/header1-components/OverlayOneComponent';
@@ -39,30 +39,9 @@ export default function IframePage() {
   const [isInterior, setIsInterior] = useState(false);
 
 
-  useEffect(() => {
-    // Notify parent that iframe is ready
-    window.parent.postMessage({ type: 'IFRAME_READY' }, '*');
-  }, []);
-
-  useEffect(() => {
-    function handleMessage(event) {
-      const { type, payload } = event.data || {};
-      if (type === 'UPDATE_MEMBERTOOLS_STATE') {
-        setIsMemberToolsToggleSwitchOff(payload.isMemberToolsToggleSwitchOff);
-      }
-      if (type === 'UPDATE_DROPDOWN_STATE') {
-        setIsDropdownToggleSwitchOn(payload.isDropdownToggleSwitchOn);
-      }
-      if (type === 'UPDATE_SOCIALMEDIA_STATE') {
-        setIsSocialMediaToggleSwitchOff(payload.isSocialMediaToggleSwitchOff);
-      }
-      if (type === 'UPDATE_LOADING_STATE') {
-        setIsLoading(payload.isLoading);
-      }
-    }
-    window.addEventListener('message', handleMessage);
-    return () => window.removeEventListener('message', handleMessage);
-  }, [setIsDropdownToggleSwitchOn, setIsLoading, setIsMemberToolsToggleSwitchOff, setIsSocialMediaToggleSwitchOff]);
+  //useEffect(() => {
+  //  console.log('isLoading state in IframePage:', isLoading);
+  //}, [isLoading]);
 
 
 
@@ -71,45 +50,45 @@ export default function IframePage() {
 
   // Ensure the component is mounted on the client
   useEffect(() => {
-  let defaultLoaded = false;
-  let customLoaded = false;
+    let defaultLoaded = false;
+    let customLoaded = false;
 
-  function tryLoadJQuery() {
-    if (defaultLoaded && customLoaded) {
-      const jQueryScript = document.createElement('script');
-      jQueryScript.src = '/js/jquery-1.9.1.min.js';
-      jQueryScript.async = true;
-      jQueryScript.onload = () => {
-        setIsClient(true);
-        //console.log('jQuery is loaded');
+    function tryLoadJQuery() {
+      if (defaultLoaded && customLoaded) {
+        const jQueryScript = document.createElement('script');
+        jQueryScript.src = '/js/jquery-1.9.1.min.js';
+        jQueryScript.async = true;
+        jQueryScript.onload = () => {
+          setIsClient(true);
+          //console.log('jQuery is loaded');
+        }
+        document.head.appendChild(jQueryScript);
       }
-      document.head.appendChild(jQueryScript);
     }
-  }
 
-  const customStylesheet = document.createElement('link');
-  customStylesheet.rel = 'stylesheet';
-  customStylesheet.href = '/css/previewCustom.css';
-  customStylesheet.id = 'custom-stylesheet';
-  customStylesheet.onload = () => {
-    customLoaded = true;
-    //console.log('custom stylesheet loaded');
-    tryLoadJQuery();
-  };
-  document.head.appendChild(customStylesheet);
+    const customStylesheet = document.createElement('link');
+    customStylesheet.rel = 'stylesheet';
+    customStylesheet.href = '/css/previewCustom.css';
+    customStylesheet.id = 'custom-stylesheet';
+    customStylesheet.onload = () => {
+      customLoaded = true;
+      //console.log('custom stylesheet loaded');
+      tryLoadJQuery();
+    };
+    document.head.appendChild(customStylesheet);
 
-  const defaultStylesheet = document.createElement('link');
-  defaultStylesheet.rel = 'stylesheet';
-  defaultStylesheet.href = '/css/simpleSquare.css';
-  defaultStylesheet.id = 'theme-stylesheet';
-  defaultStylesheet.onload = () => {
-    defaultLoaded = true;
-    //console.log('theme stylesheet loaded');
-    tryLoadJQuery();
-  };
-  document.head.insertBefore(defaultStylesheet, customStylesheet);
+    const defaultStylesheet = document.createElement('link');
+    defaultStylesheet.rel = 'stylesheet';
+    defaultStylesheet.href = '/css/simpleSquare.css';
+    defaultStylesheet.id = 'theme-stylesheet';
+    defaultStylesheet.onload = () => {
+      defaultLoaded = true;
+      //console.log('theme stylesheet loaded');
+      tryLoadJQuery();
+    };
+    document.head.insertBefore(defaultStylesheet, customStylesheet);
 
-  document.body.classList.add('theme0Style');
+    document.body.classList.add('theme0Style');
 
 
   }, []);
@@ -242,7 +221,7 @@ export default function IframePage() {
 
    // Mark as initialized
    setIsInitialized(true);
-    window.parent.postMessage({ type: 'IFRAME_READY' }, '*');
+
   }, [isClient, isInterior]);
 
   const renderHeaderComponent = () => {

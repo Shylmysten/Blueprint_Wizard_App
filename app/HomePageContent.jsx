@@ -4,11 +4,11 @@ import { DropdownToggleContext } from '@/utils/DropdownToggleContext';
 import { LoadingContext } from '@/utils/LoadingContext';
 import { MemberToolsToggleContext } from '@/utils/MemberToolsToggleContext';
 import { SocialMediaToggleContext } from '@/utils/SocialMediaToggleContext';
-import categories from '@/data/categories';
-import { intCategories } from '@/data/categories';
-import ThemeSelector from '@/components/sidebar-select-components/ThemeSelector';
-import FooterSelector from '@/components/sidebar-select-components/FooterSelector'; // adjust path if needed
-import DeviceViewSelector from '@/components/sidebar-select-components/DeviceViewSelector';
+import categories from '../data/categories';
+import { intCategories } from '../data/categories';
+import ThemeSelector from '../components/sidebar-select-components/ThemeSelector';
+import FooterSelector from '../components/sidebar-select-components/FooterSelector'; // adjust path if needed
+import DeviceViewSelector from '../components/sidebar-select-components/DeviceViewSelector';
 import HeaderSectionControl from '@/components/sidebar-select-components/HeaderSectionControl';
 import MegaMenuToggleSwitch from '@/components/sidebar-select-components/MegaMenuToggleSwitch';
 import SectionControl from '@/components/sidebar-select-components/SectionControl';
@@ -33,23 +33,21 @@ export default function HomePage() {
   const [isInterior, setIsInterior] = useState(false);
   const [resetSectionsKey, setResetSectionsKey] = useState(0);
 
+  useEffect(() => {
+     setIsInterior(searchParams.get('template') === 'int' ? true : false);
+  }, [searchParams])
 
-
-//  useEffect(() => {
-//     setIsInterior(searchParams.get('template') === 'int' ? true : false);
-//  }, [searchParams])
-
-//  useEffect(() => {
-//  if (iframeReady && iframeRef.current) {
-//    iframeRef.current.contentWindow.postMessage(
-//      {
-//        type: 'SET_IS_INTERIOR',
-//        payload: { isInterior },
-//      },
-//      '*'
-//    );
-//  }
-//}, [iframeReady, isInterior]);
+  useEffect(() => {
+  if (iframeReady && iframeRef.current) {
+    iframeRef.current.contentWindow.postMessage(
+      {
+        type: 'SET_IS_INTERIOR',
+        payload: { isInterior },
+      },
+      '*'
+    );
+  }
+}, [iframeReady, isInterior]);
 
   useEffect(() => {
     if (!iframeRef.current) {
@@ -58,26 +56,69 @@ export default function HomePage() {
     }
   }, []);
 
-// In HomePageContent.jsx and InteriorPageContent.jsx
-
-useEffect(() => {
-  const handleMessage = (event) => {
-    if (event.data?.type === 'IFRAME_READY') {
-      setIframeReady(true);
-      // Re-send all context state when iframe is ready
-      const iframe = iframeRef.current;
-      if (iframe && iframe.contentWindow) {
-        iframe.contentWindow.postMessage({ type: 'UPDATE_MEMBERTOOLS_STATE', payload: { isMemberToolsToggleSwitchOff } }, '*');
-        iframe.contentWindow.postMessage({ type: 'UPDATE_DROPDOWN_STATE', payload: { isDropdownToggleSwitchOn } }, '*');
-        iframe.contentWindow.postMessage({ type: 'UPDATE_SOCIALMEDIA_STATE', payload: { isSocialMediaToggleSwitchOff } }, '*');
-        iframe.contentWindow.postMessage({ type: 'UPDATE_LOADING_STATE', payload: { isLoading } }, '*');
-        // ...send any other context state needed
+  useEffect(() => {
+    const handleMessage = (event) => {
+      if (event.data?.type === 'IFRAME_READY') {
+        setIframeReady(true);
       }
-    }
-  };
+    };
     window.addEventListener('message', handleMessage);
     return () => window.removeEventListener('message', handleMessage);
-  }, [isMemberToolsToggleSwitchOff, isDropdownToggleSwitchOn, isSocialMediaToggleSwitchOff, isLoading]);
+  }, []);
+
+  useEffect(() => {
+    //console.log('isLoading state in HomePage:', isLoading);
+    const iframe = document.querySelector('iframe');
+      if (iframe && iframe.contentWindow) {
+          iframe.contentWindow.postMessage(
+              {
+                  type: 'UPDATE_LOADING_STATE',
+                  payload: { isLoading },
+              },
+              '*'
+          );
+      }
+  }, [isLoading]);
+
+  useEffect(() => {
+    const iframe = document.querySelector('iframe');
+      if (iframe && iframe.contentWindow) {
+          iframe.contentWindow.postMessage(
+              {
+                  type: 'UPDATE_MEMBERTOOLS_STATE',
+                  payload: { isMemberToolsToggleSwitchOff },
+              },
+              '*'
+          );
+      }
+  }, [isMemberToolsToggleSwitchOff]);
+
+  useEffect(() => {
+    const iframe = document.querySelector('iframe');
+      if (iframe && iframe.contentWindow) {
+          iframe.contentWindow.postMessage(
+              {
+                  type: 'UPDATE_DROPDOWN_STATE',
+                  payload: { isDropdownToggleSwitchOn },
+              },
+              '*'
+          );
+      }
+  }, [isDropdownToggleSwitchOn]);
+
+  useEffect(() => {
+    const iframe = document.querySelector('iframe');
+      if (iframe && iframe.contentWindow) {
+          iframe.contentWindow.postMessage(
+              {
+                  type: 'UPDATE_SOCIALMEDIA_STATE',
+                  payload: { isSocialMediaToggleSwitchOff },
+              },
+              '*'
+          );
+      }
+  }, [isSocialMediaToggleSwitchOff]);
+
 
 
   // Handlers for deviceView buttons
@@ -121,7 +162,7 @@ useEffect(() => {
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <Header />
+      <Header isInterior={isInterior} setIsInterior={setIsInterior} />
       <main style={styles.container}>
         {/* Sidebar */}
        
@@ -143,7 +184,20 @@ useEffect(() => {
             <MegaMenuToggleSwitch label="Enable Feature" iframeRef={iframeRef} isIframeReady={iframeReady}/>
             <SocialMediaToggleSwitch label="Enable Feature" iframeRef={iframeRef} isIframeReady={iframeReady}/>
           </div>
+        {isInterior ? (
+          <>
+            <InteriorSectionControl 
+              key={1}
+              sectionIndex={0}
+              categories={intCategories}
+              iframeRef={iframeRef}
+              isIframeReady={iframeReady}
+             
+            />
 
+          </>
+        ) : ( 
+          <>
 
             {/* Section 1 */}
             <SectionControl 
@@ -204,9 +258,9 @@ useEffect(() => {
               isIframeReady={iframeReady}
               resetKey={resetSectionsKey}
             />
+          </>
 
-
-
+        )}
          
 
 
@@ -225,7 +279,7 @@ useEffect(() => {
          
             <iframe
               ref={iframeRef}
-              src="/home/iframe-page"
+              src="/iframe-page"
               title="Content Display"
               style={styles.iframe}
               className={iframeClass} // Dynamically set className

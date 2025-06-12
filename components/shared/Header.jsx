@@ -17,9 +17,9 @@ const Header = ({ isInterior, setIsInterior }) => {
         // Decide which parameters to keep
         let allowed = ['header', 'footer', 'theme', 'membertools', 'megamenu', 'socials'];
         const isInterior = e.target.text.includes('Interior');
-        //if (isInterior) {
-        //    allowed.push('template');
-        //}
+        if (isInterior) {
+            allowed.push('template');
+        }
 
         // Build new params with only allowed keys
         const newParams = new URLSearchParams();
@@ -33,13 +33,13 @@ const Header = ({ isInterior, setIsInterior }) => {
         // For Interior Page Template, always set template=int
         if (isInterior) {
             newParams.set('template', 'int');
-            //setIsInterior(true);
+            setIsInterior(true);
                     // Build new URL
-           newUrl = `/interior?${newParams.toString()}`;
+           newUrl = newParams.toString() ? `/interior?${newParams.toString()}` : '/';
         } else {
-            //setIsInterior(false);
+            setIsInterior(false);
             // Build new URL
-            newUrl = `/home?${newParams.toString()}`;
+            newUrl = newParams.toString() ? `/?${newParams.toString()}` : '/';
         }
 
 

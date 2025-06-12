@@ -10,6 +10,7 @@ import FooterSelector from '@/components/sidebar-select-components/FooterSelecto
 import DeviceViewSelector from '@/components/sidebar-select-components/DeviceViewSelector';
 import HeaderSectionControl from '@/components/sidebar-select-components/HeaderSectionControl';
 import MegaMenuToggleSwitch from '@/components/sidebar-select-components/MegaMenuToggleSwitch';
+import SectionControl from '@/components/sidebar-select-components/SectionControl';
 import {useRouter, useSearchParams} from 'next/navigation';
 import SocialMediaToggleSwitch from '@/components/sidebar-select-components/SocialMediaToggleSwitch';
 import MemberToolsToggleSwitch from '@/components/sidebar-select-components/MemberToolsToggleSwitch';
@@ -40,26 +41,68 @@ export default function InteriorPageContent() {
     }
   }, []);
 
-// In HomePageContent.jsx and InteriorPageContent.jsx
-
-useEffect(() => {
-  const handleMessage = (event) => {
-    if (event.data?.type === 'IFRAME_READY') {
-      setIframeReady(true);
-      // Re-send all context state when iframe is ready
-      const iframe = iframeRef.current;
-      if (iframe && iframe.contentWindow) {
-        iframe.contentWindow.postMessage({ type: 'UPDATE_MEMBERTOOLS_STATE', payload: { isMemberToolsToggleSwitchOff } }, '*');
-        iframe.contentWindow.postMessage({ type: 'UPDATE_DROPDOWN_STATE', payload: { isDropdownToggleSwitchOn } }, '*');
-        iframe.contentWindow.postMessage({ type: 'UPDATE_SOCIALMEDIA_STATE', payload: { isSocialMediaToggleSwitchOff } }, '*');
-        iframe.contentWindow.postMessage({ type: 'UPDATE_LOADING_STATE', payload: { isLoading } }, '*');
-        // ...send any other context state needed
+  useEffect(() => {
+    const handleMessage = (event) => {
+      if (event.data?.type === 'IFRAME_READY') {
+        setIframeReady(true);
       }
-    }
-  };
+    };
     window.addEventListener('message', handleMessage);
     return () => window.removeEventListener('message', handleMessage);
-  }, [isMemberToolsToggleSwitchOff, isDropdownToggleSwitchOn, isSocialMediaToggleSwitchOff, isLoading]);
+  }, []);
+
+  useEffect(() => {
+    //console.log('isLoading state in HomePage:', isLoading);
+    const iframe = document.querySelector('iframe');
+      if (iframe && iframe.contentWindow) {
+          iframe.contentWindow.postMessage(
+              {
+                  type: 'UPDATE_LOADING_STATE',
+                  payload: { isLoading },
+              },
+              '*'
+          );
+      }
+  }, [isLoading]);
+
+  useEffect(() => {
+    const iframe = document.querySelector('iframe');
+      if (iframe && iframe.contentWindow) {
+          iframe.contentWindow.postMessage(
+              {
+                  type: 'UPDATE_MEMBERTOOLS_STATE',
+                  payload: { isMemberToolsToggleSwitchOff },
+              },
+              '*'
+          );
+      }
+  }, [isMemberToolsToggleSwitchOff]);
+
+  useEffect(() => {
+    const iframe = document.querySelector('iframe');
+      if (iframe && iframe.contentWindow) {
+          iframe.contentWindow.postMessage(
+              {
+                  type: 'UPDATE_DROPDOWN_STATE',
+                  payload: { isDropdownToggleSwitchOn },
+              },
+              '*'
+          );
+      }
+  }, [isDropdownToggleSwitchOn]);
+
+  useEffect(() => {
+    const iframe = document.querySelector('iframe');
+      if (iframe && iframe.contentWindow) {
+          iframe.contentWindow.postMessage(
+              {
+                  type: 'UPDATE_SOCIALMEDIA_STATE',
+                  payload: { isSocialMediaToggleSwitchOff },
+              },
+              '*'
+          );
+      }
+  }, [isSocialMediaToggleSwitchOff]);
 
 
 
