@@ -1,0 +1,29 @@
+.tooltipWrapper {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.tooltipContent {
+  visibility: hidden;
+  background-color: #333;
+  color: #fff;
+  text-align: left;
+  border-radius: 4px;
+  padding: 6px 10px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%; /* Position above */
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.2s;
+  min-width: 120px;
+  font-size: 0.85em;
+}
+
+.tooltipWrapper:hover .tooltipContent,
+.tooltipWrapper:focus-within .tooltipContent {
+  visibility: visible;
+  opacity: 1;
+}

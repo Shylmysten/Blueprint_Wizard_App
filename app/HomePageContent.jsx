@@ -174,15 +174,14 @@ export default function HomePage() {
             setTabletClass={setTabletClass}
             setMobileClass={setMobileClass}
           />
-          <div style={{marginBottom: '10px'}}>
-            <MemberToolsToggleSwitch label="Enable Feature" iframeRef={iframeRef} isIframeReady={iframeReady}/>
-          </div>
+
           <ThemeSelector iframeRef={iframeRef} isIframeReady={iframeReady}/>
 
           <HeaderSectionControl iframeRef={iframeRef} isIframeReady={iframeReady}/>
           <div style={styles.gridContainer}>
             <MegaMenuToggleSwitch label="Enable Feature" iframeRef={iframeRef} isIframeReady={iframeReady}/>
             <SocialMediaToggleSwitch label="Enable Feature" iframeRef={iframeRef} isIframeReady={iframeReady}/>
+            <MemberToolsToggleSwitch label="Enable Feature" iframeRef={iframeRef} isIframeReady={iframeReady}/>
           </div>
         {isInterior ? (
           <>
@@ -324,7 +323,7 @@ const styles = {
   },
   gridContainer: {
     display: 'grid', 
-    gridTemplateColumns: '1fr 1fr', 
+    //gridTemplateColumns: '1fr 1fr', 
     gap: '15px',
   }
 };
