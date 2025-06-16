@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './ToggleSwitch.module.css';
-import Tooltip from './ToolTip';
+import Tooltip from './Tooltip';
+
 
 const tooltipContentMap = {
   MegaMenu: "MegaMenu enables a large dropdown menu for navigation.",
