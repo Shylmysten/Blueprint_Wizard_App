@@ -5,8 +5,8 @@ import Tooltip from './Tooltip';
 
 const tooltipContentMap = {
   MegaMenu: "MegaMenu enables a large dropdown menu for navigation.",
-  "Social Icons": "Social Icons are located in the header",
-  "Member Tools": "Member Tools is the blue bar located above the header",
+  "Social Icons": "Social Icons toggles the icons located in the header",
+  "Member Tools": "Member Tools toggles the blue bar located above the header",
 };
 
 function getTooltipContent(label) {
