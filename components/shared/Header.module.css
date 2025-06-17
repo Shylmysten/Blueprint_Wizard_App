@@ -1,15 +1,22 @@
 .header {
-    padding: 10px 0;
-    border-bottom: 1px solid #dee2e6;
-    background: #000;
+    padding: 5px 0 0;
+    background: #E0E0E0;
 }
 .navLink {
-    margin-right: 15px;
+    padding: 8px 16px;
     text-decoration: none;
-    color: #FFF;
+    color: #000;
+    font-size: 0.875rem;
+    line-height: 1;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+.active {
+    background: white;
+    color: #0054BC;
+    font-weight: 500;
 }
 .navLink:hover,
-.navLink:focus {
-    color: #FFF;
+.navLink:focus-visible {
     text-decoration: underline;
 }

@@ -300,7 +300,7 @@ const styles = {
   sidebar: {
     width: '280px',
     padding: '1.5rem',
-    background: '#f0f0f0',
+    background: '#ffffff',
     borderRight: '1px solid #ccc',
     overflowY: 'auto',
     maxHeight: '100vh',
