@@ -164,10 +164,17 @@ img {
     background: none
 }
 
-.imod-header-2 #searchToggleBtn,
+.imod-header-2 #searchToggleBtn {
+    height: 40px;
+    line-height: 40px;
+    width: 40px;
+    display: block;
+    text-align: center;
+}
+
 .imod-header-3 #searchToggleBtn {
-    height: 46px;
-    line-height: 46px;
+    height: 36px;
+    line-height: 36px;
     width: 46px;
     display: block;
     text-align: center

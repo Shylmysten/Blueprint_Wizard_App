@@ -3,6 +3,7 @@ import ContentTopNavTwo from "@/components/shared/main-nav-two/ContentTopNavTwo"
 import {header2NavigationData} from "../../../data/navigation-items";
 import Image from "next/image";
 import { useRef, useState, useEffect } from "react";
+import cx from 'classnames';
 
 const OffCanvasThreeComponent = ({ isDropdownToggleSwitchOn, offCanvasRef, isDrawerOpen, setIsDrawerOpen, handleDrawerOpen, handleDrawerClose, trapKeyBoardMobileNav }) => {
     const searchToggleRef = useRef(null);
@@ -79,7 +80,17 @@ const OffCanvasThreeComponent = ({ isDropdownToggleSwitchOn, offCanvasRef, isDra
 
 
     return ( 
-        <header className={`structHead imod-header-3 offcanvas ${isDropdownToggleSwitchOn ? 'dropdown' : ''}`} role="banner" id="top" data-sectionname="header-3">
+        <header
+            className={cx(
+                'structHead',
+                'imod-header-3',
+                'offcanvas', 
+                { dropdown: isDropdownToggleSwitchOn }
+            )}
+            role="banner"
+            id="top"
+            data-sectionname="header-3"
+        >
             <div className="mainHeaderWrap">
                 <div className="container">
                     <div className="row">
@@ -137,13 +148,22 @@ const OffCanvasThreeComponent = ({ isDropdownToggleSwitchOn, offCanvasRef, isDra
                             <a 
                                     href="#" 
                                     role="button" 
-                                    className={`m-pikabu-nav-toggle hidden-md hidden-lg js-offcanvas-trigger c-button ${isDrawerOpen ? 'is-active' : ''}`} 
+                                    className={cx(
+                                        'm-pikabu-nav-toggle', 
+                                        'hidden-md', 
+                                        'hidden-lg', 
+                                        'js-offcanvas-trigger',
+                                        'c-button', 
+                                        { 'is-active': isDrawerOpen }
+                                    )} 
                                     data-offcanvas-trigger="off-canvas" 
                                     aria-label="Open Mobile Navigation"
                                     aria-expanded={isDrawerOpen ? 'true' : 'false'}
                                     onClick={(e) => {
                                         e.preventDefault();
-                                        handleDrawerOpen(offCanvasRef, setIsDrawerOpen, (event) => trapKeyBoardMobileNav(event, offCanvasRef, () => handleDrawerClose(offCanvasRef, setIsDrawerOpen)));
+                                        handleDrawerOpen(offCanvasRef, setIsDrawerOpen, (event) =>
+                                            trapKeyBoardMobileNav(event, offCanvasRef, () => handleDrawerClose(offCanvasRef, setIsDrawerOpen))
+                                        );
                                     }}
                                 >
                                     <span className="c-button__text">

@@ -1,5 +1,6 @@
 import { useEffect, useState, forwardRef, useRef } from 'react';
 import Image from 'next/image';
+import cx from 'classnames';
 
 const OffCanvasDrawer = forwardRef(({ isDrawerOpen, handleDrawerClose, trapKeyBoardMobileNav }, ref) => {
     const navAccordionBtnRef = useRef(null);
@@ -76,7 +77,14 @@ const OffCanvasDrawer = forwardRef(({ isDrawerOpen, handleDrawerClose, trapKeyBo
         <>
                 <div 
                 ref={ref}
-                className={`js-offcanvas c-offcanvas c-offcanvas--right c-offcanvas--overlay is-animating ${isDrawerOpen ? 'is-open' : ''}` }
+                className={cx(
+                    'js-offcanvas',
+                    'c-offcanvas',
+                    'c-offcanvas--right',
+                    'c-offcanvas--overlay',
+                    'is-animating',
+                    { 'is-open': isDrawerOpen }
+                )}
                 id="off-canvas" 
                 role="dialog"
                 tabIndex="-1"
@@ -136,12 +144,12 @@ const OffCanvasDrawer = forwardRef(({ isDrawerOpen, handleDrawerClose, trapKeyBo
                         </ul>
                         </li>
                         <li><a href="#">Page 2</a></li>
-                        <li className={`has-subnav ${isAccordionOpen[3] ? 'active' : ''}`} aria-haspopup="true" style={{position: 'relative'}} data-accordion-id='3'>
+                        <li className={cx('has-subnav', { active: isAccordionOpen[3] })} aria-haspopup="true" style={{position: 'relative'}} data-accordion-id='3'>
                             <a href="#" style={{marginRight: '60px'}}>Page Three</a>
                                 <button
                                 ref={navAccordionBtnRef}
                                 onClick={(e) => handleNavAccordionBtnToggle(e, 3)}
-                                className={`accordion-btn-wrap ${isAccordionOpen[3] ? 'accordion-active': ''}`}
+                                className={cx('accordion-btn-wrap', { 'accordion-active': isAccordionOpen[3] })}
                                 type="button"
                                 tabIndex="0"
                                 aria-expanded={!isAccordionOpen[3]}
@@ -183,12 +191,12 @@ const OffCanvasDrawer = forwardRef(({ isDrawerOpen, handleDrawerClose, trapKeyBo
                                 </button>
                                 <ul style={{display: 'none'}}>
                                     <li className=""><a href="#">Sub Page 1</a></li>
-                                    <li className={`has-subnav ${isAccordionOpen[4] ? 'active' : ''}`} aria-haspopup="true" style={{position: 'relative'}} data-accordion-id='4'>
+                                    <li className={cx('has-subnav', { active: isAccordionOpen[4] })} aria-haspopup="true" style={{position: 'relative'}} data-accordion-id='4'>
                                         <a href="#" style={{marginRight: '60px'}}>Sub Page 2</a>
                                             <button
                                             ref={navAccordionBtnRef}
                                             onClick={(e) => handleNavAccordionBtnToggle(e, 4)}
-                                            className={`accordion-btn-wrap ${isAccordionOpen[4] ? 'accordion-active': ''}`}
+                                            className={cx('accordion-btn-wrap', { 'accordion-active': isAccordionOpen[4] })}
                                             type="button"
                                             tabIndex="0"
                                             aria-expanded={!isAccordionOpen[4]}
@@ -238,12 +246,12 @@ const OffCanvasDrawer = forwardRef(({ isDrawerOpen, handleDrawerClose, trapKeyBo
                                 </ul>
                         </li>
                         <li><a href="#">Page 4</a></li>
-                        <li className={`has-subnav ${isAccordionOpen[5] ? 'active' : ''}`} aria-haspopup="true" style={{position: 'relative'}} data-accordion-id='5'>
+                        <li className={cx('has-subnav', { active: isAccordionOpen[5] })} aria-haspopup="true" style={{position: 'relative'}} data-accordion-id='5'>
                             <a href="#" style={{marginRight: '60px'}}>Page Five</a>
                                 <button
                                     ref={navAccordionBtnRef}
                                     onClick={(e) => handleNavAccordionBtnToggle(e, 5)}
-                                    className={`accordion-btn-wrap ${isAccordionOpen[5] ? 'accordion-active': ''}`}
+                                    className={cx('accordion-btn-wrap', { 'accordion-active': isAccordionOpen[5] })}
                                     type="button"
                                     tabIndex="0"
                                     aria-expanded={!isAccordionOpen[5]}
@@ -311,7 +319,12 @@ const OffCanvasDrawer = forwardRef(({ isDrawerOpen, handleDrawerClose, trapKeyBo
                     </nav>
                 </div>
                 </div>
-                <div className={`c-offcanvas-bg c-offcanvas-bg--right c-offcanvas-bg--overlay ${isDrawerOpen ? 'is-open' : 'is-closed'}`}></div>
+                <div className={cx(
+                    'c-offcanvas-bg',
+                    'c-offcanvas-bg--right',
+                    'c-offcanvas-bg--overlay',
+                    {'is-open': isDrawerOpen, 'is-closed': !isDrawerOpen}
+                )}></div>
         </>
     );
 });

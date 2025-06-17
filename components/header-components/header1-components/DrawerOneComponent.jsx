@@ -3,6 +3,7 @@ import ContentTopNavOne from "@/components/shared/main-nav-one/ContentTopNavOne"
 import {header1NavigationData} from "../../../data/navigation-items";
 import Image from "next/image";
 import { useRef, useState, useEffect } from "react";
+import cx from 'classnames';
 
 
 const DrawerOneComponent = ({ isDropdownToggleSwitchOn, isSocialMediaToggleSwitchOff }) => {
@@ -195,7 +196,12 @@ const DrawerOneComponent = ({ isDropdownToggleSwitchOn, isSocialMediaToggleSwitc
 
 
     return ( 
-        <header className={`structHead imod-header-1 drawer ${isDropdownToggleSwitchOn ? 'dropdown' : ''}`} role="banner" id="top" data-sectioname="header-1">
+        <header className={cx(
+            'structHead', 
+            'imod-header-1', 
+            'drawer',
+            { dropdown: isDropdownToggleSwitchOn } 
+            )} role="banner" id="top" data-sectioname="header-1">
             <div className="mainHeaderWrap">
                 <div className="container">
                     <div className="row">
@@ -207,8 +213,8 @@ const DrawerOneComponent = ({ isDropdownToggleSwitchOn, isSocialMediaToggleSwitc
                                         src="/logo.png" 
                                         alt="Home" 
                                         className="darkTxt"
-                                        width={400}
-                                        height={92}
+                                        width={350}
+                                        height={81}
                                         style={{maxWidth: '100%'}}
                                         priority
                                     />
@@ -228,13 +234,16 @@ const DrawerOneComponent = ({ isDropdownToggleSwitchOn, isSocialMediaToggleSwitc
                             </div>
                             <div className="row">
                                 <div id="ContentHeaderSocial" runat="server" className="col-xs-12 headerSocial hidden-xs">
-                                    {isSocialMediaToggleSwitchOff ? (
                                         <ul className="social">
+                                    {isSocialMediaToggleSwitchOff && (
+                                        <>
                                             <li><a href="#" target="_blank" aria-label="Facebook"><span className="fa fa-facebook"></span></a></li>
                                             <li><a href="#" target="_blank" aria-label="Twitter"><span className="fa-brands fa-x-twitter"></span></a></li>
                                             <li><a href="#" target="_blank" aria-label="Instagram"><span className="fa fa-instagram"></span></a></li>
                                             <li><a href="#" target="_blank" aria-label="YouTube"><span className="fa fa-youtube"></span></a></li>
                                             <li><a href="#" target="_blank" aria-label="Flickr"><span className="fa fa-flickr"></span></a></li>
+                                        </>
+                                     )}
                                             <li className="searchToggle">
                                                 <a 
                                                     ref={searchToggleRef}
@@ -250,27 +259,10 @@ const DrawerOneComponent = ({ isDropdownToggleSwitchOn, isSocialMediaToggleSwitc
                                                 </a>
                                             </li>
                                         </ul>
-                                    ) : (
-                                        <ul className="social">
-                                            <li className="searchToggle">
-                                                <a 
-                                                    ref={searchToggleRef}
-                                                    aria-label="Toggle Site Search" 
-                                                    href="#" 
-                                                    id="searchToggleBtn" 
-                                                    role="button" 
-                                                    aria-expanded={isSearchWrapperOpen} 
-                                                    aria-controls="searchWrapper"
-                                                    onClick={handleSearchToggle}
-                                                >
-                                                    <span className="fa fa-search"></span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    )}
+                                   
                                 </div>
                                 <a ref={mobileNavToggleRef} href="#" role="button" onClick={handleMobileToggleClick} className="m-pikabu-nav-toggle hidden-md hidden-lg" data-role="right" aria-label="Open Mobile Menu">
-                                    <span className={`fa ${isMobileNavOpen ? 'fa-times' : 'fa-bars'}`}></span> 
+                                    <span className={cx('fa', { 'fa-times': isMobileNavOpen, 'fa-bars': !isMobileNavOpen })}></span> 
                                     Menu
                                 </a>
                             </div>
@@ -309,12 +301,12 @@ const DrawerOneComponent = ({ isDropdownToggleSwitchOn, isSocialMediaToggleSwitc
                                 <ul>
                                     <li><a href="#">Page One</a></li>
                                     <li><a href="#">Page Two</a></li>
-                                    <li className={`has-subnav ${isAccordionOpen[3] ? 'active' : ''}`} aria-haspopup="true" style={{position: 'relative'}} data-accordion-id='3'>
+                                    <li className={cx('has-subnav', { active: isAccordionOpen[3] })} aria-haspopup="true" style={{position: 'relative'}} data-accordion-id='3'>
                                         <a href="#" style={{marginRight: '60px'}}>Page Three</a>
                                             <button
                                             ref={navAccordionBtnRef}
                                             onClick={(e) => handleNavAccordionBtnToggle(e, 3)}
-                                            className={`accordion-btn-wrap ${isAccordionOpen[3] ? 'accordion-active': ''}`}
+                                            className={cx('accordion-btn-wrap', {'accordion-active': isAccordionOpen[3] })}
                                             type="button"
                                             tabIndex="0"
                                             aria-expanded={!isAccordionOpen[3]}
@@ -365,12 +357,12 @@ const DrawerOneComponent = ({ isDropdownToggleSwitchOn, isSocialMediaToggleSwitc
                                             </ul>
                                     </li>
                                     <li className="highlight"><a href="#">Page Four</a></li>
-                                    <li className={`has-subnav ${isAccordionOpen[5] ? 'active' : ''}`} aria-haspopup="true" style={{position: 'relative'}} data-accordion-id='5'>
+                                    <li className={cx('has-subnav', { active: isAccordionOpen[5] })} aria-haspopup="true" style={{position: 'relative'}} data-accordion-id='5'>
                                         <a href="#" style={{marginRight: '60px'}}>Page Five</a>
                                             <button
                                                 ref={navAccordionBtnRef}
                                                 onClick={(e) => handleNavAccordionBtnToggle(e, 5)}
-                                                className={`accordion-btn-wrap ${isAccordionOpen[5] ? 'accordion-active': ''}`}
+                                                className={cx('accordion-btn-wrap', {'accordion-active': isAccordionOpen[5] })}
                                                 type="button"
                                                 tabIndex="0"
                                                 aria-expanded={!isAccordionOpen[5]}

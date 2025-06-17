@@ -29,18 +29,20 @@ export const trapKeyBoardMobileNav = (e, offCanvasRef, handleDrawerClose) => {
     }
   };
   
-  export const handleDrawerOpen = (offCanvasRef, setIsDrawerOpen, trapKeyBoardMobileNav) => {
+  export const handleDrawerOpen = (offCanvasRef, setIsDrawerOpen, keydownHandler) => {
     if (offCanvasRef.current) {
-      offCanvasRef.current.addEventListener('keydown', trapKeyBoardMobileNav, false);
+      offCanvasRef.current.addEventListener('keydown', keydownHandler, false);
       setIsDrawerOpen(true);
+      // Set focus to the drawer for accessibility
+      offCanvasRef.current.focus();
     } else {
         console.warn("offCanvasRef is not properly initialized or assigned.");
     }
   };
   
-  export const handleDrawerClose = (offCanvasRef, setIsDrawerOpen) => {
+  export const handleDrawerClose = (offCanvasRef, setIsDrawerOpen, keydownHandler) => {
     const mobileToggle = document.querySelector('.js-offcanvas-trigger');
-    offCanvasRef.current.removeEventListener('keydown', trapKeyBoardMobileNav, false);
+    offCanvasRef.current.removeEventListener('keydown', keydownHandler, false);
     setIsDrawerOpen(false);
     mobileToggle.focus();
   };

@@ -22,6 +22,7 @@ import OverlayFourComponent from '@/components/header-components/header4-compone
 import OffCanvasFourComponent from '@/components/header-components/header4-components/OffCanvasFourComponent';
 import OffCanvasDrawer from '@/components/shared/OffCanvasDrawer';
 import LoadingSpinner from '@/components/shared/LoadingSpinner';
+import cx from 'classnames';
 
 
 
@@ -370,7 +371,14 @@ export default function IframePage() {
               </div>
             </section>
 
-            <div className={`imod-membertools-1 memberTools ${isMemberToolsToggleSwitchOff ? 'hidden-sm hidden-xs' : 'hidden'}`} data-sectionname="membertools-1">
+            <div
+              className={cx(
+                  'imod-membertools-1',
+                  'memberTools',
+                  { 'hidden-sm hidden-xs': isMemberToolsToggleSwitchOff, 'hidden': !isMemberToolsToggleSwitchOff }
+              )}
+              data-sectionname="membertools-1"
+            >
                 <div className="container">
                     <div className="row">
                         <nav id="ContentMemberTools" runat="server" className="memberToolInner col-md-12 imodSiteMap" aria-label="Community">
@@ -388,7 +396,14 @@ export default function IframePage() {
             {renderHeaderComponent()}
             </section>
             
-            <section className={`bp-preview-section body-section ${!isInterior ? 'empty odd home-section' : ''}`} id='bpSection1'>
+            <section
+              className={cx(
+                'bp-preview-section',
+                'body-section',
+                {'empty odd home-section': !isInterior }
+              )}
+              id='bpSection1'
+            >
               <div className="empty"><h2 className="previewDefault">Section 1</h2></div>
             </section>
             
@@ -429,6 +444,7 @@ export default function IframePage() {
             <OffCanvasDrawer
               ref={offCanvasRef}
               isDrawerOpen={isDrawerOpen}
+              handleDrawerOpen={() => handleDrawerOpen(offCanvasRef, setIsDrawerOpen, (event) => trapKeyBoardMobileNav(event, offCanvasRef, () => handleDrawerClose(offCanvasRef, setIsDrawerOpen)))}
               handleDrawerClose={() => handleDrawerClose(offCanvasRef, setIsDrawerOpen)}
               trapKeyBoardMobileNav={(e) => trapKeyBoardMobileNav(e, offCanvasRef, () => handleDrawerClose(offCanvasRef, setIsDrawerOpen))}
             />

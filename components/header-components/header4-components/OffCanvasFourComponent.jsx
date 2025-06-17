@@ -2,6 +2,7 @@ import ContentTopNavOne from "@/components/shared/main-nav-one/ContentTopNavOne"
 import {header1NavigationData} from "@/data/navigation-items";
 import Image from "next/image";
 import { useRef, useState, useEffect } from "react";
+import cx from 'classnames';
 
 const OffCanvasFourComponent =({ isDropdownToggleSwitchOn, isSocialMediaToggleSwitchOff, offCanvasRef, isDrawerOpen, setIsDrawerOpen, handleDrawerOpen, handleDrawerClose, trapKeyBoardMobileNav })  => {
     const searchToggleRef = useRef(null);
@@ -74,7 +75,17 @@ const OffCanvasFourComponent =({ isDropdownToggleSwitchOn, isSocialMediaToggleSw
 
 
     return ( 
-        <header className={`structHead imod-header-4 offcanvas ${isDropdownToggleSwitchOn ? 'dropdown' : ''}`} role="banner" id="top" data-sectionname="header-4">
+        <header
+            className={cx(
+                'structHead',
+                'imod-header-4',
+                'offcanvas',
+                { dropdown: isDropdownToggleSwitchOn }
+            )}
+            role="banner"
+            id="top"
+            data-sectionname="header-4"
+        >
             <div className="mainHeaderWrap">
                 <div className="container">
                     <div className="row">
@@ -86,18 +97,10 @@ const OffCanvasFourComponent =({ isDropdownToggleSwitchOn, isSocialMediaToggleSw
                                         src="/logo.png" 
                                         alt="Home" 
                                         className="darkTxt"
-                                        width={2704}
-                                        height={625}
+                                        width={210}
+                                        height={49}
                                         style={{width: '100%'}}
                                         priority
-                                    />
-                                    <Image 
-                                        src="/logo-white.png" 
-                                        alt="Home" 
-                                        className="whiteTxt"
-                                        width={2704}
-                                        height={625}
-                                        style={{width: '100%'}}
                                     />
                                 </a>
                             </div>
@@ -105,13 +108,16 @@ const OffCanvasFourComponent =({ isDropdownToggleSwitchOn, isSocialMediaToggleSw
                         <div className="hidden-xs col-sm-4 col-sm-pull-4 col-md-4 col-md-push-4 headSocial">
                             <div className="row">
                                 <div id="ContentHeaderSocial" runat="server" className="col-xs-12 headerSocial hidden-xs">
-                                    {isSocialMediaToggleSwitchOff ? (
                                         <ul className="social">
-                                            <li><a href="#" target="_blank" aria-label="Facebook"><span className="fa fa-facebook"></span></a></li>
-                                            <li><a href="#" target="_blank" aria-label="Twitter"><span className="fa-brands fa-x-twitter"></span></a></li>
-                                            <li><a href="#" target="_blank" aria-label="Instagram"><span className="fa fa-instagram"></span></a></li>
-                                            <li><a href="#" target="_blank" aria-label="YouTube"><span className="fa fa-youtube"></span></a></li>
-                                            <li><a href="#" target="_blank" aria-label="Flickr"><span className="fa fa-flickr"></span></a></li>
+                                        {isSocialMediaToggleSwitchOff && (
+                                            <>
+                                                <li><a href="#" target="_blank" aria-label="Facebook"><span className="fa fa-facebook"></span></a></li>
+                                                <li><a href="#" target="_blank" aria-label="Twitter"><span className="fa-brands fa-x-twitter"></span></a></li>
+                                                <li><a href="#" target="_blank" aria-label="Instagram"><span className="fa fa-instagram"></span></a></li>
+                                                <li><a href="#" target="_blank" aria-label="YouTube"><span className="fa fa-youtube"></span></a></li>
+                                                <li><a href="#" target="_blank" aria-label="Flickr"><span className="fa fa-flickr"></span></a></li>
+                                            </>
+                                        )}
                                             <li className="searchToggle">
                                                 <a 
                                                     ref={searchToggleRef}
@@ -127,24 +133,7 @@ const OffCanvasFourComponent =({ isDropdownToggleSwitchOn, isSocialMediaToggleSw
                                                 </a>
                                             </li>
                                         </ul>
-                                    ) : (
-                                        <ul className="social">
-                                            <li className="searchToggle">
-                                                <a 
-                                                    ref={searchToggleRef}
-                                                    aria-label="Toggle Site Search" 
-                                                    href="#" 
-                                                    id="searchToggleBtn" 
-                                                    role="button" 
-                                                    aria-expanded={isSearchWrapperOpen} 
-                                                    aria-controls="searchWrapper"
-                                                    onClick={handleSearchToggle}
-                                                >
-                                                    <span className="fa fa-search"></span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    )}
+                                    
                                 </div>
                                 
                             </div>
@@ -160,13 +149,22 @@ const OffCanvasFourComponent =({ isDropdownToggleSwitchOn, isSocialMediaToggleSw
                         <a 
                                     href="#" 
                                     role="button" 
-                                    className={`m-pikabu-nav-toggle hidden-md hidden-lg js-offcanvas-trigger c-button ${isDrawerOpen ? 'is-active' : ''}`} 
+                                    className={cx(
+                                        'm-pikabu-nav-toggle',
+                                        'hidden-md',
+                                        'hidden-lg',
+                                        'js-offcanvas-trigger',
+                                        'c-button',
+                                        {'is-active': isDrawerOpen}
+                                    )} 
                                     data-offcanvas-trigger="off-canvas" 
                                     aria-label="Open Mobile Navigation"
                                     aria-expanded={isDrawerOpen ? 'true' : 'false'}
                                     onClick={(e) => {
                                         e.preventDefault();
-                                        handleDrawerOpen(offCanvasRef, setIsDrawerOpen, (event) => trapKeyBoardMobileNav(event, offCanvasRef, () => handleDrawerClose(offCanvasRef, setIsDrawerOpen)));
+                                        handleDrawerOpen(offCanvasRef, setIsDrawerOpen, (event) =>
+                                            trapKeyBoardMobileNav(event, offCanvasRef, () => handleDrawerClose(offCanvasRef, setIsDrawerOpen))
+                                        );
                                     }}
                                 >
                                     <span className="c-button__text">

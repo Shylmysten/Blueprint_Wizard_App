@@ -3,6 +3,7 @@ import ContentTopNavTwo from "@/components/shared/main-nav-two/ContentTopNavTwo"
 import {header2NavigationData} from "@/data/navigation-items";
 import Image from "next/image";
 import { useRef, useState, useEffect } from "react";
+import cx from 'classnames';
 
 const DrawerThreeComponent = ({ isDropdownToggleSwitchOn }) => {
     const searchToggleRef = useRef(null);
@@ -192,7 +193,17 @@ const DrawerThreeComponent = ({ isDropdownToggleSwitchOn }) => {
 
     return ( 
         
-        <header className={`structHead imod-header-3 drawer ${isDropdownToggleSwitchOn ? 'dropdown' : ''}`} role="banner" id="top" data-sectionname="header-3">
+        <header 
+            className={cx(
+                'structHead',
+                'imod-header-3',
+                'drawer',
+                { dropdown: isDropdownToggleSwitchOn }
+            )}
+            role="banner"
+            id="top"
+            data-sectionname="header-3"
+        >
             <div className="mainHeaderWrap">
                 <div className="container">
                     <div className="row">
@@ -222,7 +233,7 @@ const DrawerThreeComponent = ({ isDropdownToggleSwitchOn }) => {
                         </div>
                         <div className="col-xs-3 col-sm-6 hidden-md hidden-lg">
                             <a ref={mobileNavToggleRef} href="#" role="button" onClick={handleMobileToggleClick} className="m-pikabu-nav-toggle hidden-md hidden-lg" data-role="right" aria-label="Open Mobile Menu">
-                                <span className={`fa ${isMobileNavOpen ? 'fa-times' : 'fa-bars'}`}></span> 
+                                <span className={cx('fa', { 'fa-times': isMobileNavOpen, 'fa-bars': !isMobileNavOpen })}></span> 
                                 Menu
                             </a>
                         </div>
@@ -272,12 +283,12 @@ const DrawerThreeComponent = ({ isDropdownToggleSwitchOn }) => {
                         <ul>
                             <li><a href="#">Page One</a></li>
                             <li><a href="#">Page Two</a></li>
-                            <li className={`has-subnav ${isAccordionOpen[3] ? 'active' : ''}`} aria-haspopup="true" style={{position: 'relative'}} data-accordion-id='3'>
+                            <li className={cx('has-subnav', { active: isAccordionOpen[3] })} aria-haspopup="true" style={{position: 'relative'}} data-accordion-id='3'>
                                 <a href="#" style={{marginRight: '60px'}}>Page Three</a>
                                     <button
                                     ref={navAccordionBtnRef}
                                     onClick={(e) => handleNavAccordionBtnToggle(e, 3)}
-                                    className={`accordion-btn-wrap ${isAccordionOpen[3] ? 'accordion-active': ''}`}
+                                    className={cx('accordion-btn-wrap', { 'accordion-active': isAccordionOpen[3] })}
                                     type="button"
                                     tabIndex="0"
                                     aria-expanded={!isAccordionOpen[3]}

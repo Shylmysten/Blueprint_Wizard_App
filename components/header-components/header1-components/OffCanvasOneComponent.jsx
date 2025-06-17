@@ -3,6 +3,7 @@ import ContentTopNavOne from "@/components/shared/main-nav-one/ContentTopNavOne"
 import {header1NavigationData} from "@/data/navigation-items";
 import Image from "next/image";
 import { useRef, useState, useEffect } from "react";
+import cx from 'classnames';
 
 const OffCanvasOneComponent = ({ isDropdownToggleSwitchOn, isSocialMediaToggleSwitchOff, offCanvasRef, isDrawerOpen, setIsDrawerOpen, handleDrawerOpen, handleDrawerClose, trapKeyBoardMobileNav }) => {
     const searchToggleRef = useRef(null);
@@ -80,7 +81,16 @@ const OffCanvasOneComponent = ({ isDropdownToggleSwitchOn, isSocialMediaToggleSw
 
 
     return ( 
-        <header className={`structHead imod-header-1 offcanvas ${isDropdownToggleSwitchOn ? 'dropdown' : ''}`} role="banner" id="top" data-sectioname="header-1">
+        <header
+            className={cx(
+                'structHead',
+                'imod-header-1',
+                'offcanvas',
+                { dropdown: isDropdownToggleSwitchOn }
+            )}
+            role="banner" id="top"
+            data-sectioname="header-1"
+        >
             <div className="mainHeaderWrap">
                 <div className="container">
                     <div className="row">
@@ -92,8 +102,8 @@ const OffCanvasOneComponent = ({ isDropdownToggleSwitchOn, isSocialMediaToggleSw
                                         src="/logo.png" 
                                         alt="Home" 
                                         className="darkTxt"
-                                        width={400}
-                                        height={92}
+                                        width={350}
+                                        height={81}
                                         style={{maxWidth: '100%'}}
                                         priority
                                     />
@@ -114,57 +124,52 @@ const OffCanvasOneComponent = ({ isDropdownToggleSwitchOn, isSocialMediaToggleSw
                             </div>
                             <div className="row">
                                 <div id="ContentHeaderSocial" runat="server" className="col-xs-12 headerSocial hidden-xs">
-                                    {isSocialMediaToggleSwitchOff ? (
-                                        <ul className="social">
-                                            <li><a href="#" target="_blank" aria-label="Facebook"><span className="fa fa-facebook"></span></a></li>
-                                            <li><a href="#" target="_blank" aria-label="Twitter"><span className="fa-brands fa-x-twitter"></span></a></li>
-                                            <li><a href="#" target="_blank" aria-label="Instagram"><span className="fa fa-instagram"></span></a></li>
-                                            <li><a href="#" target="_blank" aria-label="YouTube"><span className="fa fa-youtube"></span></a></li>
-                                            <li><a href="#" target="_blank" aria-label="Flickr"><span className="fa fa-flickr"></span></a></li>
-                                            <li className="searchToggle">
-                                                <a 
-                                                    ref={searchToggleRef}
-                                                    aria-label="Toggle Site Search" 
-                                                    href="#" 
-                                                    id="searchToggleBtn" 
-                                                    role="button" 
-                                                    aria-expanded={isSearchWrapperOpen} 
-                                                    aria-controls="searchWrapper"
-                                                    onClick={handleSearchToggle}
-                                                >
-                                                    <span className="fa fa-search"></span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    ) : (
-                                        <ul className="social">
-                                            <li className="searchToggle">
-                                                <a 
-                                                    ref={searchToggleRef}
-                                                    aria-label="Toggle Site Search" 
-                                                    href="#" 
-                                                    id="searchToggleBtn" 
-                                                    role="button" 
-                                                    aria-expanded={isSearchWrapperOpen} 
-                                                    aria-controls="searchWrapper"
-                                                    onClick={handleSearchToggle}
-                                                >
-                                                    <span className="fa fa-search"></span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    )}
+                                    <ul className="social">
+                                        {isSocialMediaToggleSwitchOff && (
+                                            <>
+                                                <li><a href="#" target="_blank" aria-label="Facebook"><span className="fa fa-facebook"></span></a></li>
+                                                <li><a href="#" target="_blank" aria-label="Twitter"><span className="fa-brands fa-x-twitter"></span></a></li>
+                                                <li><a href="#" target="_blank" aria-label="Instagram"><span className="fa fa-instagram"></span></a></li>
+                                                <li><a href="#" target="_blank" aria-label="YouTube"><span className="fa fa-youtube"></span></a></li>
+                                                <li><a href="#" target="_blank" aria-label="Flickr"><span className="fa fa-flickr"></span></a></li>
+                                            </>
+                                        )}
+                                        <li className="searchToggle">
+                                            <a 
+                                                ref={searchToggleRef}
+                                                aria-label="Toggle Site Search" 
+                                                href="#" 
+                                                id="searchToggleBtn" 
+                                                role="button" 
+                                                aria-expanded={isSearchWrapperOpen} 
+                                                aria-controls="searchWrapper"
+                                                onClick={handleSearchToggle}
+                                            >
+                                                <span className="fa fa-search"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    
                                 </div>
                                 <a 
                                     href="#" 
                                     role="button" 
-                                    className={`m-pikabu-nav-toggle hidden-md hidden-lg js-offcanvas-trigger c-button ${isDrawerOpen ? 'is-active' : ''}`} 
+                                    className={cx(
+                                        'm-pikabu-nav-toggle',
+                                        'hidden-md',
+                                        'hidden-lg',
+                                        'js-offcanvas-trigger',
+                                        'c-button',
+                                        {'is-active': isDrawerOpen }
+                                    )}
                                     data-offcanvas-trigger="off-canvas" 
                                     aria-label="Open Mobile Navigation"
                                     aria-expanded={isDrawerOpen ? 'true' : 'false'}
                                     onClick={(e) => {
                                         e.preventDefault();
-                                        handleDrawerOpen(offCanvasRef, setIsDrawerOpen, (event) => trapKeyBoardMobileNav(event, offCanvasRef, () => handleDrawerClose(offCanvasRef, setIsDrawerOpen)));
+                                        handleDrawerOpen(offCanvasRef, setIsDrawerOpen, (event) =>
+                                            trapKeyBoardMobileNav(event, offCanvasRef, () => handleDrawerClose(offCanvasRef, setIsDrawerOpen))
+                                        );
                                     }}
                                 >
                                     <span className="c-button__text">
