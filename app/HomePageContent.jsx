@@ -18,6 +18,7 @@ import MemberToolsToggleSwitch from '@/components/sidebar-select-components/Memb
 import FinishModal from '@/components/FinishModal';
 import InteriorSectionControl from '@/components/sidebar-select-components/InteriorSectionControl';
 import Header from '@/components/shared/Header';
+import styles from './HomePageContent.module.css';
 
 export default function HomePage() {
   const [iframeReady, setIframeReady] = useState(false);
@@ -166,10 +167,10 @@ export default function HomePage() {
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <Header isInterior={isInterior} setIsInterior={setIsInterior} />
-      <main style={styles.container}>
+      <main className={styles.container}>
         {/* Sidebar */}
        
-        <div style={styles.sidebar}>
+        <div className={styles.sidebar}>
           {/* Device View Selector */}
           <DeviceViewSelector
             iframeClass={iframeClass}
@@ -180,11 +181,11 @@ export default function HomePage() {
 
           <ThemeSelector iframeRef={iframeRef} isIframeReady={iframeReady}/>
 
-          <div style={styles.headerControlsContainer}>
-            <h2 style={styles.headerControlsHtwo}>Header</h2>
+          <div className={styles.headerControlsContainer}>
+            <h2 className={styles.headerControlsHtwo}>Header</h2>
 
             <HeaderSectionControl iframeRef={iframeRef} isIframeReady={iframeReady}/>
-            <div style={styles.gridContainer}>
+            <div className={styles.gridContainer}>
               <MegaMenuToggleSwitch label="Enable Feature" iframeRef={iframeRef} isIframeReady={iframeReady}/>
               {!isHeader3 && (
                 <SocialMediaToggleSwitch label="Enable Feature" iframeRef={iframeRef} isIframeReady={iframeReady}/>
@@ -285,14 +286,13 @@ export default function HomePage() {
         </div>
 
         {/* Iframe content area */}
-        <div style={styles.content}>
+        <div className={styles.content}>
          
             <iframe
               ref={iframeRef}
               src="/iframe-page"
               title="Content Display"
-              style={styles.iframe}
-              className={iframeClass} // Dynamically set className
+              className={`${styles.iframe} ${iframeClass}`} // Dynamically set className
             />
           
         </div>
@@ -302,57 +302,3 @@ export default function HomePage() {
 
   );
 }
-
-const styles = {
-  container: {
-    display: 'flex',
-    minHeight: '100vh',
-  },
-  sidebar: {
-    width: '280px',
-    padding: '1.5rem',
-    background: '#ffffff',
-    borderRight: '1px solid #ccc',
-    overflowY: 'auto',
-    overflowX: 'hidden',
-    maxHeight: '100vh',
-  },
-  headerControlsContainer: {
-    position: 'relative',
-    padding: '8px 16px 24px 16px',
-    border: '1px solid #B9B9B9',
-    marginTop: '32px',
-  },
-  headerControlsHtwo: {
-    fontSize: '14px',
-    lineHeight: '1',
-    position: 'absolute',
-    top: '4px',
-    left: '-1px',
-    background: '#fff',
-    padding: '0 6px 9px 1px',
-    color: '#000',
-    transform: 'translateY(-16px)'
-  },
-  content: {
-    flex: 1,
-    padding: '0',
-  },
-  iframe: {
-    border: 'none',
-    background: '#fff',
-    width: '100%',
-    height: '100%',
-    display: 'block',
-    margin: '0 auto',
-    transition: 'width ease 250ms',
-  },
-  group: {
-    //marginBottom: '1rem',
-  },
-  gridContainer: {
-    display: 'grid', 
-    //gridTemplateColumns: '1fr 1fr', 
-    gap: '15px',
-  }
-};
