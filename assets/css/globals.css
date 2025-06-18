@@ -150,7 +150,7 @@ button.btn {
 }
 
 .finishBtn {
-  border: 2px solid #158923 !important;
+  border: 1px solid #158923 !important;
   background: #158923;
   color: white !important;
   width: 100%;
@@ -158,7 +158,7 @@ button.btn {
 }
 
 .finishBtn:hover {
-  border: 2px solid #0054bc !important;
+  border:1px solid #0054bc !important;
   background: #0054bc;
   color: #fff !important;
 }
