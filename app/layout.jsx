@@ -2,6 +2,7 @@ import {Roboto, Montserrat} from 'next/font/google';
 import '@fortawesome/fontawesome-free/css/all.css';
 import '@fortawesome/fontawesome-free/css/v4-shims.css';
 import "../assets/css/vendor.css";
+import "../assets/css/appstyles.css";
 import "../assets/css/globals.css";
 import {DropdownToggleProvider} from '@/utils/DropdownToggleContext';
 import {LoadingProvider} from '@/utils/LoadingContext';
