@@ -41,17 +41,34 @@ a {
   }
 }
 
-.categoryLabel, .itemLabel {
+.categoryLabel {
   color: #000;
-  text-transform: uppercase;
   font-weight: bold;
   font-size: 14px;
   line-height: 25px;
 }
-.categorySelect, .itemSelect {
-  height: 30px;
+.itemLabel {
+  color: #000;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 25px;
+}
+.categorySelect {
+  border-radius: 4px;
   width: 100%;
   font-size: 14px;
+  line-height: calc(16/14);
+  background: #EBEBEB;
+  color: #000;
+  padding: 7px 15px 7px 5px;
+  border: none;
+}
+.itemSelect {
+  border-radius: 4px;
+  width: 100%;
+  font-size: 14px;
+  line-height: calc(16/14);
+  padding: 8px 15px 8px 5px;
 }
 
 .sr-only {
@@ -112,32 +129,32 @@ a {
 button.btn {
   color: #000;
   border: none;
-  border-radius: 0;
-
-  padding: 15px 25px;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 1;
+  padding: 1rem 25px;
   font-weight: bold;
-  text-transform: uppercase;
   max-width: 100%;
   transition: 0.3s all ease;
 }
 .clearBtn {
-  border: 2px solid #0054bc !important;
-  background: #0054bc;
-  color: white !important;
-  margin-top: 30px;
-  margin-bottom: 15px;
+  border: 1px solid #656565 !important;
+  background: white;
+  color: #000 !important;
   width: 100%;
 }
 .clearBtn:hover {
-  border-color: #07407B !important;
-  background: #07407B;
+  border-color: #0054BC !important;
+  background: #0054BC;
+  color: white !important;
 }
 
 .finishBtn {
-  border: 2px solid #07407b !important;
-  background: #07407b;
+  border: 2px solid #158923 !important;
+  background: #158923;
   color: white !important;
   width: 100%;
+  margin-top: 16px;
 }
 
 .finishBtn:hover {
@@ -929,41 +946,6 @@ content: '';
 display: inline-block;
 visibility: visible;
 border: 2px solid white;
-}
-
-button.btn {
-color: #000;
-border: none;
-border-radius: 0;
-
-padding: 15px 25px;
-font-weight: bold;
-text-transform: uppercase;
-max-width: 100%;
-}
-.clearBtn {
-border: 2px solid #3E9DD6 !important;
-background: transparent;
-color: white !important;
-margin-top: 30px;
-margin-bottom: 15px;
-}
-.clearBtn:hover {
-border: 2px solid yellow !important;
-background: yellow;
-color: #000 !important;
-}
-
-.finishBtn {
-border: 2px solid #3E9DD6 !important;
-background: transparent;
-color: white !important;
-}
-
-.finishBtn:hover {
-border: 2px solid yellow !important;
-background: yellow;
-color: #000 !important;
 }
 
 em.fas.fa-hat-wizard {

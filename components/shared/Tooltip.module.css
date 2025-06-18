@@ -6,20 +6,34 @@
 
 .tooltipContent {
   visibility: hidden;
-  background-color: #333;
+  background-color: #000;
   color: #fff;
   text-align: left;
-  border-radius: 4px;
-  padding: 6px 10px;
+  padding: 10px 12px;
   position: absolute;
   z-index: 1;
-  bottom: 125%; /* Position above */
-  left: 50%;
-  transform: translateX(-50%);
+  bottom: 160%; /* Position above */
+  right: -100%;
+  transform: translateX(24%);
   opacity: 0;
   transition: opacity 0.2s;
-  min-width: 120px;
-  font-size: 0.85em;
+  min-width: 184px;
+  font-size: 0.875rem;
+  line-height: calc(18/14);
+}
+
+.tooltipContent:after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 0 5px 6px 5px;
+  border-color: transparent transparent #000000 transparent;
+  transform: translateX(-50%) rotate(180deg);
 }
 
 .tooltipWrapper:hover .tooltipContent,
