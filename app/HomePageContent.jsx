@@ -272,9 +272,11 @@ export default function HomePage() {
           </>
 
         )}
+         
           <div>
-            <button className="btn clearBtn" onClick={handleClearBtnClick}>Clear Sections 1-6</button>
+            <button className="btn clearBtn" onClick={handleClearBtnClick}>Clear {!isInterior ? 'Sections 1-6' : 'Section 1'}</button>
           </div>
+         
 
 
           <FooterSelector iframeRef={iframeRef} isIframeReady={iframeReady}/>

@@ -4,6 +4,11 @@ const video = [
     value: 'VimeoVideo', // Reference to the VimeoVideo Component
   },
   {
+    label: '----------------',
+    value: '',
+    disabled: true
+  },
+  {
     label: 'Clear Section',
     value: ''
   }
@@ -21,6 +26,11 @@ const rotators = [
   {
     label: 'Image Gallery Carousel',
     value: 'ImageCarousel', // Reference to the VimeoVideo Component
+  },
+  {
+    label: '----------------',
+    value: '',
+    disabled: true
   },
   {
     label: 'Clear Section',
@@ -50,6 +60,11 @@ const news = [
     value: `NewsPatternFive`,
   },
   {
+    label: '----------------',
+    value: '',
+    disabled: true
+  },
+  {
     label: 'Clear Section',
     value: '',
   },
@@ -75,6 +90,11 @@ const events = [
   {
     label: 'Events Pattern 5',
     value: `EventsPatternFive`
+  },
+  {
+    label: '----------------',
+    value: '',
+    disabled: true
   },
   {
     label: 'Clear Section',
@@ -104,6 +124,11 @@ const text = [
     value: `TextPatternFive`
   },
   {
+    label: '----------------',
+    value: '',
+    disabled: true
+  },
+  {
     label: 'Clear Section',
     value: ``
   },
@@ -117,6 +142,11 @@ const giving = [
   {
     label: 'Gift Amount Input',
     value: `GivingInput`
+  },
+  {
+    label: '----------------',
+    value: '',
+    disabled: true
   },
   {
     label: 'Clear Section',
@@ -140,6 +170,11 @@ const cpis = [
   {
     label: 'CPI Pattern 4',
     value: `CPIPatternFour`
+  },
+  {
+    label: '----------------',
+    value: '',
+    disabled: true
   },
   {
     label: 'Clear Section',
@@ -203,6 +238,11 @@ const countdowns = [
     value: 'CountDownTimerTwo'
   },
   {
+    label: '----------------',
+    value: '',
+    disabled: true
+  },
+  {
     label: 'Clear Section',
     value: ''
   },
@@ -218,6 +258,11 @@ const quicklinks = [
     value: 'QuickLinksPatternTwo'
   },
   {
+    label: '----------------',
+    value: '',
+    disabled: true
+  },
+  {
     label: 'Clear Section',
     value: ''
   },
@@ -231,6 +276,11 @@ const quotes = [
   {
     label: 'Quotes Pattern 2',
     value: 'QuotesPatternTwo'
+  },
+  {
+    label: '----------------',
+    value: '',
+    disabled: true
   },
   {
     label: 'Clear Section',
@@ -250,6 +300,11 @@ const tabs = [
   {
     label: 'Tabs Pattern 3',
     value: 'FullWidthTabsPattern'
+  },
+  {
+    label: '----------------',
+    value: '',
+    disabled: true
   },
   {
     label: 'Clear Section',
@@ -307,6 +362,11 @@ const header1 = [
     value: 'OffCanvasOneComponent'
   },
   {
+    label: '----------------',
+    value: '',
+    disabled: true
+  },
+  {
     label: 'Clear Section',
     value: ''
   },
@@ -323,6 +383,11 @@ const header2 = [
   {
     label: 'OffCanvas',
     value: 'OffCanvasTwoComponent'
+  },
+  {
+    label: '----------------',
+    value: '',
+    disabled: true
   },
   {
     label: 'Clear Section',
@@ -344,6 +409,11 @@ const header3 = [
     value: 'OffCanvasThreeComponent'
   },
   {
+    label: '----------------',
+    value: '',
+    disabled: true
+  },
+  {
     label: 'Clear Section',
     value: ''
   },
@@ -361,6 +431,11 @@ const header4 = [
   {
     label: 'OffCanvas',
     value: 'OffCanvasFourComponent'
+  },
+  {
+    label: '----------------',
+    value: '',
+    disabled: true
   },
   {
     label: 'Clear Section',
@@ -395,6 +470,11 @@ const layout1 = [
     value: 'Layout1None'
   },
   {
+    label: '----------------',
+    value: '',
+    disabled: true
+  },
+  {
     label: 'Clear Section',
     value: ''
   },
@@ -417,6 +497,11 @@ const layout2 = [
     value: 'Layout2None'
   },
   {
+    label: '----------------',
+    value: '',
+    disabled: true
+  },
+  {
     label: 'Clear Section',
     value: ''
   },
@@ -437,6 +522,11 @@ const crowdfundinglayouts = [
   {
     label: 'Bar Indicator - Right',
     value: 'CFBarRight'
+  },
+  {
+    label: '----------------',
+    value: '',
+    disabled: true
   },
   {
     label: 'Clear Section',

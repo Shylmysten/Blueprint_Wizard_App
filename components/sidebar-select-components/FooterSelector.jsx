@@ -80,14 +80,14 @@ export default function FooterSelector({ iframeRef, isIframeReady }) {
 
   return (
     <div style={{ marginTop: '1rem' }}>
-      <label htmlFor="footerContent" className="categoryLabel">Footer Content:</label>
+      <label htmlFor="footerContent" className="categoryLabel">Footer Layout:</label>
       <select
         id="footerContent"
         className="categorySelect"
         value={selectedContent}
         onChange={handleChange}
       >
-        <option value="">-- Select Footer Content --</option>
+        <option value="">-- Select --</option>
         {footerOptions.map((item, i) => (
           <option key={i} value={item.value}>
             {item.label}

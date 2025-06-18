@@ -7,7 +7,7 @@
     width: 280px;
     padding: 1.5rem;
     background: #ffffff;
-    border-radius: 1px solid #ccc;
+    border-right: 1px solid #ccc;
     overflow-y: auto;
     overflow-x: hidden;
     max-height: 100vh;

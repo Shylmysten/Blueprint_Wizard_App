@@ -6,9 +6,9 @@ export default function CategorySelect({ section, categories, selected, onChange
 
   return (
     <div style={{ marginTop: '1rem' }}>
-      <label htmlFor={isHeaderSection ? 'header' : `section${section}`} className="categoryLabel">{isHeaderSection ? 'Header Layout' : `Section ${section} Content:`} </label><br />
+      <label htmlFor={isHeaderSection ? 'header' : `section${section}`} className="categoryLabel">{isHeaderSection ? 'Desktop Layout' : `Section ${section}:`} </label><br />
       <select id={isHeaderSection ? 'header' : `section${section}`} value={selected} onChange={onChange} className="categorySelect">
-        <option value="">-- Choose a category --</option>
+        <option value="">-- Select {!isHeaderSection && 'Content'}--</option>
         {Object.keys(categories).map((category) => (
           <option key={category} value={category}>
             {category}
