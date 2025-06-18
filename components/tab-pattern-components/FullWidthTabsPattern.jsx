@@ -82,7 +82,6 @@ const FullWidthTabsPattern = () => {
                             <div className="container">
                                 <div className="row">
                                     <div id="ContentMiddleLayout3Tab1" runat="server" className="col-xs-12 emptyCheck">
-                                            <link href="//design.redesign-imodules.com//s/resources/css/imodbase.css" rel="stylesheet"/>
                                             <h3>Tab Area #1</h3>
                                             <div className="snippetrow">
                                                 <div className="split30left">

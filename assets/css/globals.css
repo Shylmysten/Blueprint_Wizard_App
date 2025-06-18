@@ -144,9 +144,9 @@ button.btn {
   width: 100%;
 }
 .clearBtn:hover {
-  border-color: #0054BC !important;
-  background: #0054BC;
-  color: white !important;
+  border-color: #CC0000 !important;
+  background: rgba(204,0,0, 0.1);
+  color: #CC0000 !important;
 }
 
 .finishBtn {
@@ -158,8 +158,8 @@ button.btn {
 }
 
 .finishBtn:hover {
-  border:1px solid #0054bc !important;
-  background: #0054bc;
+  border:1px solid #051836 !important;
+  background:#051836;
   color: #fff !important;
 }
 

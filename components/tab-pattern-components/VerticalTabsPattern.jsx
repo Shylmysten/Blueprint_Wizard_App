@@ -80,7 +80,6 @@ const VerticalTabsPattern = () => {
 
                                 <div className="content-container" id="tab-panel-1">
                                     <div id="ContentMiddleLayout2Tab1" runat="server" className="emptyCheck">
-                                            <link href="//design.redesign-imodules.com//s/resources/css/imodbase.css" rel="stylesheet"/>
                                             <h3>Tab Area #1</h3>
                                             <div className="snippetrow">
                                                     <div className="split30left">

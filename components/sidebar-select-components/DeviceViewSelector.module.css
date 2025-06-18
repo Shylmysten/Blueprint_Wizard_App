@@ -30,6 +30,10 @@
       height: 1em;
       color: #000;
     }
+    &:hover, &:focus-visible {
+      background: #051836;
+      color: white;
+    }
   }
   .activeView {
     button {

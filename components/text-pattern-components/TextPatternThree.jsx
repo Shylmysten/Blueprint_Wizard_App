@@ -9,10 +9,6 @@ const TextPatternThree = () => {
               className='col-xs-12 sectionContent emptyCheck'
               id='ContentMiddleLayoutInfo3'
               runat='server'>
-              <link
-                href='//design.redesign-imodules.com//s/resources/css/imodbase.css'
-                rel='stylesheet'
-              />
               <div className='snippetrow'>
                 <div>
                   <h2>Text Layout Section #3</h2>
