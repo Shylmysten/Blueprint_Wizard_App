@@ -32,10 +32,13 @@ export default function HomePage() {
   const searchParams = useSearchParams();
   const [isInterior, setIsInterior] = useState(false);
   const [resetSectionsKey, setResetSectionsKey] = useState(0);
+  const [isHeader3, setIsHeader3] = useState(false);
 
   useEffect(() => {
      setIsInterior(searchParams.get('template') === 'int' ? true : false);
+     setIsHeader3(searchParams.get('header')?.includes('header3') ? true : false);
   }, [searchParams])
+
 
   useEffect(() => {
   if (iframeReady && iframeRef.current) {
@@ -177,12 +180,20 @@ export default function HomePage() {
 
           <ThemeSelector iframeRef={iframeRef} isIframeReady={iframeReady}/>
 
-          <HeaderSectionControl iframeRef={iframeRef} isIframeReady={iframeReady}/>
-          <div style={styles.gridContainer}>
-            <MegaMenuToggleSwitch label="Enable Feature" iframeRef={iframeRef} isIframeReady={iframeReady}/>
-            <SocialMediaToggleSwitch label="Enable Feature" iframeRef={iframeRef} isIframeReady={iframeReady}/>
-            <MemberToolsToggleSwitch label="Enable Feature" iframeRef={iframeRef} isIframeReady={iframeReady}/>
+          <div style={styles.headerControlsContainer}>
+            <h2 style={styles.headerControlsHtwo}>Header</h2>
+
+            <HeaderSectionControl iframeRef={iframeRef} isIframeReady={iframeReady}/>
+            <div style={styles.gridContainer}>
+              <MegaMenuToggleSwitch label="Enable Feature" iframeRef={iframeRef} isIframeReady={iframeReady}/>
+              {!isHeader3 && (
+                <SocialMediaToggleSwitch label="Enable Feature" iframeRef={iframeRef} isIframeReady={iframeReady}/>
+              )}
+              <MemberToolsToggleSwitch label="Enable Feature" iframeRef={iframeRef} isIframeReady={iframeReady}/>
+            </div>
           </div>
+
+
         {isInterior ? (
           <>
             <InteriorSectionControl 
@@ -260,16 +271,16 @@ export default function HomePage() {
           </>
 
         )}
-         
+          <div>
+            <button className="btn clearBtn" onClick={handleClearBtnClick}>Clear Sections 1-6</button>
+          </div>
 
 
           <FooterSelector iframeRef={iframeRef} isIframeReady={iframeReady}/>
 
+
           <div>
-            <button className="btn clearBtn" onClick={handleClearBtnClick}>Clear Sections 1-6</button>
-          </div>
-          <div>
-            <button className='btn finishBtn' onClick={handleFinshBtnClick}>Finish</button>
+            <button className='btn finishBtn' onClick={handleFinshBtnClick}>Finish & Copy</button>
           </div>
         </div>
 
@@ -303,7 +314,25 @@ const styles = {
     background: '#ffffff',
     borderRight: '1px solid #ccc',
     overflowY: 'auto',
+    overflowX: 'hidden',
     maxHeight: '100vh',
+  },
+  headerControlsContainer: {
+    position: 'relative',
+    padding: '8px 16px 24px 16px',
+    border: '1px solid #B9B9B9',
+    marginTop: '32px',
+  },
+  headerControlsHtwo: {
+    fontSize: '14px',
+    lineHeight: '1',
+    position: 'absolute',
+    top: '4px',
+    left: '-1px',
+    background: '#fff',
+    padding: '0 6px 9px 1px',
+    color: '#000',
+    transform: 'translateY(-16px)'
   },
   content: {
     flex: 1,
