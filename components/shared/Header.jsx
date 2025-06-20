@@ -10,41 +10,62 @@ const Header = ({ isInterior, setIsInterior }) => {
     const template = searchParams.get('template');
 
 
+
     const handleNavClick = (e) => {
-        e.preventDefault(); // Prevent default navigation
+        e.preventDefault();
 
-        // Get current params
         const params = new URLSearchParams(window.location.search);
-
-        // Decide which parameters to keep
         let allowed = ['header', 'footer', 'theme', 'membertools', 'megamenu', 'socials'];
-        const isInterior = e.target.text.includes('Interior');
-        if (isInterior) {
+        const goingToInterior = e.target.text.includes('Interior');
+        let newParams = new URLSearchParams();
+
+        if (goingToInterior) {
             allowed.push('template');
+            // Save current Home Page params (excluding template)
+            const homeParams = new URLSearchParams(params);
+            homeParams.delete('template');
+            sessionStorage.setItem('homePageParams', homeParams.toString());
+
+            // Try to restore saved Interior Page params
+            const savedInterior = sessionStorage.getItem('interiorPageParams');
+            if (savedInterior) {
+                newParams = new URLSearchParams(savedInterior);
+                sessionStorage.removeItem('interiorPageParams');
+            }
+        } else {
+            // Save current Interior Page params (excluding template)
+            const interiorParams = new URLSearchParams(params);
+            interiorParams.delete('template');
+            sessionStorage.setItem('interiorPageParams', interiorParams.toString());
+
+            // Try to restore saved Home Page params
+            const savedHome = sessionStorage.getItem('homePageParams');
+            if (savedHome) {
+                newParams = new URLSearchParams(savedHome);
+                sessionStorage.removeItem('homePageParams');
+            }
         }
 
-        // Build new params with only allowed keys
-        const newParams = new URLSearchParams();
-        allowed.forEach(key => {
-            if (params.has(key)) {
-                newParams.set(key, params.get(key));
-            }
-        });
+        // If no saved params, build new params with only allowed keys
+        if ([...newParams].length === 0) {
+            allowed.forEach(key => {
+                if (params.has(key)) {
+                    newParams.set(key, params.get(key));
+                }
+            });
+        }
 
-        // For Interior Page Template, always set template=int
-        if (isInterior) {
+        if (goingToInterior) {
             newParams.set('template', 'int');
             setIsInterior(true);
         } else {
             setIsInterior(false);
         }
 
-        // Build new URL
         const newUrl = newParams.toString() ? `/?${newParams.toString()}` : '/';
-
-        // Navigate
         router.push(newUrl);
     };
+
 
 
     return (
