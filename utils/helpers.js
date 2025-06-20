@@ -184,3 +184,23 @@ export function parseSectionParam(sectionParam, categories) {
 
     return [matchedCategory, matchedItem]
 }
+
+export function syncSharedParams(currentParams) {
+  const params = new URLSearchParams(currentParams);
+
+  // Add 'theme' to the list of keys to sync
+  const keysToSync = ['header', 'footer', 'megamenu', 'socials', 'membertools', 'theme'];
+
+  const updateParams = (storageKey) => {
+    const stored = sessionStorage.getItem(storageKey);
+    const storedParams = new URLSearchParams(stored || '');
+    keysToSync.forEach(key => {
+      if (params.has(key)) storedParams.set(key, params.get(key));
+      else storedParams.delete(key);
+    });
+    sessionStorage.setItem(storageKey, storedParams.toString());
+  };
+
+  updateParams('homePageParams');
+  updateParams('interiorPageParams');
+}

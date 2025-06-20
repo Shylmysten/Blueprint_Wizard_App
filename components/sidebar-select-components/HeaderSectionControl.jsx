@@ -9,7 +9,7 @@ import { updateHeader } from '@/utils/actions';
 import { DropdownToggleContext } from '../../utils/DropdownToggleContext';
 import { formatHeaderItemForParams, formatUrlHeaderCategory, formatUrlHeaderItem } from '@/utils/helpers';
 
-const HeaderSectionControl = ({ iframeRef, isIframeReady }) => {
+const HeaderSectionControl = ({ iframeRef, isIframeReady, isInterior }) => {
   const [headerState, setHeaderState] = useState({ category: '', item: '' });
   const { isDropdownToggleSwitchOn } = useContext(DropdownToggleContext);
   const [isClient, setIsClient] = useState(false)
@@ -112,6 +112,7 @@ const HeaderSectionControl = ({ iframeRef, isIframeReady }) => {
         categories={headerCategories}
         selected={headerState.category}
         onChange={handleCategoryChange}
+        disabled={isInterior}
       />
       {headerState.category && (
         <ItemSelect
@@ -119,6 +120,7 @@ const HeaderSectionControl = ({ iframeRef, isIframeReady }) => {
           items={itemOptions}
           selected={headerState.item}
           onChange={handleItemChange}
+          disabled={isInterior}
         />
       )}
     </div>

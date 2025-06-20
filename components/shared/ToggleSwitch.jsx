@@ -13,7 +13,7 @@ function getTooltipContent(label) {
   return tooltipContentMap[label] || "Toggle this setting on or off.";
 }
 
-const ToggleSwitch = ({ id, checked, onChange, label, onKeyDown }) => (
+const ToggleSwitch = ({ id, checked, onChange, label, onKeyDown, disabled }) => (
   <div className={styles.toggleSwitchWrapper}>
     {label && (
       <label id={styles.label} htmlFor={id} className={styles.label} aria-label={`${label === 'MegaMenu' ? "MegaMenu's" : label} are ${checked ? 'turned on' : 'turned off'}`}>
@@ -24,13 +24,15 @@ const ToggleSwitch = ({ id, checked, onChange, label, onKeyDown }) => (
       className={styles.container}
       role="switch"
       aria-checked={checked}
-      tabIndex={0}
-      onClick={onChange}
-      onKeyDown={onKeyDown}
+      tabIndex={disabled ? -1 : 0}
+      onClick={disabled ? undefined : onChange} // Prevent click when disabled
+      onKeyDown={disabled ? undefined : onKeyDown} // Prevent keydown when disabled
+      aria-disabled={disabled}
+      style={disabled ? { opacity: 0.5, pointerEvents: 'none' } : {}}
     >
         {label === 'MegaMenu' && (
         <Tooltip content={getTooltipContent(label)}>
-          <span className={styles.icon} aria-label="More info" tabIndex={0} >
+          <span className={styles.icon} aria-label="More info" tabIndex={0}>
             {/*<i aria-label="More info" className="fas fa-info-circle"></i>*/}
             <i className="fa-solid fa-info"></i>
           </span>
@@ -45,6 +47,7 @@ const ToggleSwitch = ({ id, checked, onChange, label, onKeyDown }) => (
           aria-hidden="true"
           tabIndex={-1}
           aria-describedby={styles.label}
+          disabled={disabled}
         />
         <span className={`${styles.slider} ${styles.round}`} />
       </div>

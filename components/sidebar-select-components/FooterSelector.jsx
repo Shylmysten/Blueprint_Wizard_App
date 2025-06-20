@@ -4,7 +4,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { footerOptions } from '@/data/categories';
 import { updateFooter } from '@/utils/actions';
 
-export default function FooterSelector({ iframeRef, isIframeReady }) {
+export default function FooterSelector({ iframeRef, isIframeReady, isInterior }) {
   const [selectedContent, setSelectedContent] = useState('');
   const [isClient, setIsClient] = useState(false);
   const router = useRouter();
@@ -79,13 +79,14 @@ export default function FooterSelector({ iframeRef, isIframeReady }) {
   }
 
   return (
-    <div style={{ marginTop: '1rem' }}>
+    <div style={{ marginTop: '1rem', ...(isInterior ? { opacity: 0.5 } : {}) }}>
       <label htmlFor="footerContent" className="categoryLabel">Footer Layout:</label>
       <select
         id="footerContent"
         className="categorySelect"
         value={selectedContent}
         onChange={handleChange}
+        disabled={isInterior}
       >
         <option value="">-- Select --</option>
         {footerOptions.map((item, i) => (

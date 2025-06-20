@@ -19,6 +19,7 @@ import FinishModal from '@/components/FinishModal';
 import InteriorSectionControl from '@/components/sidebar-select-components/InteriorSectionControl';
 import Header from '@/components/shared/Header';
 import styles from './HomePageContent.module.css';
+import { syncSharedParams } from '@/utils/helpers';
 
 export default function HomePage() {
   const [iframeReady, setIframeReady] = useState(false);
@@ -36,20 +37,21 @@ export default function HomePage() {
   const [isHeader3, setIsHeader3] = useState(false);
 
   useEffect(() => {
-     setIsInterior(searchParams.get('template') === 'int' ? true : false);
-     setIsHeader3(searchParams.get('header')?.includes('header3') ? true : false);
+    setIsInterior(searchParams.get('template') === 'int');
+    setIsHeader3(searchParams.get('header')?.includes('header3') ?? false);
 
     // Save Home or Interior params to sessionStorage on every change
     const params = new URLSearchParams(window.location.search);
     if (searchParams.get('template') === 'int') {
-      // Save Interior params (excluding template)
       params.delete('template');
       sessionStorage.setItem('interiorPageParams', params.toString());
     } else {
-      // Save Home params (excluding template)
       params.delete('template');
       sessionStorage.setItem('homePageParams', params.toString());
     }
+
+    // Sync all shared params to both session keys
+    syncSharedParams(window.location.search);
   }, [searchParams]);
 
 
@@ -193,16 +195,31 @@ export default function HomePage() {
 
           <ThemeSelector iframeRef={iframeRef} isIframeReady={iframeReady}/>
 
-          <div className={styles.headerControlsContainer}>
+          <div className={styles.headerControlsContainer} style={isInterior ? {opacity: 0.6} : {}}>
             <h2 className={styles.headerControlsHtwo}>Header</h2>
 
-            <HeaderSectionControl iframeRef={iframeRef} isIframeReady={iframeReady}/>
+            <HeaderSectionControl iframeRef={iframeRef} isIframeReady={iframeReady} isInterior={isInterior}/>
             <div className={styles.gridContainer}>
-              <MegaMenuToggleSwitch label="Enable Feature" iframeRef={iframeRef} isIframeReady={iframeReady}/>
+              <MegaMenuToggleSwitch 
+                label="Enable Feature" 
+                iframeRef={iframeRef} 
+                isIframeReady={iframeReady}
+                disabled={isInterior}
+              />
               {!isHeader3 && (
-                <SocialMediaToggleSwitch label="Enable Feature" iframeRef={iframeRef} isIframeReady={iframeReady}/>
+                <SocialMediaToggleSwitch 
+                  label="Enable Feature" 
+                  iframeRef={iframeRef} 
+                  isIframeReady={iframeReady}
+                  disabled={isInterior}
+                />
               )}
-              <MemberToolsToggleSwitch label="Enable Feature" iframeRef={iframeRef} isIframeReady={iframeReady}/>
+              <MemberToolsToggleSwitch 
+                label="Enable Feature" 
+                iframeRef={iframeRef} 
+                isIframeReady={iframeReady}
+                disabled={isInterior}
+              />
             </div>
           </div>
 
@@ -221,6 +238,8 @@ export default function HomePage() {
           </>
         ) : ( 
           <>
+
+
 
             {/* Section 1 */}
             <SectionControl 
@@ -289,9 +308,11 @@ export default function HomePage() {
             <button className="btn clearBtn" onClick={handleClearBtnClick}>Clear {!isInterior ? 'Sections 1-6' : 'Section 1'}</button>
           </div>
          
+     
 
+          <FooterSelector iframeRef={iframeRef} isIframeReady={iframeReady} isInterior={isInterior}/>
+     
 
-          <FooterSelector iframeRef={iframeRef} isIframeReady={iframeReady}/>
 
 
           <div>

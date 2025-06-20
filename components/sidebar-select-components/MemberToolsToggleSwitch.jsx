@@ -3,7 +3,7 @@ import { MemberToolsToggleContext } from '@/utils/MemberToolsToggleContext';
 import { useRouter, useSearchParams } from 'next/navigation';
 import ToggleSwitch from '../shared/ToggleSwitch';
 
-const MemberToolsToggleSwitch = ({ iframeRef, isIframeReady }) => {
+const MemberToolsToggleSwitch = ({ iframeRef, isIframeReady, disabled }) => {
         const { isMemberToolsToggleSwitchOff, setIsMemberToolsToggleSwitchOff } = useContext(MemberToolsToggleContext);
         const [isClient, setIsClient] = useState(false);
         const router = useRouter();
@@ -80,6 +80,7 @@ const MemberToolsToggleSwitch = ({ iframeRef, isIframeReady }) => {
                 checked={isMemberToolsToggleSwitchOff}
                 onChange={handleToggle}
                 onKeyDown={handleKeyDown}
+                disabled={disabled}
                 label='Member Tools'
             />
      );

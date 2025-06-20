@@ -3,7 +3,7 @@ import { DropdownToggleContext } from '../../utils/DropdownToggleContext';
 import {useRouter, useSearchParams} from 'next/navigation';
 import ToggleSwitch from '../shared/ToggleSwitch';
 
-const MegaMenuToggleSwitch = ({ iframeRef, isIframeReady }) => {
+const MegaMenuToggleSwitch = ({ iframeRef, isIframeReady, disabled }) => {
     const { isDropdownToggleSwitchOn, setIsDropdownToggleSwitchOn } = useContext(DropdownToggleContext);
     const [isClient, setIsClient] = useState(false);
     const router = useRouter();
@@ -80,6 +80,7 @@ const MegaMenuToggleSwitch = ({ iframeRef, isIframeReady }) => {
               checked={isDropdownToggleSwitchOn}
               onChange={handleToggle}
               onKeyDown={handleKeyDown}
+              disabled={disabled}
               label='MegaMenu'
             />
      );

@@ -3,7 +3,7 @@ import {SocialMediaToggleContext} from "@/utils/SocialMediaToggleContext";
 import {useRouter, useSearchParams} from 'next/navigation';
 import ToggleSwitch from '../shared/ToggleSwitch';
 
-const SocialMediaToggleSwitch = ({ iframeRef, isIframeReady }) => {
+const SocialMediaToggleSwitch = ({ iframeRef, isIframeReady, disabled }) => {
         const { isSocialMediaToggleSwitchOff, setIsSocialMediaToggleSwitchOff } = useContext(SocialMediaToggleContext);
         const [isClient, setIsClient] = useState(false);
         const router = useRouter();
@@ -80,6 +80,7 @@ const SocialMediaToggleSwitch = ({ iframeRef, isIframeReady }) => {
                 checked={isSocialMediaToggleSwitchOff}
                 onChange={handleToggle}
                 onKeyDown={handleKeyDown}
+                disabled={disabled}
                 label='Social Icons'
             />
      );

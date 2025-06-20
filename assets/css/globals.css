@@ -72,6 +72,9 @@ a {
   line-height: calc(16/14);
   padding: 8px 15px 8px 5px;
 }
+.categorySelect[disabled], .itemSelect[disabled] {
+    opacity: 0.3;
+}
 .headerItemSelectColor {
   background: #ebebeb;
 }
