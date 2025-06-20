@@ -215,7 +215,7 @@ export default function HomePage() {
               categories={intCategories}
               iframeRef={iframeRef}
               isIframeReady={iframeReady}
-             
+              resetKey={resetSectionsKey}
             />
 
           </>

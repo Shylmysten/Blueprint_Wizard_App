@@ -5,13 +5,19 @@ import {updateIframeInterior} from "@/utils/actions";
 import {formatInteriorSectionCategory} from "@/utils/helpers";
 import {useRouter, useSearchParams} from 'next/navigation';
 
-const InteriorSectionControl = ({ sectionIndex, categories, iframeRef, isIframeReady }) => {
+const InteriorSectionControl = ({ sectionIndex, categories, iframeRef, isIframeReady, resetKey }) => {
         const [sectionState, setSectionState] = useState({ category: '', item: '' });
         const [cleanedSections, setCleanedSections] = useState(false);
         const [isClient, setIsClient] = useState(false);
         const router = useRouter();
         const searchParams = useSearchParams();
         const userInteracted = useRef(false);
+        
+    useEffect(() => {
+        // Reset local state when resetKey changes
+        setSectionState({ category: '', item: '' });
+        userInteracted.current = false;
+    }, [resetKey]);
 
     useEffect(() => {
         if (!isIframeReady || cleanedSections) return;
