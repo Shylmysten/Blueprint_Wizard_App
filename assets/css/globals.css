@@ -273,13 +273,18 @@ table.htCore td {
 
 
   outline: 0;
+  &.in {
+          display: flex !important;
+  justify-content: center;
+  align-items: center;
+  }
 }
   .modal.fade .modal-dialog {
-    transform: translate(0, -25%);
+    transform: translate(-25%, -25%);
     transition: 0.3s ease-out;
   }
   .modal.in .modal-dialog { 
-    transform: translate(50%, 50%)
+    transform: translate(0%, 0%)
   }
 .modal-open .modal {
   overflow-x: hidden;

@@ -38,7 +38,19 @@ export default function HomePage() {
   useEffect(() => {
      setIsInterior(searchParams.get('template') === 'int' ? true : false);
      setIsHeader3(searchParams.get('header')?.includes('header3') ? true : false);
-  }, [searchParams])
+
+    // Save Home or Interior params to sessionStorage on every change
+    const params = new URLSearchParams(window.location.search);
+    if (searchParams.get('template') === 'int') {
+      // Save Interior params (excluding template)
+      params.delete('template');
+      sessionStorage.setItem('interiorPageParams', params.toString());
+    } else {
+      // Save Home params (excluding template)
+      params.delete('template');
+      sessionStorage.setItem('homePageParams', params.toString());
+    }
+  }, [searchParams]);
 
 
   useEffect(() => {
