@@ -5,7 +5,7 @@ import {updateIframeInterior} from "@/utils/actions";
 import {formatInteriorSectionCategory} from "@/utils/helpers";
 import {useRouter, useSearchParams} from 'next/navigation';
 
-const InteriorSectionControl = ({ sectionIndex, categories, iframeRef, isIframeReady, resetKey }) => {
+const InteriorSectionControl = ({ sectionIndex, categories, iframeRef, isIframeReady, resetKey, isInterior }) => {
         const [sectionState, setSectionState] = useState({ category: '', item: '' });
         const [cleanedSections, setCleanedSections] = useState(false);
         const [isClient, setIsClient] = useState(false);
@@ -154,12 +154,14 @@ return (
             categories={categories}
             selected={sectionState.category}
             onChange={handleCategoryChange}
+            isInterior={isInterior}
         />
         {sectionState.category && (
             <ItemSelect
             items={itemOptions}
             selected={sectionState.item}
             onChange={handleItemChange}
+            isInterior={isInterior}
             />
         )}
         </div>

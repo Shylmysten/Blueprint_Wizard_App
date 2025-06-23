@@ -20,3 +20,13 @@
 .navLink:focus-visible {
     text-decoration: underline;
 }
+
+.navLink:focus {
+    outline: none;
+    text-decoration: none;
+}
+
+.disabled {
+    pointer-events: none;
+   
+}

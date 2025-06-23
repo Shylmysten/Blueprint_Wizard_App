@@ -18,7 +18,7 @@ const Header = ({ isInterior, setIsInterior }) => {
         let allowed = ['header', 'footer', 'theme', 'membertools', 'megamenu', 'socials'];
         const goingToInterior = e.target.text.includes('Interior');
         let newParams = new URLSearchParams();
-
+   
         if (goingToInterior) {
             allowed.push('template');
             // Save current Home Page params (excluding template)
@@ -75,14 +75,30 @@ const Header = ({ isInterior, setIsInterior }) => {
                 <div className="col-xs-12" style={{paddingLeft: '5px'}}>
                     <nav style={{display: 'flex', gap: '5px'}}>
                         <Link 
-                            className={cx(styles.navLink, { [styles.active]: !template })}
+                            className={cx(styles.navLink, { [styles.active]: !template, [styles.disabled]: !template })}
                             href="/"
-                            onClick={handleNavClick}
+                            onClick={e => {
+                                if (!template) {
+                                    e.preventDefault(); // Already active, do nothing
+                                    return;
+                                }
+                                handleNavClick(e);
+                            }}
+                            tabIndex={!template ? -1 : 0}
+                            aria-disabled={!template}
                         >Home Template</Link>
                         <Link 
-                            className={cx(styles.navLink, { [styles.active]: template === 'int' })}
+                            className={cx(styles.navLink, { [styles.active]: template === 'int', [styles.disabled]: template === 'int' })}
                             href="/?template=int" 
-                            onClick={handleNavClick}
+                            onClick={e => {
+                                if (template === 'int') {
+                                    e.preventDefault(); // Already active, do nothing
+                                    return;
+                                }
+                                handleNavClick(e);
+                            }}
+                            tabIndex={template === 'int' ? -1 : 0}
+                            aria-disabled={template === 'int'}
                         >Interior Template</Link>
                     </nav>
                 </div>

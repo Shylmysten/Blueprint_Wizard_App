@@ -197,7 +197,9 @@ export default function HomePage() {
 
           <div className={styles.headerControlsContainer} style={isInterior ? {opacity: 0.6} : {}}>
             <h2 className={styles.headerControlsHtwo}>Header</h2>
-
+            {isInterior && (
+              <p style={{fontSize: '12px', color: '#cc0000'}}>Header, Footer and Theme will be the same across all templates, However, theme is allowed to be changed above to view the style differences in content, but the final theme selected above will be the same on the home page as well.</p>
+            )}
             <HeaderSectionControl iframeRef={iframeRef} isIframeReady={iframeReady} isInterior={isInterior}/>
             <div className={styles.gridContainer}>
               <MegaMenuToggleSwitch 
@@ -233,6 +235,7 @@ export default function HomePage() {
               iframeRef={iframeRef}
               isIframeReady={iframeReady}
               resetKey={resetSectionsKey}
+              isInterior={isInterior}
             />
 
           </>

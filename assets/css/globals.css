@@ -71,6 +71,7 @@ a {
   font-size: 14px;
   line-height: calc(16/14);
   padding: 8px 15px 8px 5px;
+  border: 1px solid #B9B9B9;
 }
 .categorySelect[disabled], .itemSelect[disabled] {
     opacity: 0.3;
