@@ -3,7 +3,7 @@ import React from 'react';
 import cx from 'classnames';
 
 export default function ItemSelect({ section, items, selected, onChange, disabled, isInterior }) {
-  console.log(section);
+
   return (
     <div style={section && {marginTop: '1rem'}}>
       <label htmlFor="item" className={`itemLabel ${section === 'undefined' ? 'sr-only' : ''}`}>{section && 'Mobile Menu Layout'}</label>
