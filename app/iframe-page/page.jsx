@@ -118,7 +118,7 @@ export default function IframePage() {
           break;
         case 'UPDATE_MEMBERTOOLS_STATE':
           const { isMemberToolsToggleSwitchOff: memberToolsState } = payload;
-          console.log('Received isMemberToolsToggleSwitchOff in Iframe:', memberToolsState);
+          //console.log('Received isMemberToolsToggleSwitchOff in Iframe:', memberToolsState);
           setIsMemberToolsToggleSwitchOff(memberToolsState);
           break;
         case 'UPDATE_HEADER':
@@ -201,18 +201,18 @@ export default function IframePage() {
     document.body.appendChild(iModTabsScript);
 
     // ✅ LoadCountdown Script only after jQuery is Loaded
-    slickScript.onload = () => {
-      console.log('Slick is loaded and ready to use');
-    };
-    circularcountdownScript.onload = () => {
-      console.log('Circular Countdown is loaded and ready to use');
-    };
-    finalcountdownScript.onload = () => {
-      console.log('Final Countdown is loaded and ready to use');
-    };
-    iModTabsScript.onload = () => {
-      console.log('iModTabs is loaded and ready to use');
-    };
+    //slickScript.onload = () => {
+    //  console.log('Slick is loaded and ready to use');
+    //};
+    //circularcountdownScript.onload = () => {
+    //  console.log('Circular Countdown is loaded and ready to use');
+    //};
+    //finalcountdownScript.onload = () => {
+    //  console.log('Final Countdown is loaded and ready to use');
+    //};
+    //iModTabsScript.onload = () => {
+    //  console.log('iModTabs is loaded and ready to use');
+    //};
    
     // ✅ Load Vimeo Player Script
     const vimeoScript = document.createElement('script');
