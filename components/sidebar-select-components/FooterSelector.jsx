@@ -79,7 +79,7 @@ export default function FooterSelector({ iframeRef, isIframeReady, isInterior })
   }
 
   return (
-    <div style={{ marginTop: '1rem', ...(isInterior ? { opacity: 0.5 } : {}) }}>
+    <div style={{ marginTop: '1rem' }}>
       <label htmlFor="footerContent" className="categoryLabel">Footer Layout:</label>
       <select
         id="footerContent"

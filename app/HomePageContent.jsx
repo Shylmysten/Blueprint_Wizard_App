@@ -195,10 +195,10 @@ export default function HomePage() {
 
           <ThemeSelector iframeRef={iframeRef} isIframeReady={iframeReady}/>
 
-          <div className={styles.headerControlsContainer} style={isInterior ? {opacity: 0.6} : {}}>
+          <div className={styles.headerControlsContainer} >
             <h2 className={styles.headerControlsHtwo}>Header</h2>
             {isInterior && (
-              <p style={{fontSize: '12px', color: '#cc0000'}}>Header, Footer and Theme will be the same across all templates, However, theme is allowed to be changed above to view the style differences in content, but the final theme selected above will be the same on the home page as well.</p>
+              <p className={styles.headerFooterInfo}>Header and Footer selections will be the same across templates.</p>
             )}
             <HeaderSectionControl iframeRef={iframeRef} isIframeReady={iframeReady} isInterior={isInterior}/>
             <div className={styles.gridContainer}>
