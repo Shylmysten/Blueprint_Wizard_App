@@ -130,6 +130,7 @@ export default function SectionControl({ sectionIndex, categories, iframeRef, is
         />
         {sectionState.category && (
             <ItemSelect
+            section={sectionIndex + 1}
             items={itemOptions}
             selected={sectionState.item}
             onChange={handleItemChange}
