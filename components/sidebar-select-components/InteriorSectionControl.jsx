@@ -12,7 +12,7 @@ const InteriorSectionControl = ({ sectionIndex, categories, iframeRef, isIframeR
         const router = useRouter();
         const searchParams = useSearchParams();
         const userInteracted = useRef(false);
-        console.log('section'+sectionIndex);
+
     useEffect(() => {
         // Reset local state when resetKey changes
         setSectionState({ category: '', item: '' });
