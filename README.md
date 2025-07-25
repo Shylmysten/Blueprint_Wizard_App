@@ -1,93 +1,318 @@
 # Blueprint Wizard Next.js
 
-The "Blueprint Wizard" serves as a prototype for a live development portal. It allows stakeholders to preview how different content sections, themes, and layouts will appear before the site goes live. The modular design enables easy updates and personalization, ensuring that the final product meets the institution's requirements.
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20Site-blue)](https://blueprint-wizard-app.vercel.app/)
+[![Next.js](https://img.shields.io/badge/Next.js-15.3.1-black)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-19.0.0-blue)](https://reactjs.org/)
 
-## App Details
+A sophisticated client-facing application that serves as a prototype for Anthology's Blueprint product development portal. The Blueprint Wizard enables stakeholders to preview and customize different content sections, themes, and layouts in real-time before implementation in their Encompass CMS environment.
 
-- **Version:** 1.0.0
-- **Author:** Tony Boswell
+## 🎯 Overview
 
-## What This Application Does
+The Blueprint Wizard is an interactive design tool that bridges the gap between conceptual design and final implementation. It provides a visual interface for stakeholders to:
 
-The "Blueprint Wizard" is a client facing application that allows stakeholders to preview in Anthology's Blueprint Product how different content sections, themes, and layouts will appear in their Encompass CMS before the site goes live. The modular design enables easy updates and personalization, ensuring that the final product meets the institution's requirements. [Geist font](https://vercel.com/font) and is ready for customization.
+- **Preview content patterns** across different layout configurations
+- **Test responsive designs** on desktop, tablet, and mobile viewports
+- **Customize themes** and visual elements in real-time
+- **Configure layouts** with various sidebar and content arrangements
+- **Export configurations** for development implementation
 
-You can view a live demo at [https://blueprint-wizard-app.vercel.app/](https://blueprint-wizard-app.vercel.app/).
+**Live Demo:** [https://blueprint-wizard-app.vercel.app/](https://blueprint-wizard-app.vercel.app/)
 
-## Getting Started
+## ✨ Key Features
 
-First, clone the repository and install dependencies:
+### 🖥️ Interactive Preview System
+- **Real-time rendering** of layout changes using iframe-based architecture
+- **Responsive viewport testing** with device-specific preview modes
+- **Live theme switching** with instant visual feedback
+
+### 🎨 Content Pattern Library
+- **News Patterns** (5 variations): Standard news layouts with different grid configurations
+- **Events Patterns** (2 variations): Event listing and calendar display options
+- **Campaign Progress Indicators** (4 patterns): Fundraising and progress tracking displays
+- **Crowdfunding Layouts** (4 specialized layouts): Donation and fundraising page templates
+- **Countdown Patterns**: Time-sensitive campaign displays
+- **Quick Links Patterns**: Icon-based navigation systems
+- **Tabbed Content** (3 variations): Horizontal, vertical, and full-width tab layouts
+- **Quotes Patterns** (2 variations): Testimonial and quote display options
+- **Rotator Patterns**: Image and content carousel systems
+- **Text Patterns**: Various text layout and typography options
+
+### 🏗️ Layout System
+- **Interior Page Layouts** with flexible sidebar configurations:
+  - Left sidebar only
+  - Right sidebar only  
+  - Both sidebars (3-column)
+  - No sidebars (full-width)
+- **Header variations** (4 different styles) with optional features:
+  - Mega menu support
+  - Social media integration
+  - Member tools integration
+- **Footer customization** options
+
+### ⚙️ Advanced Configuration
+- **Section-based content management** (up to 6 configurable sections)
+- **URL parameter persistence** for sharing configurations
+- **Export functionality** for development handoff
+- **Clear and reset capabilities** for starting fresh
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js 18+ 
+- npm, yarn, pnpm, or bun package manager
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/Shylmysten/Blueprint_Wizard_App.git
+   cd blueprint-wizard-nextjs
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   # or
+   yarn install
+   # or
+   pnpm install
+   # or
+   bun install
+   ```
+
+3. **Start the development server**
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   # or
+   pnpm dev
+   # or
+   bun dev
+   ```
+
+4. **Open your browser**
+   
+   Navigate to [http://localhost:3000](http://localhost:3000) to see the application.
+
+### Available Scripts
 
 ```bash
-git clone https://github.com/your-org/blueprint-wizard-nextjs.git
-cd blueprint-wizard-nextjs
-npm install
-# or
-yarn install
-# or
-pnpm install
-# or
-bun install
+npm run dev      # Start development server
+npm run build    # Build for production
+npm run start    # Start production server
+npm run lint     # Run ESLint
 ```
 
-Run the development server:
+## 🏗️ Architecture
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Tech Stack
+- **Framework:** [Next.js 15.3.1](https://nextjs.org/) with App Router
+- **Frontend:** [React 19.0.0](https://reactjs.org/) with Hooks and Context API
+- **Styling:** CSS Modules with responsive design
+- **Icons:** [Font Awesome 6.7.2](https://fontawesome.com/)
+- **Utilities:** [classnames](https://github.com/JedWatson/classnames) for conditional styling
 
-Open [http://localhost:3000](http://localhost:3000) in your browser to see the app.
-
-You can start editing the page by modifying [`app/page.js`](app/page.js). The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Key Techniques
-
-- **[Dynamic Routing](https://nextjs.org/docs/app/building-your-application/routing)** with the Next.js App Router for flexible page structures.
-- **[Automatic Font Optimization](https://nextjs.org/docs/app/building-your-application/optimizing/fonts)** using [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to load [Geist](https://vercel.com/font) efficiently.
-- **[Hot Module Replacement (HMR)](https://nextjs.org/docs/app/building-your-application/optimizing/hot-reloading)** for instant feedback during development.
-- **[ES Modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules)** for modular, maintainable code.
-
-## Notable Technologies
-
-- [Next.js](https://nextjs.org) for server-side rendering, routing, and API routes.
-- [Geist Font](https://vercel.com/font) for a modern, readable UI.
-- [Bun](https://bun.sh), [pnpm](https://pnpm.io), [Yarn](https://yarnpkg.com), and [npm](https://www.npmjs.com/) supported for flexible package management.
-
-## Project Structure
+### Project Structure
 
 ```
 blueprint-wizard-nextjs/
-├── app/
-├── public/
-├── styles/
-├── README.md
-├── package.json
+├── app/                                    # Next.js App Router
+│   ├── (root)/                            # Route group for main layout
+│   ├── iframe-page/                       # Iframe content rendering
+│   ├── HomePageContent.jsx                # Main application component
+│   ├── layout.jsx                         # Root layout
+│   └── page.jsx                           # Homepage entry point
+├── components/                            # Reusable UI components
+│   ├── campaign-progress-indicator-components/
+│   ├── countdown-pattern-components/
+│   ├── crowdfunding-pattern-components/
+│   ├── events-pattern-components/
+│   ├── giving-pattern-components/
+│   ├── header-components/
+│   ├── interior-page-components/
+│   ├── news-pattern-components/
+│   ├── quicklinks-pattern-components/
+│   ├── quotes-pattern-components/
+│   ├── rotator-pattern-components/
+│   ├── sidebar-select-components/         # Control panel components
+│   ├── tab-pattern-components/
+│   ├── text-pattern-components/
+│   └── shared/                           # Common components
+├── data/                                 # Static configuration data
+│   ├── categories.js                     # Pattern category definitions
+│   └── navigation-items.js               # Navigation structure
+├── utils/                                # Utility functions and contexts
+│   ├── actions.js                        # Component mapping and actions
+│   ├── DropdownToggleContext.js          # Dropdown state management
+│   ├── LoadingContext.js                 # Loading state management
+│   ├── MemberToolsToggleContext.js       # Member tools state
+│   ├── SocialMediaToggleContext.js       # Social media state
+│   ├── getQueryParams.js                 # URL parameter utilities
+│   ├── helpers.js                        # General helper functions
+│   └── offCanvasUtils.js                 # Off-canvas utilities
+├── assets/css/                           # Global stylesheets
+├── public/                               # Static assets (images, icons)
+└── lib/constants/                        # Application constants
 ```
 
-- **app/**: Main application code, including pages and routing logic.
-- **public/**: Static assets like images and icons.
-- **styles/**: Global and component-level CSS.
-- **README.md**: Project documentation.
-- **package.json**: Project dependencies and scripts.
+### Key Architectural Patterns
 
-## Learn More
+#### **Component-Based Architecture**
+- Modular pattern components for maximum reusability
+- Context API for global state management
+- Custom hooks for shared logic
 
-To learn more about Next.js, take a look at the following resources:
+#### **Iframe-Based Preview System**
+- Isolated rendering environment for pattern previews
+- PostMessage communication between parent and iframe
+- Real-time synchronization of configuration changes
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+#### **URL State Management**
+- Configuration persistence through URL parameters
+- Shareable configuration links
+- Browser history support for undo/redo functionality
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🎨 Usage Guide
 
-## Deploy on Vercel
+### Basic Workflow
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. **Select Template Type**
+   - Choose between Homepage and Interior page templates
+   - Template selection affects available patterns and layouts
 
-Check out the [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+2. **Configure Theme**
+   - Select from predefined theme options
+   - See immediate visual feedback in the preview
+
+3. **Choose Layout Structure**
+   - Select sidebar configuration (left, right, both, or none)
+   - Pick header style and optional features
+
+4. **Add Content Patterns**
+   - Browse pattern categories (News, Events, etc.)
+   - Select specific pattern variations
+   - Configure up to 6 content sections
+
+5. **Test Responsiveness**
+   - Use device view selector for different screen sizes
+   - Verify layout behavior across viewports
+
+6. **Export Configuration**
+   - Use "Finish & Copy" to generate implementation details
+   - Share configuration URLs with team members
+
+### Advanced Features
+
+#### **Real-time Collaboration**
+- Share configuration URLs for team review
+- URL parameters preserve all settings
+- No login required for stakeholder access
+
+#### **Responsive Testing**
+- Dedicated mobile, tablet, and desktop views
+- Realistic viewport dimensions
+- Touch-friendly interface elements
+
+## 🔧 Development
+
+### Adding New Patterns
+
+1. **Create Pattern Component**
+   ```jsx
+   // components/your-pattern-components/YourPattern.jsx
+   import React from 'react';
+   
+   function YourPattern() {
+     return (
+       <section className="your-pattern">
+         {/* Pattern content */}
+       </section>
+     );
+   }
+   
+   export default YourPattern;
+   ```
+
+2. **Register in Categories**
+   ```javascript
+   // data/categories.js
+   export const categories = {
+     'Your Category': {
+       YourPattern: { label: 'Your Pattern Name' }
+     }
+   };
+   ```
+
+3. **Map Component**
+   ```javascript
+   // utils/actions.js
+   import YourPattern from '@/components/your-pattern-components/YourPattern';
+   
+   const componentMapping = {
+     'Your Category': {
+       YourPattern: YourPattern
+     }
+   };
+   ```
+
+### Styling Guidelines
+
+- Use CSS Modules for component-specific styles
+- Follow responsive-first design principles
+- Maintain consistent spacing using the established grid system
+- Use CSS custom properties for theme variables
+
+### State Management
+
+The application uses React Context for global state:
+
+- `LoadingContext`: Application loading states
+- `DropdownToggleContext`: Dropdown menu states
+- `SocialMediaToggleContext`: Social media feature toggle
+- `MemberToolsToggleContext`: Member tools feature toggle
+
+## 📱 Browser Support
+
+- **Chrome** 90+
+- **Firefox** 88+
+- **Safari** 14+
+- **Edge** 90+
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📋 App Details
+
+- **Version:** 0.1.0
+- **Author:** Tony Boswell
+- **License:** Proprietary (Anthology Inc.)
+
+## 👨‍💻 Author
+
+**Tony Boswell**
+- Professional Developer specializing in React/Next.js applications
+- Experience with enterprise CMS solutions and educational technology
+
+## 🙏 Acknowledgments
+
+- Anthology Inc. for project requirements and design guidance
+- Next.js team for the excellent framework
+- Vercel for hosting and deployment platform
+- Font Awesome for comprehensive icon library
+
+## 📚 Additional Resources
+
+- [Next.js Documentation](https://nextjs.org/docs) - Learn about Next.js features and API
+- [React Documentation](https://reactjs.org/docs) - React concepts and patterns
+- [CSS Modules Documentation](https://github.com/css-modules/css-modules) - Styling approach
+- [Vercel Deployment Guide](https://vercel.com/docs) - Deployment best practices
+
+---
+
+**Built with ❤️ for Anthology's Blueprint ecosystem**
