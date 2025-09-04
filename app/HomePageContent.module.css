@@ -1,7 +1,7 @@
 
 .container {
     display: flex;
-    min-height: calc(100vh - 35px);
+    min-height: 100vh;
   }
 .sidebar {
     width: 280px;
@@ -10,7 +10,7 @@
     border-right: 1px solid #ccc;
     overflow-y: auto;
     overflow-x: hidden;
-    max-height: 100vh;
+    max-height: calc(100vh - 35px);
 }
 .headerControlsContainer {
     position: relative;
