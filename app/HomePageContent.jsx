@@ -310,7 +310,7 @@ export default function HomePage() {
 
         )}
          
-          <div>
+          <div style={isInterior ? {display: 'none'} : {display: 'block'}}>
             <button className="btn clearBtn" onClick={handleClearBtnClick}>Clear {!isInterior ? 'Sections 1-6' : 'Section 1'}</button>
           </div>
          
