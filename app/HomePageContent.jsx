@@ -194,12 +194,15 @@ export default function HomePage() {
           />
 
           <ThemeSelector iframeRef={iframeRef} isIframeReady={iframeReady}/>
-
-          <div className={styles.headerControlsContainer} >
-            <h2 className={styles.headerControlsHtwo}>Header</h2>
-            {isInterior && (
-              <p className={styles.headerFooterInfo}>Header and Footer selections will be the same across templates.</p>
+          
+          {isInterior && (
+            <div>
+                <p className={styles.headerFooterInfo}>Header and Footer selections will be the same across templates.</p>
+            </div>
             )}
+          <div className={styles.headerControlsContainer}  style={isInterior ? {display: 'none'} : {display: 'block'}}>
+            <h2 className={styles.headerControlsHtwo}>Header</h2>
+
             <HeaderSectionControl iframeRef={iframeRef} isIframeReady={iframeReady} isInterior={isInterior}/>
             <div className={styles.gridContainer}>
               <MegaMenuToggleSwitch 

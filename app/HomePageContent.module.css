@@ -51,8 +51,9 @@
 .headerFooterInfo {
     font-size: 0.75rem;
     line-height: calc(14/12);
-    background: #000;
-    color: white;
+    background: #E5EEF8;
+    border: 1px solid #0054BC;
+    color: #0054BC;
     padding: 0.5rem 0.75rem;
     font-weight: bold;
     margin-top:5px;
