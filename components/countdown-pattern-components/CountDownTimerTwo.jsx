@@ -59,7 +59,7 @@ const CountDownTimerTwo = () => {
                         <h3>Day of Giving Countdown</h3>
                     </div>
                     <div className="col-xs-12 col-sm-12 col-md-6 sectionContent emptyCheck" id="ContentMiddleLayoutCtDn2" runat="server">
-                        <div ref={countDownRef} className="counter countdownWidget2" data-endtime={`${endTime} GMT-0500`}>
+                        <div ref={countDownRef} className="counter countdownWidget2" data-endtime={`${endTime}`}>
                             <div className="unit">
                                 <div className="unitInner">
                                     <span className="days val"></span>
