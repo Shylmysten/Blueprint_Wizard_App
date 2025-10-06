@@ -313,7 +313,7 @@ body #bpSection3 a.button:hover {
     color: #FFF
 }
 
-.theme0Style .newsItem.horiz .thumb {
+.theme0Style .sectionRow:not(.imod-news-2) .newsItem.horiz .thumb {
     height: 275px
 }
 
