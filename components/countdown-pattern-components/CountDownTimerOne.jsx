@@ -4,13 +4,18 @@ import { formatDate } from "../../utils/helpers";
 const CountDownTimerOne = () => {
     const countDownRef = useRef(null);
     const [isInitialized, setIsInitialized] = useState(false);
+    const [dateValues, setDateValues] = useState(null);
+    //const { startDate, endDate, getReadableEndDate} = formatDate();
 
-    
-
-    const { startDate, endDate, getReadableEndDate} = formatDate();
+    // Initialize date values on the client side only
+    useEffect(() => {
+        const { startDate, endDate, getReadableEndDate } = formatDate();
+        setDateValues({ startDate, endDate, getReadableEndDate });
+    }, []);
     
 
     useEffect(() => {
+        if (!dateValues) return; // Don't initialize until dates are set
     
         const initializeCircularCountdown = () => {
             if (typeof window.$ !== 'undefined' && typeof window.$.fn.circularCountdown !== 'undefined') {
@@ -102,7 +107,28 @@ const CountDownTimerOne = () => {
             return () => clearInterval(interval);
         }
         
-    },[isInitialized])
+    },[isInitialized, dateValues])
+
+     // Don't render dynamic content until client-side hydration
+    if (!dateValues) {
+        return (
+            <section className="imod-countdown-1 sectionRow" data-sectionname="countdown-1">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-xs-12 sectionHeader emptyCheck" id="ContentMiddleLayoutCtDn1Hdr" runat="server">
+                            <h2>Day of Giving Countdown Clock</h2>
+                            <h3>Loading...</h3>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-xs-12 sectionContent emptyCheck" id="ContentMiddleLayoutCtDn1" runat="server">
+                            <div ref={countDownRef} className="countdownWidget">&nbsp;</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        );
+    }
 
 
     return ( 
@@ -111,12 +137,12 @@ const CountDownTimerOne = () => {
                 <div className="row">
                     <div className="col-xs-12 sectionHeader emptyCheck" id="ContentMiddleLayoutCtDn1Hdr" runat="server">
                         <h2>Day of Giving Countdown Clock</h2>
-                        <h3>Get Ready for {getReadableEndDate}</h3>
+                        <h3>Get Ready for {dateValues.getReadableEndDate}</h3>
                     </div>
                 </div>
                 <div className="row">
                     <div className="col-xs-12 sectionContent emptyCheck" id="ContentMiddleLayoutCtDn1" runat="server">
-                        <div ref={countDownRef} className="countdownWidget" data-start={startDate} data-end={endDate} data-timezone="-5">&nbsp;</div>
+                        <div ref={countDownRef} className="countdownWidget" data-start={dateValues.startDate} data-end={dateValues.endDate} data-timezone="-5">&nbsp;</div>
                     </div>
                 </div>
             </div>
