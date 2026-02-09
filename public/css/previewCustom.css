@@ -271,7 +271,7 @@ body #bpSection3 a.button:hover {
 }
 
 .theme0Style:not(.interior) :not('#bpSection3') .newsItem.stacked .newsInner>a .title {
-    color: #07407b
+    color: #003359
 }
 
 .theme0Style:not(.interior) .newsItem .newsInner>a:hover .title {
@@ -643,7 +643,7 @@ body #bpSection3 a.button:hover {
 }
 
 .interior.theme2Style .structHead {
-    background-color: #07407b !important
+    background-color: #003359 !important
 }
 
 .interior.theme2Style .overlay.structHead .desktopNav .container,
@@ -721,11 +721,11 @@ body #bpSection3 a.button:hover {
 }
 
 .theme2Style .home-section:not(#bpSection3) .imod-social-1 .title h3 {
-    color: #07407b
+    color: #003359
 }
 
 .theme2Style #bpSection1>.imod-rotator-2 {
-    background-color: #07407b !important
+    background-color: #003359 !important
 }
 
 .theme2Style .imod-header-4 .mainHeaderWrap {
@@ -789,7 +789,7 @@ body #bpSection3 a.button:hover {
 }
 
 .theme2Style .home-section[id="bpSection3"] .imod-quicklinks-1 .icon .iconInner a h2 {
-    color: #07407b
+    color: #003359
 }
 
 .theme2Style .home-section[id="bpSection3"] .imod-quicklinks-1 .icon .iconInner a:hover h2 {
@@ -797,7 +797,7 @@ body #bpSection3 a.button:hover {
 }
 
 .theme2Style .home-section#bpSection3 .imod-quicklinks-2 .icon .iconInner a h2 {
-    color: #07407b
+    color: #003359
 }
 
 .theme2Style .home-section#bpSection3 .imod-quicklinks-1 .slick-prev:before,
@@ -812,7 +812,7 @@ body #bpSection3 a.button:hover {
 }
 
 .theme2Style .imod-cpi-3.cpiBasicCF .fundItem .fundInner .text .title a {
-    color: #07407b !important
+    color: #003359 !important
 }
 
 .theme2Style .home-section#bpSection3 .imod-text-1 .sectionContent,
@@ -944,7 +944,7 @@ body #bpSection3 a.button:hover {
 
     .theme2Style .home-section#bpSection1 .tabSection .section-tabs .tabs-wrap.imodTabs .content .imodTabs-accordion-title a,
     .theme2Style .home-section#bpSection1 .tabSection .section-tabs .tabs-wrap.imodTabs .content .imodTabs-accordion-title::after {
-        color: #07407b
+        color: #003359
     }
 }
 
@@ -970,7 +970,7 @@ body #bpSection3 a.button:hover {
 }
 
 .theme3Style .home-section[id="bpSection2"] h2 {
-    color: #07407b
+    color: #003359
 }
 
 .theme3Style .home-section[id="bpSection3"] {
@@ -1024,7 +1024,7 @@ body #bpSection3 a.button:hover {
 }
 
 .theme3Style .home-section[id="bpSection4"] .sectionHeader h2 {
-    color: #07407b
+    color: #003359
 }
 
 .theme3Style .home-section[id="bpSection5"] {
@@ -1076,12 +1076,12 @@ body #bpSection3 a.button:hover {
 }
 
 .theme3Style .home-section .sectionRow.imod-quicklinks-2 .icon .iconInner h2 {
-    color: #07407b
+    color: #003359
 }
 
 .theme3Style .home-section .sectionRow.imod-quicklinks-2 .icon .iconInner {
     background: #fff;
-    border: 1px solid #07407b
+    border: 1px solid #003359
 }
 
 .theme3Style .home-section#bpSection3 .imod-quotes-1 .text {
@@ -1277,7 +1277,7 @@ body.theme3Style:not(.interior) .home-section#bpSection1 .imod-rotator-2.section
 
 @media only screen and (min-width:700px) and (max-width:1023px) {
     .theme4Style .structHead.imod-header-4 .toggleMenu a.m-pikabu-nav-toggle {
-        background: #07407b;
+        background: #003359;
         color: #fff
     }
 
@@ -1334,7 +1334,7 @@ body.theme3Style:not(.interior) .home-section#bpSection1 .imod-rotator-2.section
 }
 
 .theme2Style .bp-preview-section.home-section.odd[id="bpSection3"].odd .cpiBasicCF .fundItem .fundInner .text .title a {
-    color: #07407b !important;
+    color: #003359 !important;
     -webkit-text-decoration-color: #0054bc;
     text-decoration-color: #0054bc
 }
@@ -1712,7 +1712,7 @@ body:not(.theme3Style) .bp-preview-section.home-section.odd[id="bpSection3"].odd
 
 .theme0Style .imod-header-1 .desktopNav,
 .theme1Style .imod-header-1 .desktopNav {
-    background: #07407b
+    background: #003359
 }
 
 .theme0Style .imod-header-1 .desktopNav .desktopNavInner li a,
@@ -1731,7 +1731,7 @@ body:not(.theme3Style) .bp-preview-section.home-section.odd[id="bpSection3"].odd
 }
 
 .theme1Style .headerSocial ul li:not(.searchToggle) a {
-    background: #07407b
+    background: #003359
 }
 
 .theme1Style .headerSocial ul li:not(.searchToggle) a:hover,
@@ -1769,7 +1769,7 @@ body:not(.theme4Style) .home-section#bpSection3 .imod-cpi-2 .text .title a {
 
 .theme0Style .overlay.imod-header-3 .searchToggle a,
 .theme1Style .overlay.imod-header-3 .searchToggle a {
-    color: #07407b;
+    color: #003359;
     padding: 0
 }
 
@@ -1809,12 +1809,12 @@ body:not(.theme4Style) .home-section#bpSection3 .imod-cpi-2 .text .title a {
 
 .home.theme4Style .home-section[id="bpSection3"] .imod-tabs-3.tabSection .section-tabs .tabs-wrap.full-width .menuwrap ul.imodTabs-nav .imodTabs-tab.imodTabs-state-active .imodTabs-anchor {
     background: #fff;
-    color: #07407b
+    color: #003359
 }
 
 .theme1Style .odd .imod-tabs-1 .section-tabs .tabs-wrap.horizontal .menuwrap ul.menu li a,
 .theme1Style .odd .imod-tabs-2 .section-tabs .tabs-wrap.horizontal .menuwrap ul.menu li a {
-    background: #07407b
+    background: #003359
 }
 
 @media only screen and (min-width:769px) {
@@ -1845,7 +1845,7 @@ body:not(.theme4Style) .home-section#bpSection3 .imod-cpi-2 .text .title a {
 .theme3Style .home-section#bpSection3 .imod-giveBtns-1 ul.giveBtnsList li a:hover,
 .theme3Style .home-section#bpSection3 .imod-giveBtns-1 ul.giveBtnsList li a:focus {
     background: #fff;
-    border-color: #07407b;
+    border-color: #003359;
     color: #222 !important
 }
 
@@ -1859,7 +1859,7 @@ body:not(.theme4Style) .home-section#bpSection3 .imod-cpi-2 .text .title a {
 .theme4Style.home .home-section#bpSection3 .imod-giveBtns-1 ul.giveBtnsList li:last-child a.otherAmt:hover,
 .theme4Style.home .home-section#bpSection3 .imod-giveBtns-1 ul.giveBtnsList li:last-child a.otherAmt:focus {
     border-color: #fff;
-    color: #07407b;
+    color: #003359;
     background-color: #fff
 }
 
@@ -1941,7 +1941,7 @@ body.theme1Style .home-section#bpSection3 .imod-countdown-2 .sectionContent .cou
 }
 
 .patternsCallout {
-    background: #07407b;
+    background: #003359;
     padding: 32px 30px 16px;
     color: #fff;
     margin: 30px 0
