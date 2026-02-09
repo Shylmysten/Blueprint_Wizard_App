@@ -60,7 +60,7 @@ const VimeoVideo = () => {
                     </div>
                     <div className="text">
                         <div className="textInner">
-                            <h2 className="title">Welcome to Anthology</h2>
+                            <h2 className="title">Welcome to Encoura</h2>
                             <div className="preview">
                                 This is a full-width background video module.
                             </div>

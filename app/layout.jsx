@@ -21,13 +21,13 @@ const montserrat = Montserrat({
 });
 
 //export const metadata = {
-//  title: "Anthology - Blueprint Wizard",
+//  title: "Encoura - Blueprint Wizard",
 //  description: "Serves as a prototype for a live development portal. It allows stakeholders to preview how different content sections, themes, and layouts will appear before the site goes live. The modular design enables easy updates and personalization, ensuring that the final product meets the institution's requirements.",
 //};
 
 export const metadata = {
   title: {
-    template: `%s | Anthology`,
+    template: `%s | Encoura`,
     default: APP_NAME,
   },
   description: APP_DESCRIPTION,

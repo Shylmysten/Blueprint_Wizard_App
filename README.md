@@ -4,7 +4,7 @@
 [![Next.js](https://img.shields.io/badge/Next.js-15.3.1-black)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-19.0.0-blue)](https://reactjs.org/)
 
-A sophisticated client-facing application that serves as a prototype for Anthology's Blueprint product development portal. The Blueprint Wizard enables stakeholders to preview and customize different content sections, themes, and layouts in real-time before implementation in their Encompass CMS environment.
+A sophisticated client-facing application that serves as a prototype for Encoura's Blueprint product development portal. The Blueprint Wizard enables stakeholders to preview and customize different content sections, themes, and layouts in real-time before implementation in their Encompass CMS environment.
 
 ## 🎯 Overview
 
@@ -291,7 +291,7 @@ The application uses React Context for global state:
 
 - **Version:** 0.1.0
 - **Author:** Tony Boswell
-- **License:** Proprietary (Anthology Inc.)
+- **License:** Proprietary (Encoura, LLC.)
 
 ## 👨‍💻 Author
 
@@ -301,7 +301,7 @@ The application uses React Context for global state:
 
 ## 🙏 Acknowledgments
 
-- Anthology Inc. for project requirements and design guidance
+- Encoura, LLC. for project requirements and design guidance
 - Next.js team for the excellent framework
 - Vercel for hosting and deployment platform
 - Font Awesome for comprehensive icon library
@@ -315,4 +315,4 @@ The application uses React Context for global state:
 
 ---
 
-**Built with ❤️ for Anthology's Blueprint ecosystem**
+**Built with ❤️ for Encoura's Blueprint ecosystem**
