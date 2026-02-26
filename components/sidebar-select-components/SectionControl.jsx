@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useTransition } from 'react';
 import CategorySelect from './CategorySelect';
 import ItemSelect from './ItemSelect';
 import { updateIframe } from '@/utils/actions';
@@ -9,6 +9,7 @@ import {formatSectionCategory, parseSectionParam} from '@/utils/helpers';
 export default function SectionControl({ sectionIndex, categories, iframeRef, isIframeReady, resetKey }) {
     const [sectionState, setSectionState] = useState({ category: '', item: '' });
     const [isClient, setIsClient] = useState(false);
+    const [isPending, startTransition] = useTransition();
     const router = useRouter();
     const searchParams = useSearchParams();
     const userInteracted = useRef(false);
@@ -81,8 +82,10 @@ export default function SectionControl({ sectionIndex, categories, iframeRef, is
             params.delete(`section${sectionIndex + 1}`);
         }
     
-        // Update the URL with the modified query string
-        router.push(`?${params.toString()}`, { shallow: true });
+            // Update the URL with the modified query string
+            startTransition(() => {
+                router.push(`?${params.toString()}`);
+            });
         }
 
     }, [sectionState, router]);

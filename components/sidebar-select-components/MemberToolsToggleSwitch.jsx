@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState, useTransition } from 'react';
 import { MemberToolsToggleContext } from '@/utils/MemberToolsToggleContext';
 import { useRouter, useSearchParams } from 'next/navigation';
 import ToggleSwitch from '../shared/ToggleSwitch';
@@ -9,7 +9,7 @@ const MemberToolsToggleSwitch = ({ iframeRef, isIframeReady, disabled }) => {
         const router = useRouter();
         const searchParams = useSearchParams();
         const userInteracted = useRef(false);
-
+        const [, startTransition] = useTransition();
     //console.log('isSocialMediaToggleSwitchOff in SocialMediaToggleSwitch:', isSocialMediaToggleSwitchOff);
 
     // Ensure the component is mounted on the client
@@ -51,7 +51,9 @@ const MemberToolsToggleSwitch = ({ iframeRef, isIframeReady, disabled }) => {
           }
       
           // Update the URL with the modified query string
-          router.push(`?${params.toString()}`, { shallow: true });
+          startTransition(() => {
+            router.push(`?${params.toString()}`);
+          });
         }
     
       }, [isMemberToolsToggleSwitchOff, router]);

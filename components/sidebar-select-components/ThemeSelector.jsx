@@ -1,5 +1,5 @@
 'use client';
-import React, {useContext, useEffect, useRef, useState} from 'react';
+import React, {useContext, useEffect, useRef, useState, useTransition} from 'react';
 import { updateTheme } from '../../utils/actions';
 import { useRouter, useSearchParams } from 'next/navigation';
 import {LoadingContext} from '@/utils/LoadingContext';
@@ -16,6 +16,7 @@ export default function ThemeSelector({ iframeRef, isIframeReady }) {
   const [selectedTheme, setSelectedTheme] = useState(themes[0]);
   const router = useRouter();
   const userInteracted = useRef(false);
+  const [, startTransition] = useTransition();
 
 //useEffect(() => {
 //  console.log('isLoading state in ThemeSelector:', isLoading);
@@ -56,7 +57,9 @@ export default function ThemeSelector({ iframeRef, isIframeReady }) {
         params.set('theme', formattedTheme);
       }
       // Update the URL with the modified query string
-      router.push(`?${params.toString()}`, { shallow: true });
+       startTransition(() => {
+        router.push(`?${params.toString()}`);
+      });
 
   }, [selectedTheme, router]);
 

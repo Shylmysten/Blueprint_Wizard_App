@@ -1,5 +1,5 @@
 'use client';
-import { useState, useRef, useEffect, useContext, Suspense } from 'react';
+import { useState, useRef, useEffect, useContext, Suspense, useTransition } from 'react';
 import { DropdownToggleContext } from '@/utils/DropdownToggleContext';
 import { LoadingContext } from '@/utils/LoadingContext';
 import { MemberToolsToggleContext } from '@/utils/MemberToolsToggleContext';
@@ -35,6 +35,7 @@ export default function HomePage() {
   const [isInterior, setIsInterior] = useState(false);
   const [resetSectionsKey, setResetSectionsKey] = useState(0);
   const [isHeader3, setIsHeader3] = useState(false);
+  const [, startTransition] = useTransition();
 
   useEffect(() => {
     setIsInterior(searchParams.get('template') === 'int');
@@ -67,12 +68,12 @@ export default function HomePage() {
   }
 }, [iframeReady, isInterior]);
 
-  useEffect(() => {
-    if (!iframeRef.current) {
-      console.warn('Iframe is not yet rendered. Updates may fail.');
-      return
-    }
-  }, []);
+  //useEffect(() => {
+  //  if (!iframeRef.current) {
+  //    console.warn('Iframe is not yet rendered. Updates may fail.');
+  //    return;
+  //  }
+  //}, []);
 
   useEffect(() => {
     const handleMessage = (event) => {
@@ -81,7 +82,19 @@ export default function HomePage() {
       }
     };
     window.addEventListener('message', handleMessage);
-    return () => window.removeEventListener('message', handleMessage);
+
+    // If IFRAME_READY was sent before this listener was set up (race condition on reload),
+    // ping the iframe so it can respond with IFRAME_READY if it's already initialized.
+    const pingTimeout = setTimeout(() => {
+      if (iframeRef.current?.contentWindow) {
+        iframeRef.current.contentWindow.postMessage({ type: 'PING' }, '*');
+      }
+    }, 200);
+
+    return () => {
+      window.removeEventListener('message', handleMessage);
+      clearTimeout(pingTimeout);
+    };
   }, []);
 
   useEffect(() => {
@@ -159,7 +172,9 @@ export default function HomePage() {
     const newUrl = newQuery ? `?${newQuery}` : window.location.pathname;
 
     // 4. Push the new URL (with only the desired params)
-    router.push(newUrl);
+    startTransition(() => {
+      router.push(newUrl);
+    });
 
     // 5. Notify the iframe to clear its sections
     const iframe = document.querySelector('iframe');

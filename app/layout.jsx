@@ -41,7 +41,7 @@ export const metadata = {
 export default function RootLayout({children}) {
   return (
     <html lang="en">
-      <body className={`${roboto.variable} ${montserrat.variable} home home-full`}>
+        <body className={`${roboto.variable} ${montserrat.variable} home home-full`} suppressHydrationWarning>
 
           
 

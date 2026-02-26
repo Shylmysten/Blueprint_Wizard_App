@@ -2,7 +2,7 @@
 import '@fortawesome/fontawesome-free/css/all.css';
 import '@fortawesome/fontawesome-free/css/v4-shims.css';
 import { useEffect, useState, useContext, useRef } from 'react';
-import { updateTheme, updateSection, updateFooter, updateHeader, updateInteriorSection } from '../../utils/actions';
+import { updateTheme, updateSection, updateFooter, updateHeader, updateInteriorSection, refreshAllSections } from '../../utils/actions';
 import { trapKeyBoardMobileNav, handleDrawerOpen, handleDrawerClose } from '@/utils/offCanvasUtils';
 import { MemberToolsToggleContext } from '@/utils/MemberToolsToggleContext';
 import { SocialMediaToggleContext } from '@/utils/SocialMediaToggleContext';
@@ -38,6 +38,7 @@ export default function IframePage() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const { isLoading, setIsLoading } = useContext(LoadingContext);
   const [isInterior, setIsInterior] = useState(false);
+  const isInitializedRef = useRef(false);
 
 
   //useEffect(() => {
@@ -109,7 +110,16 @@ export default function IframePage() {
           setIsInterior(payload.isInterior);
           break;
         case 'UPDATE_THEME':
-          updateTheme(payload);
+ updateTheme(payload);
+          // After the new theme CSS finishes loading, re-initialize all populated sections
+          // so that jQuery/slick components measure dimensions against the correct new stylesheet.
+          const themeLink = document.getElementById('theme-stylesheet');
+          if (themeLink) {
+            themeLink.onload = () => {
+              refreshAllSections();
+              themeLink.onload = null;
+            };
+          }
           break;
         case 'UPDATE_LOADING_STATE':
           const { isLoading: isLoadingState } = payload;
@@ -143,8 +153,13 @@ export default function IframePage() {
         case 'UPDATE_INTERIOR_SECTION':
           updateInteriorSection(payload);
           break;
-        case 'UPDATE_FOOTER':
+         case 'UPDATE_FOOTER':
           updateFooter(payload);
+          break;
+        case 'PING':
+          if (isInitializedRef.current) {
+            window.parent.postMessage({ type: 'IFRAME_READY' }, '*');
+          }
           break;
         default:
           console.warn(`Unhandled message type: ${type}`);
@@ -220,8 +235,9 @@ export default function IframePage() {
     vimeoScript.async = true;
     document.head.appendChild(vimeoScript);
 
-   // Mark as initialized
-   setIsInitialized(true);
+    // Mark as initialized
+    isInitializedRef.current = true;
+    setIsInitialized(true);
 
   }, [isClient, isInterior]);
 
@@ -310,28 +326,34 @@ export default function IframePage() {
     return <div className="empty"><h2 className="previewDefault">Header</h2></div>;
   };
 
-  useEffect(() => {
-    function onJQueryReady(callback) {
-      if (window.jQuery) {
-        callback();
-      } else {
-        const interval = setInterval(() => {
-          if (window.jQuery) {
-            clearInterval(interval);
-            callback();
-          }
-        }, 50);
-      }
-    }
+  //useEffect(() => {
+  //  function onJQueryReady(callback) {
+  //    if (window.jQuery) {
+  //      callback();
+  //    } else {
+  //      const interval = setInterval(() => {
+  //        if (window.jQuery) {
+  //          clearInterval(interval);
+  //          callback();
+  //        }
+  //      }, 50);
+  //    }
+  //  }
 
-    onJQueryReady(() => {
-      // All your code that depends on jQuery goes here
-      // For example:
-      // $(...).doSomething();
-      // Or send a postMessage to the parent that the iframe is ready
+  //  onJQueryReady(() => {
+  //    // All your code that depends on jQuery goes here
+  //    // For example:
+  //    // $(...).doSomething();
+  //    // Or send a postMessage to the parent that the iframe is ready
+  //    window.parent.postMessage({ type: 'IFRAME_READY' }, '*');
+  //  });
+  //}, []);
+
+  useEffect(() => {
+    if (isInitialized) {
       window.parent.postMessage({ type: 'IFRAME_READY' }, '*');
-    });
-  }, []);
+    }
+  }, [isInitialized]);
 
   if (!isClient) {
     return (

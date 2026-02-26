@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useContext, useEffect, useRef } from 'react';
+import React, { useState, useContext, useEffect, useRef, useTransition } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import CategorySelect from './CategorySelect';
 import ItemSelect from './ItemSelect';
@@ -16,6 +16,7 @@ const HeaderSectionControl = ({ iframeRef, isIframeReady, isInterior }) => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const userInteracted = useRef(false);
+  const [, startTransition] = useTransition();
 
   //console.log('isDropdownToggleSwitchOn in HeaderControlSection:', isDropdownToggleSwitchOn);
 
@@ -70,7 +71,9 @@ const HeaderSectionControl = ({ iframeRef, isIframeReady, isInterior }) => {
       }
   
       // Update the URL with the modified query string
-      router.push(`?${params.toString()}`, { shallow: true });
+      startTransition(() => {
+        router.push(`?${params.toString()}`);
+      });
     }
 
   }, [headerState, router]);

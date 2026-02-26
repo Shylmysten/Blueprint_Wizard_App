@@ -191,7 +191,10 @@ export function updateSection({ index, category, item }) {
       if (!section._reactRoot) {
         section._reactRoot = createRoot(section);
       }
-      section._reactRoot.render(<Component />);
+      section._lastCategory = category;
+      section._lastItem = item;
+      section._renderKey = (section._renderKey || 0) + 1;
+      section._reactRoot.render(<Component key={section._renderKey} />);
       section.classList.remove('empty');
     } else {
       if (section._reactRoot) {
@@ -200,6 +203,15 @@ export function updateSection({ index, category, item }) {
       }
       section.innerHTML = `<div class="empty"><h2 class="previewDefault">Section ${section.id.replace('bpSection', '')}</h2></div>`;
       section.classList.add('empty');
+    }
+  }
+}
+
+export function refreshAllSections() {
+  for (let i = 0; i < 6; i++) {
+    const section = document.getElementById(`bpSection${i + 1}`);
+    if (section && section._lastCategory && section._lastItem) {
+      updateSection({ index: i, category: section._lastCategory, item: section._lastItem });
     }
   }
 }
@@ -263,7 +275,8 @@ export function updateInteriorSection({ index, category, item }) {
       if (!section._reactRoot) {
         section._reactRoot = createRoot(section);
       }
-      section._reactRoot.render(<Component />);
+      section._renderKey = (section._renderKey || 0) + 1;
+      section._reactRoot.render(<Component key={section._renderKey} />);
       section.classList.remove('empty');
     } else {
       if (section._reactRoot) {

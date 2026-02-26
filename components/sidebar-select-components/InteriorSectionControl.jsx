@@ -1,4 +1,4 @@
-import {useEffect, useRef, useState} from "react";
+import {useEffect, useRef, useState, useTransition} from "react";
 import CategorySelect from './CategorySelect';
 import ItemSelect from './ItemSelect';
 import {updateIframeInterior} from "@/utils/actions";
@@ -12,6 +12,7 @@ const InteriorSectionControl = ({ sectionIndex, categories, iframeRef, isIframeR
         const router = useRouter();
         const searchParams = useSearchParams();
         const userInteracted = useRef(false);
+        const [, startTransition] = useTransition();
 
     useEffect(() => {
         // Reset local state when resetKey changes
@@ -27,15 +28,17 @@ const InteriorSectionControl = ({ sectionIndex, categories, iframeRef, isIframeR
             const params = new URLSearchParams(window.location.search);
             let changed = false;
             for (let i = 2; i <= 6; i++) {
-            if (params.has(`section${i}`)) {
-                params.delete(`section${i}`);
-                changed = true;
-            }
+                if (params.has(`section${i}`)) {
+                    params.delete(`section${i}`);
+                    changed = true;
+                }
             }
             if (changed) {
-            const newQuery = params.toString();
-            const newUrl = newQuery ? `?${newQuery}` : window.location.pathname;
-            router.replace(newUrl, { shallow: true });
+                const newQuery = params.toString();
+                const newUrl = newQuery ? `?${newQuery}` : window.location.pathname;
+                startTransition(() => {
+                router.replace(newUrl);
+                });
             }
             setCleanedSections(true);
         }
@@ -108,7 +111,9 @@ const InteriorSectionControl = ({ sectionIndex, categories, iframeRef, isIframeR
         }
     
         // Update the URL with the modified query string
-        router.push(`?${params.toString()}`, { shallow: true });
+        startTransition(() => {
+          router.push(`?${params.toString()}`);
+        });
         }
 
     }, [sectionState, router]);

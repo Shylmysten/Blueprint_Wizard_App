@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState, useTransition } from 'react';
 import { DropdownToggleContext } from '../../utils/DropdownToggleContext';
 import {useRouter, useSearchParams} from 'next/navigation';
 import ToggleSwitch from '../shared/ToggleSwitch';
@@ -9,6 +9,7 @@ const MegaMenuToggleSwitch = ({ iframeRef, isIframeReady, disabled }) => {
     const router = useRouter();
     const searchParams = useSearchParams();
     const userInteracted = useRef(false);
+    const [, startTransition] = useTransition();
 
     //console.log('isDropdownToggleSwitchOn in MegaMenuToggleSwitch:', isDropdownToggleSwitchOn);
 
@@ -49,7 +50,9 @@ const MegaMenuToggleSwitch = ({ iframeRef, isIframeReady, disabled }) => {
           }
       
           // Update the URL with the modified query string
-          router.push(`?${params.toString()}`, { shallow: true });
+          startTransition(() => {
+            router.push(`?${params.toString()}`);
+          });
         }
     
       }, [isDropdownToggleSwitchOn, router]);

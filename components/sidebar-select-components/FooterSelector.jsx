@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useTransition } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { footerOptions } from '@/data/categories';
 import { updateFooter } from '@/utils/actions';
@@ -10,6 +10,7 @@ export default function FooterSelector({ iframeRef, isIframeReady, isInterior })
   const router = useRouter();
   const searchParams = useSearchParams();
   const userInteracted = useRef(false);
+  const [, startTransition] = useTransition();
 
   // Ensure the component is mounted on the client
   useEffect(() => {
@@ -60,7 +61,9 @@ export default function FooterSelector({ iframeRef, isIframeReady, isInterior })
       params.delete('footer');
     }
     
-    router.push(`?${params.toString()}`, undefined, { shallow: true });
+    startTransition(() => {
+      router.push(`?${params.toString()}`);
+    });
   }, [selectedContent, router]);
 
   const handleChange = (e) => {
