@@ -131,7 +131,7 @@ body:not(.theme4Style) .bp-preview-section.home-section.odd[id="bpSection3"].odd
 }
 
 .home-section {
-    overflow-x: hidden
+    overflow: hidden
 }
 
 .bx_slider1,
