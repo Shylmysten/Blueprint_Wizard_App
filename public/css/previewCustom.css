@@ -471,7 +471,9 @@ body #bpSection3 a.button:hover {
 }
 
 .theme1Style .imod-header-2 .desktopNav .desktopNavInner li:hover a,
-.theme1Style .imod-header-3 .desktopNav .desktopNavInner li:hover a {
+.theme1Style .imod-header-2 .desktopNav .desktopNavInner li:sfHover a,
+.theme1Style .imod-header-3 .desktopNav .desktopNavInner li:hover a,
+.theme1Style .imod-header-3 .desktopNav .desktopNavInner li:sfHover a {
     color: #fff
 }
 
