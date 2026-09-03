@@ -97,7 +97,11 @@ export default function IframePage() {
 
   useEffect(() => {
     const handleMessage = (event) => {
+      // Ignore messages not from the expected parent app (e.g., extensions, devtools)
+      if (event.origin !== window.location.origin) return; // replace with actual parent origin if cross-origin
       const { type, payload } = event.data || {};
+
+      if (!type) return; // ignore messages without a recognized type instead of logging
 
       switch (type) {
         case 'CLEAR_SECTIONS':
